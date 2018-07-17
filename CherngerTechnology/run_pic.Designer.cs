@@ -56,13 +56,16 @@
             this._cannylabel1 = new System.Windows.Forms.Label();
             this._cannyScrollBar1 = new System.Windows.Forms.HScrollBar();
             this._cannyCheck = new System.Windows.Forms.CheckBox();
+            this._equalizeHist = new System.Windows.Forms.TabPage();
+            this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
+            this._equalizeHistBtn = new System.Windows.Forms.Button();
             this._reLoad = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this._smoothNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this._smoothCheckBox = new System.Windows.Forms.CheckBox();
             this._smoothComboBox = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -137,6 +140,7 @@
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this._equalizeHist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -407,6 +411,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this._equalizeHist);
             this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -475,6 +480,39 @@
             this._cannyCheck.UseVisualStyleBackColor = true;
             this._cannyCheck.CheckedChanged += new System.EventHandler(this.CannyCheck_CheckedChanged);
             // 
+            // _equalizeHist
+            // 
+            this._equalizeHist.Controls.Add(this._equalizeHistCheckBox);
+            this._equalizeHist.Controls.Add(this._equalizeHistBtn);
+            this._equalizeHist.Location = new System.Drawing.Point(4, 22);
+            this._equalizeHist.Name = "_equalizeHist";
+            this._equalizeHist.Padding = new System.Windows.Forms.Padding(3);
+            this._equalizeHist.Size = new System.Drawing.Size(326, 90);
+            this._equalizeHist.TabIndex = 4;
+            this._equalizeHist.Text = "equalizeHist";
+            this._equalizeHist.UseVisualStyleBackColor = true;
+            // 
+            // _equalizeHistCheckBox
+            // 
+            this._equalizeHistCheckBox.AutoSize = true;
+            this._equalizeHistCheckBox.Location = new System.Drawing.Point(18, 38);
+            this._equalizeHistCheckBox.Name = "_equalizeHistCheckBox";
+            this._equalizeHistCheckBox.Size = new System.Drawing.Size(80, 16);
+            this._equalizeHistCheckBox.TabIndex = 46;
+            this._equalizeHistCheckBox.Text = "equalizeHist";
+            this._equalizeHistCheckBox.UseVisualStyleBackColor = true;
+            this._equalizeHistCheckBox.CheckedChanged += new System.EventHandler(this.EqualizeHistCheckBox_CheckedChanged);
+            // 
+            // _equalizeHistBtn
+            // 
+            this._equalizeHistBtn.Location = new System.Drawing.Point(110, 6);
+            this._equalizeHistBtn.Name = "_equalizeHistBtn";
+            this._equalizeHistBtn.Size = new System.Drawing.Size(210, 78);
+            this._equalizeHistBtn.TabIndex = 45;
+            this._equalizeHistBtn.Text = "equalizeHist";
+            this._equalizeHistBtn.UseVisualStyleBackColor = true;
+            this._equalizeHistBtn.Click += new System.EventHandler(this.EqualizeHistBtn_Click);
+            // 
             // _reLoad
             // 
             this._reLoad.Location = new System.Drawing.Point(671, 504);
@@ -510,7 +548,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this._smoothNumericUpDown1);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this._smoothCheckBox);
             this.groupBox1.Controls.Add(this._smoothComboBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
@@ -531,15 +569,16 @@
             this._smoothNumericUpDown1.TabIndex = 20;
             this._smoothNumericUpDown1.ValueChanged += new System.EventHandler(this.SmoothNumericUpDown1_ValueChanged);
             // 
-            // checkBox1
+            // _smoothCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 16);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Smooth";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this._smoothCheckBox.AutoSize = true;
+            this._smoothCheckBox.Location = new System.Drawing.Point(6, 21);
+            this._smoothCheckBox.Name = "_smoothCheckBox";
+            this._smoothCheckBox.Size = new System.Drawing.Size(60, 16);
+            this._smoothCheckBox.TabIndex = 4;
+            this._smoothCheckBox.Text = "Smooth";
+            this._smoothCheckBox.UseVisualStyleBackColor = true;
+            this._smoothCheckBox.CheckedChanged += new System.EventHandler(this.SmoothCheckBox1_CheckedChanged);
             // 
             // _smoothComboBox
             // 
@@ -1269,6 +1308,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this._equalizeHist.ResumeLayout(false);
+            this._equalizeHist.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1345,7 +1386,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown _smoothNumericUpDown1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox _smoothCheckBox;
         private System.Windows.Forms.ComboBox _smoothComboBox;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1409,5 +1450,8 @@
         private System.Windows.Forms.HScrollBar _picScrollBar2;
         private System.Windows.Forms.HScrollBar _picScrollBar1;
         private System.Windows.Forms.Button _saveBtn;
+        private System.Windows.Forms.TabPage _equalizeHist;
+        private System.Windows.Forms.Button _equalizeHistBtn;
+        private System.Windows.Forms.CheckBox _equalizeHistCheckBox;
     }
 }

@@ -183,6 +183,15 @@ namespace CherngerTechnology
             pictureBox2.Image = input.ToBitmap();
             input.Release();
         }
+        private void SmoothCheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_smoothCheckBox.Checked)
+            {
+                preimg = input2.Clone();
+                Smooth(input2, _smoothComboBox.SelectedIndex, (int)_smoothNumericUpDown1.Value);
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
         #endregion
 
         #region BoundingRect
@@ -600,8 +609,6 @@ namespace CherngerTechnology
             }
         }
 
-      
-
         private void Contour(Mat input, int area1, int area2, int height1, int height2, int width1, int width2)
         {
             int num = 1;
@@ -787,6 +794,26 @@ namespace CherngerTechnology
         }
         #endregion
 
+        #region EqualizeHist
+        private void EqualizeHistBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.EqualizeHist(input, input);
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void EqualizeHistCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_equalizeHistCheckBox.Checked)
+            {
+                preimg = input2.Clone();
+                Cv2.EqualizeHist(input2, input2);
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
+        #endregion
+
+        #region Save
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
@@ -811,6 +838,7 @@ namespace CherngerTechnology
                 fs.Close();
             }
         }
+        #endregion
         //public void create(Mat Src)
         //{
 

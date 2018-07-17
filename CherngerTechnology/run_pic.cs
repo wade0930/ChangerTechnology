@@ -557,11 +557,51 @@ namespace CherngerTechnology
             }
         }
 
-       
 
 
 
 
+
+        #endregion
+
+        #region Laplacian
+        private void LaplacianBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Laplacian(input, input, MatType.CV_8U);
+            pictureBox2.Image = input.ToBitmap();
+        }
+        private void _laplacianCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_laplacianCheckBox.Checked)
+            {
+                input2 = input.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
+        #endregion
+
+        #region morphologyEx
+        private void morphologyOpenBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.MorphologyEx(input, input, MorphTypes.Open, new Mat());
+            pictureBox2.Image = input.ToBitmap();
+        }
+        private void morphologyCloseBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.MorphologyEx(input, input, MorphTypes.Close, new Mat());
+            pictureBox2.Image = input.ToBitmap();
+        }
+        private void _morphologyCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_morphologyCheckBox.Checked)
+            {
+                input2 = input.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
         #endregion
 
         #region 霍夫找圓
@@ -574,10 +614,51 @@ namespace CherngerTechnology
             {
                 Cv2.Circle(dst, circle[i].Center, (int)circle[i].Radius, Scalar.Red, 2);
             }
-            pictureBox1.Image = dst.ToBitmap();
-            pictureBox2.Image = input.ToBitmap();
+            pictureBox2.Image = dst.ToBitmap();
+            //pictureBox2.Image = input.ToBitmap();
         }
 
+        #endregion
+
+        #region 霍夫找線
+        private void HoughLinesBtn_Click(object sender, EventArgs e)
+        {
+            Mat temp = dst.Clone();
+            input = input2.Clone();
+            if (_cannyScrollBar1.Value == 0 && _cannyScrollBar2.Value == 0)
+                Cv2.Canny(input, input, 50, 150);
+            LineSegmentPolar[] lines = new LineSegmentPolar[100];
+            lines = Cv2.HoughLines(input, 1, Math.PI / 180, 120);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                double theta = lines[i].Theta; //就是直线的角度
+                OpenCvSharp.Point pt1, pt2;
+                double a = Math.Cos(theta), b = Math.Sin(theta);
+                double x0 = a * lines[i].Rho, y0 = b * lines[i].Rho;
+                pt1.X = (int)(x0 + 1000 * (-b));
+                pt1.Y = (int)(y0 + 1000 * (a));
+                pt2.X = (int)(x0 - 1000 * (-b));
+                pt2.Y = (int)(y0 - 1000 * (a));
+                Cv2.Line(dst, pt1, pt2, Scalar.Red, 3); //Scalar函数用于调节线段颜色，就是你想检测到的线段显示的是什么颜色
+            }
+            pictureBox2.Image = dst.ToBitmap();
+            dst = temp.Clone();
+        }
+        private void HoughLinesPBtn_Click(object sender, EventArgs e)
+        {
+            Mat temp = dst.Clone();
+            input = input2.Clone();
+            if (_cannyScrollBar1.Value == 0 && _cannyScrollBar2.Value == 0)
+                Cv2.Canny(input, input, 50, 150);
+            LineSegmentPoint[] lines2 = new LineSegmentPoint[100];
+            lines2 = Cv2.HoughLinesP(input, 1, Math.PI / 180, 120, double.Parse(_minLineLengthNumericUpDown.Text), double.Parse(_maxLineGapNumericUpDown.Text));
+            for (int i = 0; i < lines2.Length; i++)
+            {
+                Cv2.Line(dst, lines2[i].P1, lines2[i].P2, Scalar.Red, 3); //Scalar函数用于调节线段颜色，就是你想检测到的线段显示的是什么颜色
+            }
+            pictureBox2.Image = dst.ToBitmap();
+            dst = temp.Clone();
+        }
         #endregion
 
         #region Contour
@@ -599,8 +680,11 @@ namespace CherngerTechnology
                 pictureBox2.Image = dst.ToBitmap();
             }
         }
+        private void _findLine_Click(object sender, EventArgs e)
+        {
 
-      
+        }
+
 
         private void Contour(Mat input, int area1, int area2, int height1, int height2, int width1, int width2)
         {
@@ -723,7 +807,26 @@ namespace CherngerTechnology
         }
         #endregion
 
+        #region PyrUp
+        private void PyrUpBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.PyrUp(input, input, new OpenCvSharp.Size(input.Width * 2, input.Height * 2));
+            Cv2.ImShow("PyrUp", input);
+        }
+        #endregion
+
+        #region PyrDown
+        private void PyrDownBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.PyrDown(input, input, new OpenCvSharp.Size(input.Width / 2, input.Height / 2));
+            Cv2.ImShow("PyrDown", input);
+        }
+        #endregion
+
         #region Threshold
+        int Threshodl_Select = 0;
         private void ThresholdcheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(_thresholdcheckBox1.Checked)
@@ -735,14 +838,106 @@ namespace CherngerTechnology
             }
            
         }
-
         private void ThresholdScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             _thresholdlabel.Text = "" + _thresholdScrollBar.Value;
             if(fileName!=string.Empty)
             {
                 input = input2.Clone();
+                if (Threshodl_Select == 0)
+                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Binary);
+                else if (Threshodl_Select == 1)
+                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.BinaryInv);
+                else if (Threshodl_Select == 2)
+                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Trunc);
+                else if (Threshodl_Select == 3)
+                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Tozero);
+                else if (Threshodl_Select == 4)
+                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.TozeroInv);
+                else if (Threshodl_Select == 5)
+                {
+                    if (_thresholdScrollBar.Value % 2 == 0)
+                        _thresholdScrollBar.Value++;
+                    if (_thresholdScrollBar.Value <= 1)
+                        _thresholdScrollBar.Value = 3;
+                    Cv2.AdaptiveThreshold(input, input, 255, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.Binary, _thresholdScrollBar.Value, 0);
+                }
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+                
+            }
+        }
+        private void BinaryBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 0;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
                 Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Binary);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+
+        private void BinaryInvBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 1;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.BinaryInv);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+
+        private void TruncBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 2;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Trunc);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+
+        private void ToZeroBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 3;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Tozero);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+
+        private void ToZeroInvBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 4;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.TozeroInv);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+
+        private void AdaptiveBtn_Click(object sender, EventArgs e)
+        {
+            Threshodl_Select = 5;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                if (_thresholdScrollBar.Value % 2 == 0)
+                    _thresholdScrollBar.Value++;
+                if (_thresholdScrollBar.Value <= 1)
+                    _thresholdScrollBar.Value = 3;
+                Cv2.AdaptiveThreshold(input, input, 255, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.Binary, _thresholdScrollBar.Value, 0);
                 pictureBox2.Image = input.ToBitmap();
                 input.Release();
             }

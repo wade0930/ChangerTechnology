@@ -46,9 +46,6 @@
             this._adaptiveScrollBar1 = new System.Windows.Forms.HScrollBar();
             this._adaptivecheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TruncBtn = new System.Windows.Forms.Button();
-            this.BinaryInvBtn = new System.Windows.Forms.Button();
-            this.BinaryBtn = new System.Windows.Forms.Button();
             this._thresholdlabel = new System.Windows.Forms.Label();
             this._thresholdScrollBar = new System.Windows.Forms.HScrollBar();
             this._thresholdcheckBox1 = new System.Windows.Forms.CheckBox();
@@ -59,17 +56,16 @@
             this._cannylabel1 = new System.Windows.Forms.Label();
             this._cannyScrollBar1 = new System.Windows.Forms.HScrollBar();
             this._cannyCheck = new System.Windows.Forms.CheckBox();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this._morphologyCheckBox = new System.Windows.Forms.CheckBox();
-            this.morphologyCloseBtn = new System.Windows.Forms.Button();
-            this.morphologyOpenBtn = new System.Windows.Forms.Button();
+            this._equalizeHist = new System.Windows.Forms.TabPage();
+            this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
+            this._equalizeHistBtn = new System.Windows.Forms.Button();
             this._reLoad = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this._smoothNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this._smoothCheckBox = new System.Windows.Forms.CheckBox();
             this._smoothComboBox = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -90,9 +86,6 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this._saveCheckBox = new System.Windows.Forms.CheckBox();
             this._notCheckBox = new System.Windows.Forms.CheckBox();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this._laplacianCheckBox = new System.Windows.Forms.CheckBox();
-            this.LaplacianBtn = new System.Windows.Forms.Button();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this._roiDeleteBtn = new System.Windows.Forms.Button();
@@ -101,15 +94,8 @@
             this._roiBtn = new System.Windows.Forms.Button();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this._findLine = new System.Windows.Forms.Button();
             this._findCircleButton = new System.Windows.Forms.Button();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.HoughLinesPBtn = new System.Windows.Forms.Button();
-            this._maxLineGapNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.HoughLinesBtn = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -143,12 +129,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
-            this.ToZeroBtn = new System.Windows.Forms.Button();
-            this.ToZeroInvBtn = new System.Windows.Forms.Button();
-            this.AdaptiveBtn = new System.Windows.Forms.Button();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.PyrUpBtn = new System.Windows.Forms.Button();
-            this.PyrDownBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -160,7 +140,7 @@
             this.tabPage2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage11.SuspendLayout();
+            this._equalizeHist.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -174,15 +154,10 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._dilateNumericUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.tabPage13.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            this.tabPage15.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
             this.tabControl5.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -195,7 +170,6 @@
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPage16.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -220,7 +194,7 @@
             // 
             // _openFile
             // 
-            this._openFile.Location = new System.Drawing.Point(857, 451);
+            this._openFile.Location = new System.Drawing.Point(671, 456);
             this._openFile.Name = "_openFile";
             this._openFile.Size = new System.Drawing.Size(102, 26);
             this._openFile.TabIndex = 2;
@@ -390,12 +364,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.AdaptiveBtn);
-            this.tabPage2.Controls.Add(this.ToZeroInvBtn);
-            this.tabPage2.Controls.Add(this.ToZeroBtn);
-            this.tabPage2.Controls.Add(this.TruncBtn);
-            this.tabPage2.Controls.Add(this.BinaryInvBtn);
-            this.tabPage2.Controls.Add(this.BinaryBtn);
             this.tabPage2.Controls.Add(this._thresholdlabel);
             this.tabPage2.Controls.Add(this._thresholdScrollBar);
             this.tabPage2.Controls.Add(this._thresholdcheckBox1);
@@ -407,40 +375,10 @@
             this.tabPage2.Text = "Threshold";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // TruncBtn
-            // 
-            this.TruncBtn.Location = new System.Drawing.Point(245, 38);
-            this.TruncBtn.Name = "TruncBtn";
-            this.TruncBtn.Size = new System.Drawing.Size(75, 23);
-            this.TruncBtn.TabIndex = 9;
-            this.TruncBtn.Text = "Trunc";
-            this.TruncBtn.UseVisualStyleBackColor = true;
-            this.TruncBtn.Click += new System.EventHandler(this.TruncBtn_Click);
-            // 
-            // BinaryInvBtn
-            // 
-            this.BinaryInvBtn.Location = new System.Drawing.Point(163, 38);
-            this.BinaryInvBtn.Name = "BinaryInvBtn";
-            this.BinaryInvBtn.Size = new System.Drawing.Size(75, 23);
-            this.BinaryInvBtn.TabIndex = 8;
-            this.BinaryInvBtn.Text = "Bin_Inv";
-            this.BinaryInvBtn.UseVisualStyleBackColor = true;
-            this.BinaryInvBtn.Click += new System.EventHandler(this.BinaryInvBtn_Click);
-            // 
-            // BinaryBtn
-            // 
-            this.BinaryBtn.Location = new System.Drawing.Point(82, 38);
-            this.BinaryBtn.Name = "BinaryBtn";
-            this.BinaryBtn.Size = new System.Drawing.Size(75, 23);
-            this.BinaryBtn.TabIndex = 7;
-            this.BinaryBtn.Text = "Binary";
-            this.BinaryBtn.UseVisualStyleBackColor = true;
-            this.BinaryBtn.Click += new System.EventHandler(this.BinaryBtn_Click);
-            // 
             // _thresholdlabel
             // 
             this._thresholdlabel.AutoSize = true;
-            this._thresholdlabel.Location = new System.Drawing.Point(293, 15);
+            this._thresholdlabel.Location = new System.Drawing.Point(294, 42);
             this._thresholdlabel.Margin = new System.Windows.Forms.Padding(3, 0, 4, 0);
             this._thresholdlabel.Name = "_thresholdlabel";
             this._thresholdlabel.Size = new System.Drawing.Size(11, 12);
@@ -449,7 +387,7 @@
             // 
             // _thresholdScrollBar
             // 
-            this._thresholdScrollBar.Location = new System.Drawing.Point(99, 11);
+            this._thresholdScrollBar.Location = new System.Drawing.Point(89, 36);
             this._thresholdScrollBar.Maximum = 264;
             this._thresholdScrollBar.Name = "_thresholdScrollBar";
             this._thresholdScrollBar.Size = new System.Drawing.Size(188, 18);
@@ -459,7 +397,7 @@
             // _thresholdcheckBox1
             // 
             this._thresholdcheckBox1.AutoSize = true;
-            this._thresholdcheckBox1.Location = new System.Drawing.Point(6, 38);
+            this._thresholdcheckBox1.Location = new System.Drawing.Point(17, 36);
             this._thresholdcheckBox1.Name = "_thresholdcheckBox1";
             this._thresholdcheckBox1.Size = new System.Drawing.Size(65, 16);
             this._thresholdcheckBox1.TabIndex = 4;
@@ -473,7 +411,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage11);
+            this.tabControl1.Controls.Add(this._equalizeHist);
             this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -542,53 +480,42 @@
             this._cannyCheck.UseVisualStyleBackColor = true;
             this._cannyCheck.CheckedChanged += new System.EventHandler(this.CannyCheck_CheckedChanged);
             // 
-            // tabPage11
+            // _equalizeHist
             // 
-            this.tabPage11.Controls.Add(this._morphologyCheckBox);
-            this.tabPage11.Controls.Add(this.morphologyCloseBtn);
-            this.tabPage11.Controls.Add(this.morphologyOpenBtn);
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(326, 90);
-            this.tabPage11.TabIndex = 4;
-            this.tabPage11.Text = "morphologyEx";
-            this.tabPage11.UseVisualStyleBackColor = true;
+            this._equalizeHist.Controls.Add(this._equalizeHistCheckBox);
+            this._equalizeHist.Controls.Add(this._equalizeHistBtn);
+            this._equalizeHist.Location = new System.Drawing.Point(4, 22);
+            this._equalizeHist.Name = "_equalizeHist";
+            this._equalizeHist.Padding = new System.Windows.Forms.Padding(3);
+            this._equalizeHist.Size = new System.Drawing.Size(326, 90);
+            this._equalizeHist.TabIndex = 4;
+            this._equalizeHist.Text = "equalizeHist";
+            this._equalizeHist.UseVisualStyleBackColor = true;
             // 
-            // _morphologyCheckBox
+            // _equalizeHistCheckBox
             // 
-            this._morphologyCheckBox.AutoSize = true;
-            this._morphologyCheckBox.Location = new System.Drawing.Point(136, 71);
-            this._morphologyCheckBox.Name = "_morphologyCheckBox";
-            this._morphologyCheckBox.Size = new System.Drawing.Size(36, 16);
-            this._morphologyCheckBox.TabIndex = 2;
-            this._morphologyCheckBox.Text = "ok";
-            this._morphologyCheckBox.UseVisualStyleBackColor = true;
-            this._morphologyCheckBox.CheckedChanged += new System.EventHandler(this._morphologyCheckBox_CheckedChanged);
+            this._equalizeHistCheckBox.AutoSize = true;
+            this._equalizeHistCheckBox.Location = new System.Drawing.Point(18, 38);
+            this._equalizeHistCheckBox.Name = "_equalizeHistCheckBox";
+            this._equalizeHistCheckBox.Size = new System.Drawing.Size(80, 16);
+            this._equalizeHistCheckBox.TabIndex = 46;
+            this._equalizeHistCheckBox.Text = "equalizeHist";
+            this._equalizeHistCheckBox.UseVisualStyleBackColor = true;
+            this._equalizeHistCheckBox.CheckedChanged += new System.EventHandler(this.EqualizeHistCheckBox_CheckedChanged);
             // 
-            // morphologyCloseBtn
+            // _equalizeHistBtn
             // 
-            this.morphologyCloseBtn.Location = new System.Drawing.Point(195, 22);
-            this.morphologyCloseBtn.Name = "morphologyCloseBtn";
-            this.morphologyCloseBtn.Size = new System.Drawing.Size(75, 37);
-            this.morphologyCloseBtn.TabIndex = 1;
-            this.morphologyCloseBtn.Text = "閉運算";
-            this.morphologyCloseBtn.UseVisualStyleBackColor = true;
-            this.morphologyCloseBtn.Click += new System.EventHandler(this.morphologyCloseBtn_Click);
-            // 
-            // morphologyOpenBtn
-            // 
-            this.morphologyOpenBtn.Location = new System.Drawing.Point(38, 22);
-            this.morphologyOpenBtn.Name = "morphologyOpenBtn";
-            this.morphologyOpenBtn.Size = new System.Drawing.Size(75, 37);
-            this.morphologyOpenBtn.TabIndex = 0;
-            this.morphologyOpenBtn.Text = "開運算";
-            this.morphologyOpenBtn.UseVisualStyleBackColor = true;
-            this.morphologyOpenBtn.Click += new System.EventHandler(this.morphologyOpenBtn_Click);
+            this._equalizeHistBtn.Location = new System.Drawing.Point(110, 6);
+            this._equalizeHistBtn.Name = "_equalizeHistBtn";
+            this._equalizeHistBtn.Size = new System.Drawing.Size(210, 78);
+            this._equalizeHistBtn.TabIndex = 45;
+            this._equalizeHistBtn.Text = "equalizeHist";
+            this._equalizeHistBtn.UseVisualStyleBackColor = true;
+            this._equalizeHistBtn.Click += new System.EventHandler(this.EqualizeHistBtn_Click);
             // 
             // _reLoad
             // 
-            this._reLoad.Location = new System.Drawing.Point(857, 504);
+            this._reLoad.Location = new System.Drawing.Point(671, 504);
             this._reLoad.Name = "_reLoad";
             this._reLoad.Size = new System.Drawing.Size(102, 26);
             this._reLoad.TabIndex = 5;
@@ -601,7 +528,6 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage13);
             this.tabControl2.Location = new System.Drawing.Point(12, 411);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -622,7 +548,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this._smoothNumericUpDown1);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this._smoothCheckBox);
             this.groupBox1.Controls.Add(this._smoothComboBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
@@ -643,15 +569,16 @@
             this._smoothNumericUpDown1.TabIndex = 20;
             this._smoothNumericUpDown1.ValueChanged += new System.EventHandler(this.SmoothNumericUpDown1_ValueChanged);
             // 
-            // checkBox1
+            // _smoothCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 21);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 16);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Smooth";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this._smoothCheckBox.AutoSize = true;
+            this._smoothCheckBox.Location = new System.Drawing.Point(6, 21);
+            this._smoothCheckBox.Name = "_smoothCheckBox";
+            this._smoothCheckBox.Size = new System.Drawing.Size(60, 16);
+            this._smoothCheckBox.TabIndex = 4;
+            this._smoothCheckBox.Text = "Smooth";
+            this._smoothCheckBox.UseVisualStyleBackColor = true;
+            this._smoothCheckBox.CheckedChanged += new System.EventHandler(this.SmoothCheckBox1_CheckedChanged);
             // 
             // _smoothComboBox
             // 
@@ -871,39 +798,6 @@
             this._notCheckBox.UseVisualStyleBackColor = true;
             this._notCheckBox.CheckedChanged += new System.EventHandler(this.NotCheckBox_CheckedChanged);
             // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this._laplacianCheckBox);
-            this.tabPage13.Controls.Add(this.LaplacianBtn);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(329, 74);
-            this.tabPage13.TabIndex = 3;
-            this.tabPage13.Text = "Laplacian";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // _laplacianCheckBox
-            // 
-            this._laplacianCheckBox.AutoSize = true;
-            this._laplacianCheckBox.Location = new System.Drawing.Point(38, 29);
-            this._laplacianCheckBox.Name = "_laplacianCheckBox";
-            this._laplacianCheckBox.Size = new System.Drawing.Size(36, 16);
-            this._laplacianCheckBox.TabIndex = 1;
-            this._laplacianCheckBox.Text = "ok";
-            this._laplacianCheckBox.UseVisualStyleBackColor = true;
-            this._laplacianCheckBox.CheckedChanged += new System.EventHandler(this._laplacianCheckBox_CheckedChanged);
-            // 
-            // LaplacianBtn
-            // 
-            this.LaplacianBtn.Location = new System.Drawing.Point(97, 25);
-            this.LaplacianBtn.Name = "LaplacianBtn";
-            this.LaplacianBtn.Size = new System.Drawing.Size(75, 23);
-            this.LaplacianBtn.TabIndex = 0;
-            this.LaplacianBtn.Text = "Laplacian";
-            this.LaplacianBtn.UseVisualStyleBackColor = true;
-            this.LaplacianBtn.Click += new System.EventHandler(this.LaplacianBtn_Click);
-            // 
             // tabControl4
             // 
             this.tabControl4.Controls.Add(this.tabPage12);
@@ -970,27 +864,36 @@
             // tabControl3
             // 
             this.tabControl3.Controls.Add(this.tabPage8);
-            this.tabControl3.Controls.Add(this.tabPage15);
-            this.tabControl3.Location = new System.Drawing.Point(368, 423);
+            this.tabControl3.Location = new System.Drawing.Point(368, 433);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(327, 107);
+            this.tabControl3.Size = new System.Drawing.Size(243, 78);
             this.tabControl3.TabIndex = 35;
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this._findLine);
             this.tabPage8.Controls.Add(this._findCircleButton);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(319, 81);
+            this.tabPage8.Size = new System.Drawing.Size(235, 52);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "找輪廓";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // _findLine
+            // 
+            this._findLine.Location = new System.Drawing.Point(3, 14);
+            this._findLine.Name = "_findLine";
+            this._findLine.Size = new System.Drawing.Size(114, 23);
+            this._findLine.TabIndex = 44;
+            this._findLine.Text = "找直線";
+            this._findLine.UseVisualStyleBackColor = true;
+            // 
             // _findCircleButton
             // 
-            this._findCircleButton.Location = new System.Drawing.Point(76, 29);
+            this._findCircleButton.Location = new System.Drawing.Point(123, 14);
             this._findCircleButton.Name = "_findCircleButton";
             this._findCircleButton.Size = new System.Drawing.Size(109, 23);
             this._findCircleButton.TabIndex = 42;
@@ -998,89 +901,11 @@
             this._findCircleButton.UseVisualStyleBackColor = true;
             this._findCircleButton.Click += new System.EventHandler(this.FindCircleButton_Click);
             // 
-            // tabPage15
-            // 
-            this.tabPage15.Controls.Add(this.groupBox6);
-            this.tabPage15.Controls.Add(this.HoughLinesBtn);
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(319, 81);
-            this.tabPage15.TabIndex = 3;
-            this.tabPage15.Text = "HoughLines";
-            this.tabPage15.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.HoughLinesPBtn);
-            this.groupBox6.Controls.Add(this._maxLineGapNumericUpDown);
-            this.groupBox6.Controls.Add(this._minLineLengthNumericUpDown);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Location = new System.Drawing.Point(87, 0);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(226, 75);
-            this.groupBox6.TabIndex = 1;
-            this.groupBox6.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(88, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "maxLineGap";
-            // 
-            // HoughLinesPBtn
-            // 
-            this.HoughLinesPBtn.Location = new System.Drawing.Point(6, 24);
-            this.HoughLinesPBtn.Name = "HoughLinesPBtn";
-            this.HoughLinesPBtn.Size = new System.Drawing.Size(76, 35);
-            this.HoughLinesPBtn.TabIndex = 1;
-            this.HoughLinesPBtn.Text = "HoughLinesP";
-            this.HoughLinesPBtn.UseVisualStyleBackColor = true;
-            this.HoughLinesPBtn.Click += new System.EventHandler(this.HoughLinesPBtn_Click);
-            // 
-            // _maxLineGapNumericUpDown
-            // 
-            this._maxLineGapNumericUpDown.Location = new System.Drawing.Point(171, 47);
-            this._maxLineGapNumericUpDown.Name = "_maxLineGapNumericUpDown";
-            this._maxLineGapNumericUpDown.Size = new System.Drawing.Size(47, 22);
-            this._maxLineGapNumericUpDown.TabIndex = 3;
-            // 
-            // _minLineLengthNumericUpDown
-            // 
-            this._minLineLengthNumericUpDown.Location = new System.Drawing.Point(171, 11);
-            this._minLineLengthNumericUpDown.Name = "_minLineLengthNumericUpDown";
-            this._minLineLengthNumericUpDown.Size = new System.Drawing.Size(47, 22);
-            this._minLineLengthNumericUpDown.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "minLineLength";
-            // 
-            // HoughLinesBtn
-            // 
-            this.HoughLinesBtn.Location = new System.Drawing.Point(6, 24);
-            this.HoughLinesBtn.Name = "HoughLinesBtn";
-            this.HoughLinesBtn.Size = new System.Drawing.Size(75, 35);
-            this.HoughLinesBtn.TabIndex = 0;
-            this.HoughLinesBtn.Text = "HoughLines";
-            this.HoughLinesBtn.UseVisualStyleBackColor = true;
-            this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
-            // 
             // tabControl5
             // 
             this.tabControl5.Controls.Add(this.tabPage9);
             this.tabControl5.Controls.Add(this.tabPage14);
             this.tabControl5.Controls.Add(this.tabPage10);
-            this.tabControl5.Controls.Add(this.tabPage16);
             this.tabControl5.Location = new System.Drawing.Point(368, 543);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
@@ -1311,36 +1136,36 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 133);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 12);
+            this.label9.Size = new System.Drawing.Size(25, 12);
             this.label9.TabIndex = 54;
-            this.label9.Text = "pic2比例";
+            this.label9.Text = "pic2";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 97);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 12);
+            this.label8.Size = new System.Drawing.Size(25, 12);
             this.label8.TabIndex = 53;
-            this.label8.Text = "pic1比例";
+            this.label8.Text = "pic1";
             // 
             // _piclabel2
             // 
             this._piclabel2.AutoSize = true;
             this._piclabel2.Location = new System.Drawing.Point(228, 133);
             this._piclabel2.Name = "_piclabel2";
-            this._piclabel2.Size = new System.Drawing.Size(20, 12);
+            this._piclabel2.Size = new System.Drawing.Size(11, 12);
             this._piclabel2.TabIndex = 52;
-            this._piclabel2.Text = "0.5";
+            this._piclabel2.Text = "0";
             // 
             // _piclabel1
             // 
             this._piclabel1.AutoSize = true;
             this._piclabel1.Location = new System.Drawing.Point(228, 97);
             this._piclabel1.Name = "_piclabel1";
-            this._piclabel1.Size = new System.Drawing.Size(20, 12);
+            this._piclabel1.Size = new System.Drawing.Size(11, 12);
             this._piclabel1.TabIndex = 51;
-            this._piclabel1.Text = "0.5";
+            this._piclabel1.Text = "0";
             // 
             // _picScrollBar2
             // 
@@ -1441,75 +1266,13 @@
             // 
             // _saveBtn
             // 
-            this._saveBtn.Location = new System.Drawing.Point(857, 554);
+            this._saveBtn.Location = new System.Drawing.Point(671, 547);
             this._saveBtn.Name = "_saveBtn";
             this._saveBtn.Size = new System.Drawing.Size(102, 26);
             this._saveBtn.TabIndex = 47;
             this._saveBtn.Text = "Save";
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // ToZeroBtn
-            // 
-            this.ToZeroBtn.Location = new System.Drawing.Point(82, 64);
-            this.ToZeroBtn.Name = "ToZeroBtn";
-            this.ToZeroBtn.Size = new System.Drawing.Size(75, 23);
-            this.ToZeroBtn.TabIndex = 10;
-            this.ToZeroBtn.Text = "ToZero";
-            this.ToZeroBtn.UseVisualStyleBackColor = true;
-            this.ToZeroBtn.Click += new System.EventHandler(this.ToZeroBtn_Click);
-            // 
-            // ToZeroInvBtn
-            // 
-            this.ToZeroInvBtn.Location = new System.Drawing.Point(163, 64);
-            this.ToZeroInvBtn.Name = "ToZeroInvBtn";
-            this.ToZeroInvBtn.Size = new System.Drawing.Size(75, 23);
-            this.ToZeroInvBtn.TabIndex = 11;
-            this.ToZeroInvBtn.Text = "ToZero_Inv";
-            this.ToZeroInvBtn.UseVisualStyleBackColor = true;
-            this.ToZeroInvBtn.Click += new System.EventHandler(this.ToZeroInvBtn_Click);
-            // 
-            // AdaptiveBtn
-            // 
-            this.AdaptiveBtn.Location = new System.Drawing.Point(245, 64);
-            this.AdaptiveBtn.Name = "AdaptiveBtn";
-            this.AdaptiveBtn.Size = new System.Drawing.Size(75, 23);
-            this.AdaptiveBtn.TabIndex = 12;
-            this.AdaptiveBtn.Text = "Adaptive_Threshold";
-            this.AdaptiveBtn.UseVisualStyleBackColor = true;
-            this.AdaptiveBtn.Click += new System.EventHandler(this.AdaptiveBtn_Click);
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.Controls.Add(this.PyrDownBtn);
-            this.tabPage16.Controls.Add(this.PyrUpBtn);
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(291, 174);
-            this.tabPage16.TabIndex = 6;
-            this.tabPage16.Text = "PyrUp、PyrDown";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // PyrUpBtn
-            // 
-            this.PyrUpBtn.Location = new System.Drawing.Point(42, 49);
-            this.PyrUpBtn.Name = "PyrUpBtn";
-            this.PyrUpBtn.Size = new System.Drawing.Size(75, 43);
-            this.PyrUpBtn.TabIndex = 0;
-            this.PyrUpBtn.Text = "PyrUp";
-            this.PyrUpBtn.UseVisualStyleBackColor = true;
-            this.PyrUpBtn.Click += new System.EventHandler(this.PyrUpBtn_Click);
-            // 
-            // PyrDownBtn
-            // 
-            this.PyrDownBtn.Location = new System.Drawing.Point(166, 49);
-            this.PyrDownBtn.Name = "PyrDownBtn";
-            this.PyrDownBtn.Size = new System.Drawing.Size(75, 43);
-            this.PyrDownBtn.TabIndex = 1;
-            this.PyrDownBtn.Text = "PyrDown";
-            this.PyrDownBtn.UseVisualStyleBackColor = true;
-            this.PyrDownBtn.Click += new System.EventHandler(this.PyrDownBtn_Click);
             // 
             // run_pic
             // 
@@ -1545,8 +1308,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage11.ResumeLayout(false);
-            this.tabPage11.PerformLayout();
+            this._equalizeHist.ResumeLayout(false);
+            this._equalizeHist.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1565,17 +1328,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._dilateNumericUpDown)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tabPage13.ResumeLayout(false);
-            this.tabPage13.PerformLayout();
             this.tabControl4.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
-            this.tabPage15.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
             this.tabControl5.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
@@ -1591,7 +1347,6 @@
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tabPage16.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1631,7 +1386,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown _smoothNumericUpDown1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox _smoothCheckBox;
         private System.Windows.Forms.ComboBox _smoothComboBox;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1660,6 +1415,7 @@
         private System.Windows.Forms.Button _roiBtn;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button _findLine;
         private System.Windows.Forms.Button _findCircleButton;
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage9;
@@ -1694,29 +1450,8 @@
         private System.Windows.Forms.HScrollBar _picScrollBar2;
         private System.Windows.Forms.HScrollBar _picScrollBar1;
         private System.Windows.Forms.Button _saveBtn;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.CheckBox _morphologyCheckBox;
-        private System.Windows.Forms.Button morphologyCloseBtn;
-        private System.Windows.Forms.Button morphologyOpenBtn;
-        private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.CheckBox _laplacianCheckBox;
-        private System.Windows.Forms.Button LaplacianBtn;
-        private System.Windows.Forms.TabPage tabPage15;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button HoughLinesPBtn;
-        private System.Windows.Forms.NumericUpDown _maxLineGapNumericUpDown;
-        private System.Windows.Forms.NumericUpDown _minLineLengthNumericUpDown;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button HoughLinesBtn;
-        private System.Windows.Forms.Button TruncBtn;
-        private System.Windows.Forms.Button BinaryInvBtn;
-        private System.Windows.Forms.Button BinaryBtn;
-        private System.Windows.Forms.Button AdaptiveBtn;
-        private System.Windows.Forms.Button ToZeroInvBtn;
-        private System.Windows.Forms.Button ToZeroBtn;
-        private System.Windows.Forms.TabPage tabPage16;
-        private System.Windows.Forms.Button PyrDownBtn;
-        private System.Windows.Forms.Button PyrUpBtn;
+        private System.Windows.Forms.TabPage _equalizeHist;
+        private System.Windows.Forms.Button _equalizeHistBtn;
+        private System.Windows.Forms.CheckBox _equalizeHistCheckBox;
     }
 }

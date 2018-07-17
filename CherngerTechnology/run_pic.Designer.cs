@@ -136,6 +136,9 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this._laplacianBtn = new System.Windows.Forms.Button();
+            this.LaplacianCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -178,6 +181,7 @@
             this.tabPage10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabPage11.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -547,6 +551,7 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage11);
             this.tabControl2.Location = new System.Drawing.Point(12, 411);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1359,6 +1364,39 @@
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
+            // tabPage11
+            // 
+            this.tabPage11.Controls.Add(this.LaplacianCheckBox);
+            this.tabPage11.Controls.Add(this._laplacianBtn);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(329, 74);
+            this.tabPage11.TabIndex = 3;
+            this.tabPage11.Text = "Laplacian";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // _laplacianBtn
+            // 
+            this._laplacianBtn.Location = new System.Drawing.Point(111, 25);
+            this._laplacianBtn.Name = "_laplacianBtn";
+            this._laplacianBtn.Size = new System.Drawing.Size(75, 23);
+            this._laplacianBtn.TabIndex = 0;
+            this._laplacianBtn.Text = "Laplacian";
+            this._laplacianBtn.UseVisualStyleBackColor = true;
+            this._laplacianBtn.Click += new System.EventHandler(this._laplacianBtn_Click);
+            // 
+            // LaplacianCheckBox
+            // 
+            this.LaplacianCheckBox.AutoSize = true;
+            this.LaplacianCheckBox.Location = new System.Drawing.Point(36, 29);
+            this.LaplacianCheckBox.Name = "LaplacianCheckBox";
+            this.LaplacianCheckBox.Size = new System.Drawing.Size(36, 16);
+            this.LaplacianCheckBox.TabIndex = 1;
+            this.LaplacianCheckBox.Text = "ok";
+            this.LaplacianCheckBox.UseVisualStyleBackColor = true;
+            this.LaplacianCheckBox.CheckedChanged += new System.EventHandler(this.LaplacianCheckBox_CheckedChanged);
+            // 
             // run_pic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1433,6 +1471,8 @@
             this.tabPage10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1546,5 +1586,8 @@
         private System.Windows.Forms.Button _newBtn;
         private System.Windows.Forms.Button _compareDelete;
         private System.Windows.Forms.Button _compareRest;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.CheckBox LaplacianCheckBox;
+        private System.Windows.Forms.Button _laplacianBtn;
     }
 }

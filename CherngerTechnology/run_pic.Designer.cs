@@ -57,6 +57,7 @@
             this._cannyScrollBar1 = new System.Windows.Forms.HScrollBar();
             this._cannyCheck = new System.Windows.Forms.CheckBox();
             this._equalizeHist = new System.Windows.Forms.TabPage();
+            this._calcHistBtn = new System.Windows.Forms.Button();
             this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
             this._equalizeHistBtn = new System.Windows.Forms.Button();
             this._reLoad = new System.Windows.Forms.Button();
@@ -92,6 +93,12 @@
             this._roiNewBtn = new System.Windows.Forms.Button();
             this._roiResetBtn = new System.Windows.Forms.Button();
             this._roiBtn = new System.Windows.Forms.Button();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this._compareDelete = new System.Windows.Forms.Button();
+            this._compareRest = new System.Windows.Forms.Button();
+            this._compare = new System.Windows.Forms.Button();
+            this._roi = new System.Windows.Forms.Button();
+            this._newBtn = new System.Windows.Forms.Button();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this._findLine = new System.Windows.Forms.Button();
@@ -156,6 +163,7 @@
             this.groupBox5.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage12.SuspendLayout();
+            this.tabPage13.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabControl5.SuspendLayout();
@@ -482,6 +490,7 @@
             // 
             // _equalizeHist
             // 
+            this._equalizeHist.Controls.Add(this._calcHistBtn);
             this._equalizeHist.Controls.Add(this._equalizeHistCheckBox);
             this._equalizeHist.Controls.Add(this._equalizeHistBtn);
             this._equalizeHist.Location = new System.Drawing.Point(4, 22);
@@ -491,6 +500,16 @@
             this._equalizeHist.TabIndex = 4;
             this._equalizeHist.Text = "equalizeHist";
             this._equalizeHist.UseVisualStyleBackColor = true;
+            // 
+            // _calcHistBtn
+            // 
+            this._calcHistBtn.Location = new System.Drawing.Point(224, 6);
+            this._calcHistBtn.Name = "_calcHistBtn";
+            this._calcHistBtn.Size = new System.Drawing.Size(96, 84);
+            this._calcHistBtn.TabIndex = 47;
+            this._calcHistBtn.Text = "calcHist";
+            this._calcHistBtn.UseVisualStyleBackColor = true;
+            this._calcHistBtn.Click += new System.EventHandler(this._calcHistBtn_Click);
             // 
             // _equalizeHistCheckBox
             // 
@@ -507,7 +526,7 @@
             // 
             this._equalizeHistBtn.Location = new System.Drawing.Point(110, 6);
             this._equalizeHistBtn.Name = "_equalizeHistBtn";
-            this._equalizeHistBtn.Size = new System.Drawing.Size(210, 78);
+            this._equalizeHistBtn.Size = new System.Drawing.Size(96, 84);
             this._equalizeHistBtn.TabIndex = 45;
             this._equalizeHistBtn.Text = "equalizeHist";
             this._equalizeHistBtn.UseVisualStyleBackColor = true;
@@ -801,6 +820,7 @@
             // tabControl4
             // 
             this.tabControl4.Controls.Add(this.tabPage12);
+            this.tabControl4.Controls.Add(this.tabPage13);
             this.tabControl4.Location = new System.Drawing.Point(12, 657);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
@@ -860,6 +880,71 @@
             this._roiBtn.Text = "Roi";
             this._roiBtn.UseVisualStyleBackColor = true;
             this._roiBtn.Click += new System.EventHandler(this.RoiBtn_Click);
+            // 
+            // tabPage13
+            // 
+            this.tabPage13.Controls.Add(this._compareDelete);
+            this.tabPage13.Controls.Add(this._compareRest);
+            this.tabPage13.Controls.Add(this._compare);
+            this.tabPage13.Controls.Add(this._roi);
+            this.tabPage13.Controls.Add(this._newBtn);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage13.Size = new System.Drawing.Size(325, 43);
+            this.tabPage13.TabIndex = 3;
+            this.tabPage13.Text = "影像比對";
+            this.tabPage13.UseVisualStyleBackColor = true;
+            // 
+            // _compareDelete
+            // 
+            this._compareDelete.Location = new System.Drawing.Point(244, 9);
+            this._compareDelete.Name = "_compareDelete";
+            this._compareDelete.Size = new System.Drawing.Size(53, 23);
+            this._compareDelete.TabIndex = 50;
+            this._compareDelete.Text = "Delete";
+            this._compareDelete.UseVisualStyleBackColor = true;
+            this._compareDelete.Click += new System.EventHandler(this.CompareDelete_Click);
+            // 
+            // _compareRest
+            // 
+            this._compareRest.Location = new System.Drawing.Point(182, 9);
+            this._compareRest.Name = "_compareRest";
+            this._compareRest.Size = new System.Drawing.Size(53, 23);
+            this._compareRest.TabIndex = 49;
+            this._compareRest.Text = "Reset";
+            this._compareRest.UseVisualStyleBackColor = true;
+            this._compareRest.Click += new System.EventHandler(this.CompareRest_Click);
+            // 
+            // _compare
+            // 
+            this._compare.Location = new System.Drawing.Point(122, 9);
+            this._compare.Name = "_compare";
+            this._compare.Size = new System.Drawing.Size(54, 23);
+            this._compare.TabIndex = 48;
+            this._compare.Text = "compare";
+            this._compare.UseVisualStyleBackColor = true;
+            this._compare.Click += new System.EventHandler(this.Compare_Click);
+            // 
+            // _roi
+            // 
+            this._roi.Location = new System.Drawing.Point(62, 9);
+            this._roi.Name = "_roi";
+            this._roi.Size = new System.Drawing.Size(54, 23);
+            this._roi.TabIndex = 47;
+            this._roi.Text = "Roi";
+            this._roi.UseVisualStyleBackColor = true;
+            this._roi.Click += new System.EventHandler(this.CompareROI_Click);
+            // 
+            // _newBtn
+            // 
+            this._newBtn.Location = new System.Drawing.Point(6, 9);
+            this._newBtn.Name = "_newBtn";
+            this._newBtn.Size = new System.Drawing.Size(50, 23);
+            this._newBtn.TabIndex = 46;
+            this._newBtn.Text = "New";
+            this._newBtn.UseVisualStyleBackColor = true;
+            this._newBtn.Click += new System.EventHandler(this.NewBtn_Click);
             // 
             // tabControl3
             // 
@@ -1330,6 +1415,7 @@
             this.groupBox5.PerformLayout();
             this.tabControl4.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
+            this.tabPage13.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
@@ -1453,5 +1539,12 @@
         private System.Windows.Forms.TabPage _equalizeHist;
         private System.Windows.Forms.Button _equalizeHistBtn;
         private System.Windows.Forms.CheckBox _equalizeHistCheckBox;
+        private System.Windows.Forms.Button _calcHistBtn;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.Button _compare;
+        private System.Windows.Forms.Button _roi;
+        private System.Windows.Forms.Button _newBtn;
+        private System.Windows.Forms.Button _compareDelete;
+        private System.Windows.Forms.Button _compareRest;
     }
 }

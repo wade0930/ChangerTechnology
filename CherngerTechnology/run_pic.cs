@@ -625,6 +625,26 @@ namespace CherngerTechnology
             if (fc != null)
                 fc.Dispose();
         }
+
+
+        #endregion
+
+        #region Laplacian
+        private void _laplacianBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Laplacian(input, input, MatType.CV_8U);
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void LaplacianCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (LaplacianCheckBox.Checked)
+            {
+                input2 = input.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
         #endregion
 
         #region 旋轉

@@ -1,0 +1,16 @@
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\CherngerTechnology.exe.config
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\CherngerTechnology.exe
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\CherngerTechnology.pdb
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\BSE.Windows.Forms.dll
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\OpenCvSharp.CPlusPlus.dll
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\OpenCvSharp.dll
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\OpenCvSharp.Extensions.dll
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\bin\x86\Debug\StCtlLib.dll
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.Form1.resources
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.Properties.Resources.resources
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.StCamera.SetCameraIDForm.resources
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.StCamera.SettingForm.resources
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.csproj.GenerateResource.Cache
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.csproj.CoreCompileInputs.cache
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.exe
+E:\3M\凱恩\CherngerTechnology\CherngerTechnology\obj\x86\Debug\CherngerTechnology.pdb

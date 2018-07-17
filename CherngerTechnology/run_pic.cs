@@ -18,10 +18,12 @@ namespace CherngerTechnology
     {
         public Mat src,dst,input, preimg, input2, tempdst; // 最後圖片
         public Mat addsrc, adddst, addinput, addpreimg, addinput2, addtempdst; // 最後圖片
-
+        public Mat comparesrc, comparedst, compareinput, comparepreimg, compareinput2, comparetempdst; // 最後圖片
         string fileName = string.Empty;//string.Empty
         string addFileName = string.Empty;
+        string compareFileName = string.Empty;
         int LWidth, HWidth, LHeight, HHeight;
+        bool compareRoiBtn = false, compareBtn = false;
         public run_pic()
         {
             InitializeComponent();
@@ -425,11 +427,10 @@ namespace CherngerTechnology
         #region 框架
         public struct Line_set
         {
-            public int direction ;
-            public int color ;
-            public int accuracy ;
+            public int direction;
+            public int color;
+            public int accuracy;
         }
-        Line_set set;
         private System.Drawing.Point pPoint; //上个鼠标坐标
         private System.Drawing.Point cPoint; //当前鼠标坐标
         string name = "";
@@ -448,20 +449,24 @@ namespace CherngerTechnology
             Roi[Roi.Count - 1].Top = pictureBox1.Height / 2;// + j*50;
             Roi[Roi.Count - 1].Left = pictureBox1.Width / 2;
             Roi[Roi.Count - 1].Width = 50;
-            Roi[Roi.Count - 1].Height = 50;
+            Roi[Roi.Count - 1].Height = 50;       
             this.Controls.Add(Roi[Roi.Count - 1]);
             Roi[Roi.Count - 1].BringToFront();
             Roi[Roi.Count - 1].BackColor = Color.Transparent;
             Roi[Roi.Count - 1].BorderStyle = BorderStyle.FixedSingle;
-            Roi[Roi.Count - 1].Parent = pictureBox1;
             Roi[Roi.Count - 1].Paint += new PaintEventHandler(Paint);
             Roi[Roi.Count - 1].MouseMove += new MouseEventHandler(move);
             Roi[Roi.Count - 1].MouseDown += new MouseEventHandler(down);
             Roi[Roi.Count - 1].MouseUp += new MouseEventHandler(up);
             Roi[Roi.Count - 1].MouseClick += new MouseEventHandler(click);
-
             Roi[Roi.Count - 1].Name = (Roi.Count - 1).ToString();
-
+            if (compareRoiBtn)
+            {
+                Roi[Roi.Count - 1].Parent = pictureBox3;
+                compareRoiBtn = false;
+            }
+            else
+                Roi[Roi.Count - 1].Parent = pictureBox1;
             /*set = new Line_set();
             set.color = comboBox2.SelectedIndex;
             set.direction = comboBox3.SelectedIndex;
@@ -542,51 +547,10 @@ namespace CherngerTechnology
         #region ROI_Click
         private void RoiBtn_Click(object sender, EventArgs e)
         {
-            if (Roi.Count > 0)
-            {
-
-                if (src.Width >= src.Height)
-                {
-                    Roi_Rect = new Rect((int)Math.Ceiling(Roi[0].Left * src.Width / pictureBox1.Width * 1.0),
-                                   (int)Math.Ceiling((Roi[0].Top * 1.0 - (pictureBox1.Height - (pictureBox1.Width * src.Height / src.Width)) / 2) * src.Width / pictureBox1.Width),
-                                     (int)Math.Ceiling(Roi[0].Width * src.Width / pictureBox1.Width * 1.0),
-                                     (int)Math.Ceiling(Roi[0].Height * src.Width / pictureBox1.Width * 1.0));
-                }
-                else
-                {
-                    Roi_Rect = new Rect((int)Math.Ceiling((Roi[0].Left * 1.0 - (pictureBox1.Width - (pictureBox1.Height * src.Width / src.Height)) / 2) * src.Height / pictureBox1.Height),
-                                  (int)Math.Ceiling((Roi[0].Top * 1.0 * src.Height / pictureBox1.Height)),
-                                    (int)Math.Ceiling(Roi[0].Width * src.Height / pictureBox1.Height * 1.0),
-                                    (int)Math.Ceiling(Roi[0].Height * src.Height / pictureBox1.Height * 1.0));
-                }
-                // Cv.Rectangle(dst, Roi_Rect, CvColor.Red, 2, LineType.AntiAlias);
-                Mat roi = new Mat(input2,Roi_Rect);
-                pictureBox2.Image = roi.ToBitmap();
-                //listBox1.Items.Add(Roi_Rect.Left + " " + Roi_Rect.Top + " " + Roi_Rect.Width + " " + Roi_Rect.Height + " ");
-            }
+            Mat roi = new Mat();
+            Roi_formula(pictureBox1, src, ref roi);
+            pictureBox2.Image = roi.ToBitmap();
         }
-
-       
-
-
-
-
-        #endregion
-
-        #region 霍夫找圓
-        private void FindCircleButton_Click(object sender, EventArgs e)
-        {
-            CircleSegment[] circle = new CircleSegment[100];
-            input = input2.Clone();
-            circle = Cv2.HoughCircles(input, HoughMethods.Gradient,1,10,50,35,50,200);
-            for (int i = 0; i < circle.Length; i++)
-            {
-                Cv2.Circle(dst, circle[i].Center, (int)circle[i].Radius, Scalar.Red, 2);
-            }
-            pictureBox1.Image = dst.ToBitmap();
-            pictureBox2.Image = input.ToBitmap();
-        }
-
         #endregion
 
         #region Contour
@@ -615,8 +579,6 @@ namespace CherngerTechnology
             dataGridView1.Rows.Clear();
             OpenCvSharp.Point[][] contours;
             HierarchyIndex[] hierarchyIndexes;
-            List<int> arry = new List<int>();
-           
             Cv2.FindContours(input, out contours, out hierarchyIndexes, mode: RetrievalModes.List, method: ContourApproximationModes.ApproxSimple);
             if (contours.Length == 0)
             {
@@ -631,6 +593,7 @@ namespace CherngerTechnology
                     Rect rect = Cv2.BoundingRect(contours[i]); // Find the bounding rectangle for biggest contour
                     if (area1 <=area&& area <= area2 && rect.Width >= width1 && rect.Width <= width2 && rect.Height >= height1 && rect.Height <= height2)
                     {
+                        
                         Cv2.DrawContours(dst, contours, i, new Scalar(255, 0, 0), 3, LineTypes.Link8, hierarchyIndexes, int.MaxValue);
                         Cv2.PutText(dst, num.ToString(), new OpenCvSharp.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2), HersheyFonts.HersheyComplex, 4.0, Scalar.Red, 1);
                         dataGridView1.Rows.Add(new string[] { num.ToString(), area.ToString(), rect.Width.ToString(), rect.Height.ToString(), Math.Round((int)rect.Width / 2 + (double)rect.X) + " " + Math.Round(rect.Height / 2 + (double)rect.Y) });
@@ -640,32 +603,15 @@ namespace CherngerTechnology
             }
                 Cv2.ImShow("test", dst);
         }
-
-        #endregion
-
-        #region 旋轉
-        private void _turnAngelScroll_Scroll(object sender, ScrollEventArgs e)
-        {
-            _angelLabel.Text = "" + _turnAngelScroll.Value;
-            if (fileName != string.Empty)
-            {
-                input = input2.Clone();
-                Point2f center = new Point2f(input.Cols / 2, input.Rows / 2);
-                double angel = _turnAngelScroll.Value;
-                double scale =1;
-                Mat rot_mat = Cv2.GetRotationMatrix2D(center, angel, scale);
-                Cv2.WarpAffine(input, input, rot_mat, input.Size());
-                pictureBox2.Image = input.ToBitmap();
-            }
-        }
         #endregion
 
         #region ROI_Reset
         private void RoiResetBtn_Click(object sender, EventArgs e)
         {
             Roi_Rect = new Rect(0, 0, 0, 0);
-            pictureBox2.Image = dst.ToBitmap();
+            pictureBox2.Image = src.ToBitmap();
         }
+
         #endregion
 
         #region ROI_Delete
@@ -681,6 +627,38 @@ namespace CherngerTechnology
         }
         #endregion
 
+        #region 旋轉
+        private void _turnAngelScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            _angelLabel.Text = "" + _turnAngelScroll.Value;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Point2f center = new Point2f(input.Cols / 2, input.Rows / 2);
+                double angel = _turnAngelScroll.Value;
+                double scale = 1;
+                Mat rot_mat = Cv2.GetRotationMatrix2D(center, angel, scale);
+                Cv2.WarpAffine(input, input, rot_mat, input.Size());
+                pictureBox2.Image = input.ToBitmap();
+            }
+        }
+        #endregion
+
+        #region 霍夫找圓
+        private void FindCircleButton_Click(object sender, EventArgs e)
+        {
+            CircleSegment[] circle = new CircleSegment[100];
+            input = input2.Clone();
+            circle = Cv2.HoughCircles(input, HoughMethods.Gradient, 1, 10, 50, 35, 50, 200);
+            for (int i = 0; i < circle.Length; i++)
+            {
+                Cv2.Circle(dst, circle[i].Center, (int)circle[i].Radius, Scalar.Red, 2);
+            }
+            pictureBox1.Image = dst.ToBitmap();
+            pictureBox2.Image = input.ToBitmap();
+        }
+        #endregion
+
         #region ReLoad
         private void ReLoad_Click(object sender, EventArgs e)
         {
@@ -689,44 +667,6 @@ namespace CherngerTechnology
             dst = tempdst.Clone();
             pictureBox1.Image = src.ToBitmap();
             pictureBox2.Image = src.ToBitmap();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Mat abc = Cv2.ImRead("C://Users//user//Desktop//img1//1.jpg", ImreadModes.GrayScale);
-
-            pictureBox1.Image = abc.ToBitmap();
-            Mat OutputDst = Cv2.ImRead("C://Users//user//Desktop//img1//1.jpg", ImreadModes.Color);
-            Mat Dst = abc.Clone();
-            Cv2.GaussianBlur(abc, Dst, new OpenCvSharp.Size(3,3), 0, 0, BorderTypes.Default);
-            Cv2.AdaptiveThreshold(abc, abc, 255, AdaptiveThresholdTypes.MeanC, ThresholdTypes.Binary, 13, 2);
-
-            Cv2.BitwiseNot(abc, abc);
-            OpenCvSharp.Point[][] contours;
-            HierarchyIndex[] hierarchyIndexes;
-
-            Cv2.FindContours(abc, out contours, out hierarchyIndexes, mode: RetrievalModes.List, method: ContourApproximationModes.ApproxSimple);
-
-            if (contours.Length == 0)
-            {
-                throw new NotSupportedException("Couldn't find any object in the image.");
-            }
-            else
-            {
-                //Search biggest contour
-                for (int i = 0; i < contours.Length; i++)
-                {
-                    double area = Cv2.ContourArea(contours[i]);  //  Find the area of contour
-                    Rect rect = Cv2.BoundingRect(contours[i]); // Find the bounding rectangle for biggest contour
-                    if (Math.Abs(rect.Width - rect.Height) < 15 && rect.Width > 300)
-                    {
-                        Cv2.DrawContours(OutputDst, contours, i, new Scalar(0, 255, 0), 3, LineTypes.Link8, hierarchyIndexes, int.MaxValue);
-
-                    }
-                }
-
-                Cv2.ImShow("Src", OutputDst);
-            }
         }
         #endregion
 
@@ -811,6 +751,27 @@ namespace CherngerTechnology
                 pictureBox1.Image = input2.ToBitmap();
             }
         }
+        private void _calcHistBtn_Click(object sender, EventArgs e)
+        {
+            input= input2.Clone();
+            int width = input.Cols, height = input.Rows;
+            int histSize = 256;
+            int[] dimensions = { histSize };
+            double[] range = { 0, 256 };
+            Rangef[] ranges = { new Rangef(0, histSize) };
+            Mat hist= new Mat();
+            Cv2.CalcHist(images:new[] { input }, channels:new[] { 0 }, mask:null, hist:hist, dims:1, histSize:dimensions, ranges:ranges);
+            Mat render = new Mat(new OpenCvSharp.Size(width, height), MatType.CV_8UC3, Scalar.All(255));
+            double minVal, maxVal;
+            Cv2.MinMaxLoc(hist, out minVal, out maxVal);
+            Scalar color = Scalar.All(100);
+            hist = hist * (maxVal != 0 ? height / maxVal : 0.0);
+            int binW = width / dimensions[0];
+            for (int j = 0; j < dimensions[0]; ++j)
+            {
+                render.Rectangle(new OpenCvSharp.Point(j * binW, render.Rows - (int)hist.Get<int>(j)), new OpenCvSharp.Point((j + 1) * binW, render.Rows), color, -1);
+            }
+        }
         #endregion
 
         #region Save
@@ -856,6 +817,98 @@ namespace CherngerTechnology
         //    fileName = "1";
 
         //}
+        #region ROI 公式
+        private void Roi_formula(PictureBox pictureBox,Mat pic,ref Mat roi)
+        {
+            if (Roi.Count > 0)
+            {
+
+                if (pic.Width >= pic.Height)
+                {
+                    Roi_Rect = new Rect((int)Math.Ceiling(Roi[0].Left * pic.Width / pictureBox.Width * 1.0),
+                                   (int)Math.Ceiling((Roi[0].Top * 1.0 - (pictureBox.Height - (pictureBox.Width * pic.Height / pic.Width)) / 2) * pic.Width / pictureBox.Width),
+                                     (int)Math.Ceiling(Roi[0].Width * pic.Width / pictureBox.Width * 1.0),
+                                     (int)Math.Ceiling(Roi[0].Height * pic.Width / pictureBox.Width * 1.0));
+                }
+                else
+                {
+                    Roi_Rect = new Rect((int)Math.Ceiling((Roi[0].Left * 1.0 - (pictureBox.Width - (pictureBox.Height * pic.Width / pic.Height)) / 2) * pic.Height / pictureBox.Height),
+                                  (int)Math.Ceiling((Roi[0].Top * 1.0 * pic.Height / pictureBox.Height)),
+                                    (int)Math.Ceiling(Roi[0].Width * pic.Height / pictureBox.Height * 1.0),
+                                    (int)Math.Ceiling(Roi[0].Height * pic.Height / pictureBox.Height * 1.0));
+                }
+                 roi = new Mat(pic, Roi_Rect);
+            }
+        }
+        #endregion
+
+        #region 影像比較
+
+        #region compare Reset
+        private void CompareRest_Click(object sender, EventArgs e)
+        {
+            this.RoiResetBtn_Click(sender, e);
+        }
+        #endregion
+
+        #region compare Delete
+        private void CompareDelete_Click(object sender, EventArgs e)
+        {
+            this.RoiDeleteBtn_Click(sender, e);
+        }
+        #endregion
+
+        #region compare
+        private void Compare_Click(object sender, EventArgs e)
+        {
+            Mat roi = new Mat();
+            Mat roi_dst = src.Clone();
+            Roi_formula(pictureBox3, comparesrc,ref roi);
+            Cv2.MatchTemplate(src, roi, input, TemplateMatchModes.SqDiff, null);
+            double minVal = 0, maxVal = 0;
+            OpenCvSharp.Point minLoc = new OpenCvSharp.Point();
+            OpenCvSharp.Point maxLoc = new OpenCvSharp.Point();
+            Cv2.MinMaxLoc(input, out minVal,out maxVal,out minLoc,out maxLoc);
+            Cv2.Rectangle(roi_dst, minLoc, new OpenCvSharp.Point(minLoc.X + roi.Cols, minLoc.Y + roi.Rows),Scalar.Black, 3);
+            pictureBox2.Image = roi_dst.ToBitmap();
+        }
+        #endregion
+
+        #region 新增compareROI
+        private void CompareROI_Click(object sender, EventArgs e)
+        {
+            compareRoiBtn = true;
+            this.RoiNewBtn_Click(sender, e);
+        }
+        #endregion
+
+        #region 新增比較圖片
+        private void NewBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.RestoreDirectory = true;
+
+            dlg.Title = "Open Image File";
+
+            dlg.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK && dlg.FileName != string.Empty)
+            {
+                compareFileName = dlg.FileName;
+                comparesrc = Cv2.ImRead(compareFileName, ImreadModes.GrayScale);
+                pictureBox3.Image = comparesrc.ToBitmap();
+                compareinput = Cv2.ImRead(compareFileName, ImreadModes.GrayScale);
+                comparedst = Cv2.ImRead(compareFileName, ImreadModes.Color);
+                compareinput2 = Cv2.ImRead(compareFileName, ImreadModes.GrayScale);
+                comparepreimg = Cv2.ImRead(compareFileName, ImreadModes.GrayScale);
+                comparetempdst = Cv2.ImRead(compareFileName, ImreadModes.Color);
+                compareinput = comparesrc.Clone();
+                compareinput2 = comparesrc.Clone();
+            }
+        }
+        #endregion
+
+        #endregion
 
         #region OpenFile
         private void OpenFile_Click(object sender, EventArgs e)
@@ -880,38 +933,6 @@ namespace CherngerTechnology
                 tempdst = Cv2.ImRead(fileName, ImreadModes.Color);
                 input = src.Clone();
                 input2 = src.Clone();
-                // src = new Mat(fileName);
-                // input = new Mat(fileName);
-                // dst = new Mat(fileName);
-                // input2 = new Mat(fileName);
-                // preimg = new Mat(fileName);
-
-                //pictureBox1.Image = Image.FromFile(fileName);
-                //pictureBox2.Image = null;
-                //textBox5.Text = fileName;
-                //input2 = src.Clone();
-
-                /////////////////////////////////
-                //string s = string.Empty;
-                //for (int i = 0; i < dlg.FileName.Length; i++)
-                //{
-                //    if (dlg.FileName[i] == '\\')
-                //        s += "/";
-                //    else
-                //        s += dlg.FileName[i].ToString();
-                //}
-                //textBox19.Text = s;
-                //textBox16.Text = dlg.FileName.Length.ToString();
-                //sort2 += ("string filename = " + '"' + s + '"' + " ;" + Environment.NewLine +
-                //    "IplImage src = new IplImage(filename, LoadMode.GrayScale);" + Environment.NewLine +
-                //     "IplImage input2 = Cv.CreateImage(Cv.GetSize(src), BitDepth.U8, 1);" + Environment.NewLine +
-                //     "IplImage dst = new IplImage(filename, LoadMode.Color);" + Environment.NewLine +
-                //     "input2 = src.Clone();" + Environment.NewLine +
-                //     "CvRect Roi_Rect = new CvRect(0, 0, 0, 0);" + Environment.NewLine
-
-                //    );
-
-
             }
         }
         #endregion

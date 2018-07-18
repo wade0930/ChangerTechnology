@@ -272,13 +272,6 @@ namespace CherngerTechnology
         #endregion
 
         #region Laplacian
-        private void _laplacianBtn_Click(object sender, EventArgs e)
-        {
-            input = input2.Clone();
-            Cv2.Laplacian(input, input, MatType.CV_8U);
-            pictureBox2.Image = input.ToBitmap();
-        }
-
         private void LaplacianCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (LaplacianCheckBox.Checked)
@@ -287,7 +280,26 @@ namespace CherngerTechnology
                 pictureBox1.Image = input2.ToBitmap();
             }
         }
-
+        private void LaplacianScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            _laplaci1.Text = "" + _laplacianScrollBar1.Value;
+            if(fileName!=string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Laplacian(input, input, MatType.CV_8U, 1, _laplacianScrollBar1.Value, _laplacianScrollBar2.Value);
+                pictureBox2.Image = input.ToBitmap();
+            }
+        }
+        private void LaplacianScrollBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            _laplaci2.Text = "" + _laplacianScrollBar2.Value;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Laplacian(input, input, MatType.CV_8U, 1, _laplacianScrollBar1.Value, _laplacianScrollBar2.Value);
+                pictureBox2.Image = input.ToBitmap();
+            }
+        }
         #endregion
 
         #region 旋轉
@@ -412,11 +424,6 @@ namespace CherngerTechnology
                 //sort += "6";
                 //sort2 += ("Cv.Threshold(input2, input2, " + hScrollBar3.Value + ", 255, ThresholdType.Binary);" + Environment.NewLine);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ThresholdScrollBar_Scroll(object sender, ScrollEventArgs e)

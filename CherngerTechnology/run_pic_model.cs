@@ -430,38 +430,6 @@ namespace CherngerTechnology
         #endregion
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _thresholdlabel.Text = "" + _thresholdScrollBar.Value;
-            if (fileName != string.Empty)
-            {
-                input = input2.Clone();
-                if (Threshodl_Select == 0)
-                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Binary);
-                else if (Threshodl_Select == 1)
-                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.BinaryInv);
-                else if (Threshodl_Select == 2)
-                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Trunc);
-                else if (Threshodl_Select == 3)
-                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.Tozero);
-                else if (Threshodl_Select == 4)
-                    Cv2.Threshold(input, input, _thresholdScrollBar.Value, 255, ThresholdTypes.TozeroInv);
-                else if (Threshodl_Select == 5)
-                {
-                    if (_thresholdScrollBar.Value % 2 == 0)
-                        _thresholdScrollBar.Value++;
-                    if (_thresholdScrollBar.Value <= 1)
-                        _thresholdScrollBar.Value = 3;
-                    Cv2.AdaptiveThreshold(input, input, 255, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.Binary, _thresholdScrollBar.Value, 0);
-                }
-                pictureBox2.Image = input.ToBitmap();
-                input.Release();
-            }
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

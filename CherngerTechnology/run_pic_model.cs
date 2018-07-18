@@ -428,5 +428,11 @@ namespace CherngerTechnology
             Cv2.ImShow("PyrDown", input);
         }
         #endregion
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

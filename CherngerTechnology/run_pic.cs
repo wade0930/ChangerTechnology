@@ -413,6 +413,8 @@ namespace CherngerTechnology
                 //sort2 += ("Cv.Threshold(input2, input2, " + hScrollBar3.Value + ", 255, ThresholdType.Binary);" + Environment.NewLine);
             }
         }
+
+
         private void ThresholdScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             _thresholdlabel.Text = "" + _thresholdScrollBar.Value;

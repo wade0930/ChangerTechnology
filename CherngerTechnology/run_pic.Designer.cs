@@ -151,6 +151,14 @@
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.PyrDownBtn = new System.Windows.Forms.Button();
             this.PyrUpBtn = new System.Windows.Forms.Button();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this._remapY = new System.Windows.Forms.Label();
+            this._remapX = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this._reMapScrollBarY = new System.Windows.Forms.HScrollBar();
+            this._reMapScrollBarX = new System.Windows.Forms.HScrollBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -159,14 +167,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
-            this.tabPage18 = new System.Windows.Forms.TabPage();
-            this._reMapScrollBarX = new System.Windows.Forms.HScrollBar();
-            this._reMapScrollBarY = new System.Windows.Forms.HScrollBar();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this._remapX = new System.Windows.Forms.Label();
-            this._remapY = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -214,9 +216,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._areaNumericUpDown1)).BeginInit();
             this.tabPage10.SuspendLayout();
             this.tabPage17.SuspendLayout();
+            this.tabPage18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPage18.SuspendLayout();
+            this.tabPage19.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -1134,6 +1137,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage16);
+            this.tabControl3.Controls.Add(this.tabPage19);
             this.tabControl3.Location = new System.Drawing.Point(368, 411);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1570,6 +1574,86 @@
             this.PyrUpBtn.UseVisualStyleBackColor = true;
             this.PyrUpBtn.Click += new System.EventHandler(this.PyrUpBtn_Click);
             // 
+            // tabPage18
+            // 
+            this.tabPage18.Controls.Add(this.label13);
+            this.tabPage18.Controls.Add(this.label12);
+            this.tabPage18.Controls.Add(this._remapY);
+            this.tabPage18.Controls.Add(this._remapX);
+            this.tabPage18.Controls.Add(this.checkBox1);
+            this.tabPage18.Controls.Add(this._reMapScrollBarY);
+            this.tabPage18.Controls.Add(this._reMapScrollBarX);
+            this.tabPage18.Location = new System.Drawing.Point(4, 22);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(345, 174);
+            this.tabPage18.TabIndex = 7;
+            this.tabPage18.Text = "remap";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(302, 92);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(11, 12);
+            this.label13.TabIndex = 57;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(302, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(11, 12);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "0";
+            // 
+            // _remapY
+            // 
+            this._remapY.AutoSize = true;
+            this._remapY.Location = new System.Drawing.Point(51, 80);
+            this._remapY.Name = "_remapY";
+            this._remapY.Size = new System.Drawing.Size(11, 12);
+            this._remapY.TabIndex = 55;
+            this._remapY.Text = "y";
+            // 
+            // _remapX
+            // 
+            this._remapX.AutoSize = true;
+            this._remapX.Location = new System.Drawing.Point(51, 31);
+            this._remapX.Name = "_remapX";
+            this._remapX.Size = new System.Drawing.Size(11, 12);
+            this._remapX.TabIndex = 54;
+            this._remapX.Text = "x";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 114);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(55, 16);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Canny";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // _reMapScrollBarY
+            // 
+            this._reMapScrollBarY.Location = new System.Drawing.Point(88, 80);
+            this._reMapScrollBarY.Maximum = 264;
+            this._reMapScrollBarY.Name = "_reMapScrollBarY";
+            this._reMapScrollBarY.Size = new System.Drawing.Size(188, 18);
+            this._reMapScrollBarY.TabIndex = 6;
+            // 
+            // _reMapScrollBarX
+            // 
+            this._reMapScrollBarX.Location = new System.Drawing.Point(88, 31);
+            this._reMapScrollBarX.Maximum = 264;
+            this._reMapScrollBarX.Name = "_reMapScrollBarX";
+            this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
+            this._reMapScrollBarX.TabIndex = 5;
+            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1645,85 +1729,26 @@
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // tabPage18
+            // tabPage19
             // 
-            this.tabPage18.Controls.Add(this.label13);
-            this.tabPage18.Controls.Add(this.label12);
-            this.tabPage18.Controls.Add(this._remapY);
-            this.tabPage18.Controls.Add(this._remapX);
-            this.tabPage18.Controls.Add(this.checkBox1);
-            this.tabPage18.Controls.Add(this._reMapScrollBarY);
-            this.tabPage18.Controls.Add(this._reMapScrollBarX);
-            this.tabPage18.Location = new System.Drawing.Point(4, 22);
-            this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(345, 174);
-            this.tabPage18.TabIndex = 7;
-            this.tabPage18.Text = "remap";
-            this.tabPage18.UseVisualStyleBackColor = true;
+            this.tabPage19.Controls.Add(this.button1);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(349, 100);
+            this.tabPage19.TabIndex = 4;
+            this.tabPage19.Text = "tabPage19";
+            this.tabPage19.UseVisualStyleBackColor = true;
             // 
-            // _reMapScrollBarX
+            // button1
             // 
-            this._reMapScrollBarX.Location = new System.Drawing.Point(88, 31);
-            this._reMapScrollBarX.Maximum = 264;
-            this._reMapScrollBarX.Name = "_reMapScrollBarX";
-            this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
-            this._reMapScrollBarX.TabIndex = 5;
-            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
-            // 
-            // _reMapScrollBarY
-            // 
-            this._reMapScrollBarY.Location = new System.Drawing.Point(88, 80);
-            this._reMapScrollBarY.Maximum = 264;
-            this._reMapScrollBarY.Name = "_reMapScrollBarY";
-            this._reMapScrollBarY.Size = new System.Drawing.Size(188, 18);
-            this._reMapScrollBarY.TabIndex = 6;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 114);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 16);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Canny";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // _remapX
-            // 
-            this._remapX.AutoSize = true;
-            this._remapX.Location = new System.Drawing.Point(51, 31);
-            this._remapX.Name = "_remapX";
-            this._remapX.Size = new System.Drawing.Size(11, 12);
-            this._remapX.TabIndex = 54;
-            this._remapX.Text = "x";
-            // 
-            // _remapY
-            // 
-            this._remapY.AutoSize = true;
-            this._remapY.Location = new System.Drawing.Point(51, 80);
-            this._remapY.Name = "_remapY";
-            this._remapY.Size = new System.Drawing.Size(11, 12);
-            this._remapY.TabIndex = 55;
-            this._remapY.Text = "y";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(302, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(11, 12);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "0";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(302, 92);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(11, 12);
-            this.label13.TabIndex = 57;
-            this.label13.Text = "0";
+            this.button1.Location = new System.Drawing.Point(122, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // run_pic
             // 
@@ -1807,10 +1832,11 @@
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
             this.tabPage17.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage18.ResumeLayout(false);
             this.tabPage18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1955,5 +1981,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.HScrollBar _reMapScrollBarY;
         private System.Windows.Forms.HScrollBar _reMapScrollBarX;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.Button button1;
     }
 }

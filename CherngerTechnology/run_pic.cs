@@ -414,8 +414,6 @@ namespace CherngerTechnology
             }
         }
 
-      
-
         private void ThresholdScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             _thresholdlabel.Text = "" + _thresholdScrollBar.Value;

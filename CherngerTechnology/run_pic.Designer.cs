@@ -94,8 +94,15 @@
             this._saveCheckBox = new System.Windows.Forms.CheckBox();
             this._notCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this._laplaci2 = new System.Windows.Forms.Label();
+            this._laplaci1 = new System.Windows.Forms.Label();
+            this._laplacianScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this._laplacianScrollBar2 = new System.Windows.Forms.HScrollBar();
             this.LaplacianCheckBox = new System.Windows.Forms.CheckBox();
-            this._laplacianBtn = new System.Windows.Forms.Button();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this._morphologyCheckBox = new System.Windows.Forms.CheckBox();
+            this.morphologyCloseBtn = new System.Windows.Forms.Button();
+            this.morphologyOpenBtn = new System.Windows.Forms.Button();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this._roiDeleteBtn = new System.Windows.Forms.Button();
@@ -111,6 +118,14 @@
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this._findCircleButton = new System.Windows.Forms.Button();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this._maxLineGapNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.HoughLinesPBtn = new System.Windows.Forms.Button();
+            this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.HoughLinesBtn = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -136,6 +151,17 @@
             this._picScrollBar2 = new System.Windows.Forms.HScrollBar();
             this._picScrollBar1 = new System.Windows.Forms.HScrollBar();
             this._new = new System.Windows.Forms.Button();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.PyrDownBtn = new System.Windows.Forms.Button();
+            this.PyrUpBtn = new System.Windows.Forms.Button();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this._remapY = new System.Windows.Forms.Label();
+            this._remapX = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this._reMapScrollBarY = new System.Windows.Forms.HScrollBar();
+            this._reMapScrollBarX = new System.Windows.Forms.HScrollBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -144,21 +170,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.morphologyOpenBtn = new System.Windows.Forms.Button();
-            this.morphologyCloseBtn = new System.Windows.Forms.Button();
-            this._morphologyCheckBox = new System.Windows.Forms.CheckBox();
-            this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.HoughLinesBtn = new System.Windows.Forms.Button();
-            this.HoughLinesPBtn = new System.Windows.Forms.Button();
-            this._maxLineGapNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.PyrUpBtn = new System.Windows.Forms.Button();
-            this.PyrDownBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -185,11 +196,16 @@
             ((System.ComponentModel.ISupportInitialize)(this._dilateNumericUpDown)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.tabPage11.SuspendLayout();
+            this.tabPage15.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage16.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
             this.tabControl5.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -200,14 +216,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._heightNumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._areaNumericUpDown1)).BeginInit();
             this.tabPage10.SuspendLayout();
+            this.tabPage17.SuspendLayout();
+            this.tabPage18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPage15.SuspendLayout();
-            this.tabPage16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            this.tabPage17.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -553,7 +565,6 @@
             this._cannyScrollBar2.Name = "_cannyScrollBar2";
             this._cannyScrollBar2.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar2.TabIndex = 6;
-            this._cannyScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar2_Scroll);
             // 
             // _cannylabel1
             // 
@@ -571,7 +582,6 @@
             this._cannyScrollBar1.Name = "_cannyScrollBar1";
             this._cannyScrollBar1.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar1.TabIndex = 4;
-            this._cannyScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar1_Scroll);
             // 
             // _cannyCheck
             // 
@@ -917,8 +927,11 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this._laplaci2);
+            this.tabPage11.Controls.Add(this._laplaci1);
+            this.tabPage11.Controls.Add(this._laplacianScrollBar1);
+            this.tabPage11.Controls.Add(this._laplacianScrollBar2);
             this.tabPage11.Controls.Add(this.LaplacianCheckBox);
-            this.tabPage11.Controls.Add(this._laplacianBtn);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -926,6 +939,42 @@
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "Laplacian";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // _laplaci2
+            // 
+            this._laplaci2.AutoSize = true;
+            this._laplaci2.Location = new System.Drawing.Point(294, 59);
+            this._laplaci2.Name = "_laplaci2";
+            this._laplaci2.Size = new System.Drawing.Size(11, 12);
+            this._laplaci2.TabIndex = 38;
+            this._laplaci2.Text = "0";
+            // 
+            // _laplaci1
+            // 
+            this._laplaci1.AutoSize = true;
+            this._laplaci1.Location = new System.Drawing.Point(294, 9);
+            this._laplaci1.Name = "_laplaci1";
+            this._laplaci1.Size = new System.Drawing.Size(11, 12);
+            this._laplaci1.TabIndex = 37;
+            this._laplaci1.Text = "0";
+            // 
+            // _laplacianScrollBar1
+            // 
+            this._laplacianScrollBar1.Location = new System.Drawing.Point(89, 3);
+            this._laplacianScrollBar1.Maximum = 255;
+            this._laplacianScrollBar1.Name = "_laplacianScrollBar1";
+            this._laplacianScrollBar1.Size = new System.Drawing.Size(188, 18);
+            this._laplacianScrollBar1.TabIndex = 7;
+            this._laplacianScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.LaplacianScrollBar1_Scroll);
+            // 
+            // _laplacianScrollBar2
+            // 
+            this._laplacianScrollBar2.Location = new System.Drawing.Point(89, 53);
+            this._laplacianScrollBar2.Maximum = 255;
+            this._laplacianScrollBar2.Name = "_laplacianScrollBar2";
+            this._laplacianScrollBar2.Size = new System.Drawing.Size(188, 18);
+            this._laplacianScrollBar2.TabIndex = 5;
+            this._laplacianScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.LaplacianScrollBar2_Scroll);
             // 
             // LaplacianCheckBox
             // 
@@ -938,15 +987,49 @@
             this.LaplacianCheckBox.UseVisualStyleBackColor = true;
             this.LaplacianCheckBox.CheckedChanged += new System.EventHandler(this.LaplacianCheckBox_CheckedChanged);
             // 
-            // _laplacianBtn
+            // tabPage15
             // 
-            this._laplacianBtn.Location = new System.Drawing.Point(111, 25);
-            this._laplacianBtn.Name = "_laplacianBtn";
-            this._laplacianBtn.Size = new System.Drawing.Size(75, 23);
-            this._laplacianBtn.TabIndex = 0;
-            this._laplacianBtn.Text = "Laplacian";
-            this._laplacianBtn.UseVisualStyleBackColor = true;
-            this._laplacianBtn.Click += new System.EventHandler(this._laplacianBtn_Click);
+            this.tabPage15.Controls.Add(this._morphologyCheckBox);
+            this.tabPage15.Controls.Add(this.morphologyCloseBtn);
+            this.tabPage15.Controls.Add(this.morphologyOpenBtn);
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(329, 74);
+            this.tabPage15.TabIndex = 4;
+            this.tabPage15.Text = "morphologyEx";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // _morphologyCheckBox
+            // 
+            this._morphologyCheckBox.AutoSize = true;
+            this._morphologyCheckBox.Location = new System.Drawing.Point(146, 52);
+            this._morphologyCheckBox.Name = "_morphologyCheckBox";
+            this._morphologyCheckBox.Size = new System.Drawing.Size(36, 16);
+            this._morphologyCheckBox.TabIndex = 2;
+            this._morphologyCheckBox.Text = "ok";
+            this._morphologyCheckBox.UseVisualStyleBackColor = true;
+            this._morphologyCheckBox.CheckedChanged += new System.EventHandler(this._morphologyCheckBox_CheckedChanged);
+            // 
+            // morphologyCloseBtn
+            // 
+            this.morphologyCloseBtn.Location = new System.Drawing.Point(202, 23);
+            this.morphologyCloseBtn.Name = "morphologyCloseBtn";
+            this.morphologyCloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.morphologyCloseBtn.TabIndex = 1;
+            this.morphologyCloseBtn.Text = "閉運算";
+            this.morphologyCloseBtn.UseVisualStyleBackColor = true;
+            this.morphologyCloseBtn.Click += new System.EventHandler(this.morphologyCloseBtn_Click);
+            // 
+            // morphologyOpenBtn
+            // 
+            this.morphologyOpenBtn.Location = new System.Drawing.Point(38, 23);
+            this.morphologyOpenBtn.Name = "morphologyOpenBtn";
+            this.morphologyOpenBtn.Size = new System.Drawing.Size(75, 23);
+            this.morphologyOpenBtn.TabIndex = 0;
+            this.morphologyOpenBtn.Text = "開運算";
+            this.morphologyOpenBtn.UseVisualStyleBackColor = true;
+            this.morphologyOpenBtn.Click += new System.EventHandler(this.morphologyOpenBtn_Click);
             // 
             // tabControl4
             // 
@@ -1093,7 +1176,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(308, 100);
+            this.tabPage8.Size = new System.Drawing.Size(349, 100);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "找輪廓";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1108,16 +1191,94 @@
             this._findCircleButton.UseVisualStyleBackColor = true;
             this._findCircleButton.Click += new System.EventHandler(this.FindCircleButton_Click);
             // 
+            // tabPage16
+            // 
+            this.tabPage16.Controls.Add(this.groupBox6);
+            this.tabPage16.Controls.Add(this.HoughLinesBtn);
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(349, 100);
+            this.tabPage16.TabIndex = 3;
+            this.tabPage16.Text = "HoughLines";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label7);
+            this.groupBox6.Controls.Add(this._maxLineGapNumericUpDown);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Controls.Add(this.HoughLinesPBtn);
+            this.groupBox6.Controls.Add(this._minLineLengthNumericUpDown);
+            this.groupBox6.Location = new System.Drawing.Point(88, 7);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(255, 87);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(94, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "maxLineGap";
+            // 
+            // _maxLineGapNumericUpDown
+            // 
+            this._maxLineGapNumericUpDown.Location = new System.Drawing.Point(175, 54);
+            this._maxLineGapNumericUpDown.Name = "_maxLineGapNumericUpDown";
+            this._maxLineGapNumericUpDown.Size = new System.Drawing.Size(55, 22);
+            this._maxLineGapNumericUpDown.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(92, 18);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 12);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "minLineLength";
+            // 
+            // HoughLinesPBtn
+            // 
+            this.HoughLinesPBtn.Location = new System.Drawing.Point(6, 32);
+            this.HoughLinesPBtn.Name = "HoughLinesPBtn";
+            this.HoughLinesPBtn.Size = new System.Drawing.Size(82, 25);
+            this.HoughLinesPBtn.TabIndex = 1;
+            this.HoughLinesPBtn.Text = "HoughLinesP";
+            this.HoughLinesPBtn.UseVisualStyleBackColor = true;
+            this.HoughLinesPBtn.Click += new System.EventHandler(this.HoughLinesPBtn_Click);
+            // 
+            // _minLineLengthNumericUpDown
+            // 
+            this._minLineLengthNumericUpDown.Location = new System.Drawing.Point(175, 14);
+            this._minLineLengthNumericUpDown.Name = "_minLineLengthNumericUpDown";
+            this._minLineLengthNumericUpDown.Size = new System.Drawing.Size(55, 22);
+            this._minLineLengthNumericUpDown.TabIndex = 3;
+            // 
+            // HoughLinesBtn
+            // 
+            this.HoughLinesBtn.Location = new System.Drawing.Point(7, 39);
+            this.HoughLinesBtn.Name = "HoughLinesBtn";
+            this.HoughLinesBtn.Size = new System.Drawing.Size(75, 25);
+            this.HoughLinesBtn.TabIndex = 0;
+            this.HoughLinesBtn.Text = "HoughLines";
+            this.HoughLinesBtn.UseVisualStyleBackColor = true;
+            this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
+            // 
             // tabControl5
             // 
             this.tabControl5.Controls.Add(this.tabPage9);
             this.tabControl5.Controls.Add(this.tabPage14);
             this.tabControl5.Controls.Add(this.tabPage10);
             this.tabControl5.Controls.Add(this.tabPage17);
+            this.tabControl5.Controls.Add(this.tabPage18);
             this.tabControl5.Location = new System.Drawing.Point(368, 543);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(299, 200);
+            this.tabControl5.Size = new System.Drawing.Size(353, 200);
             this.tabControl5.TabIndex = 36;
             // 
             // tabPage9
@@ -1128,7 +1289,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(291, 174);
+            this.tabPage9.Size = new System.Drawing.Size(345, 174);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "旋轉";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1176,7 +1337,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(291, 174);
+            this.tabPage14.Size = new System.Drawing.Size(345, 174);
             this.tabPage14.TabIndex = 4;
             this.tabPage14.Text = "Contour";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -1334,7 +1495,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(291, 174);
+            this.tabPage10.Size = new System.Drawing.Size(345, 174);
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "AddWeight";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1406,6 +1567,118 @@
             this._new.Text = "New";
             this._new.UseVisualStyleBackColor = true;
             this._new.Click += new System.EventHandler(this.New_Click);
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.Controls.Add(this.PyrDownBtn);
+            this.tabPage17.Controls.Add(this.PyrUpBtn);
+            this.tabPage17.Location = new System.Drawing.Point(4, 22);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage17.Size = new System.Drawing.Size(345, 174);
+            this.tabPage17.TabIndex = 6;
+            this.tabPage17.Text = "PyrUp、PyrDown";
+            this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // PyrDownBtn
+            // 
+            this.PyrDownBtn.Location = new System.Drawing.Point(172, 44);
+            this.PyrDownBtn.Name = "PyrDownBtn";
+            this.PyrDownBtn.Size = new System.Drawing.Size(75, 40);
+            this.PyrDownBtn.TabIndex = 1;
+            this.PyrDownBtn.Text = "PyrDown";
+            this.PyrDownBtn.UseVisualStyleBackColor = true;
+            this.PyrDownBtn.Click += new System.EventHandler(this.PyrDownBtn_Click);
+            // 
+            // PyrUpBtn
+            // 
+            this.PyrUpBtn.Location = new System.Drawing.Point(46, 44);
+            this.PyrUpBtn.Name = "PyrUpBtn";
+            this.PyrUpBtn.Size = new System.Drawing.Size(75, 40);
+            this.PyrUpBtn.TabIndex = 0;
+            this.PyrUpBtn.Text = "PyrUp";
+            this.PyrUpBtn.UseVisualStyleBackColor = true;
+            this.PyrUpBtn.Click += new System.EventHandler(this.PyrUpBtn_Click);
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.Controls.Add(this.label13);
+            this.tabPage18.Controls.Add(this.label12);
+            this.tabPage18.Controls.Add(this._remapY);
+            this.tabPage18.Controls.Add(this._remapX);
+            this.tabPage18.Controls.Add(this.checkBox1);
+            this.tabPage18.Controls.Add(this._reMapScrollBarY);
+            this.tabPage18.Controls.Add(this._reMapScrollBarX);
+            this.tabPage18.Location = new System.Drawing.Point(4, 22);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage18.Size = new System.Drawing.Size(345, 174);
+            this.tabPage18.TabIndex = 7;
+            this.tabPage18.Text = "remap";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(302, 92);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(11, 12);
+            this.label13.TabIndex = 57;
+            this.label13.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(302, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(11, 12);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "0";
+            // 
+            // _remapY
+            // 
+            this._remapY.AutoSize = true;
+            this._remapY.Location = new System.Drawing.Point(51, 80);
+            this._remapY.Name = "_remapY";
+            this._remapY.Size = new System.Drawing.Size(11, 12);
+            this._remapY.TabIndex = 55;
+            this._remapY.Text = "y";
+            // 
+            // _remapX
+            // 
+            this._remapX.AutoSize = true;
+            this._remapX.Location = new System.Drawing.Point(51, 31);
+            this._remapX.Name = "_remapX";
+            this._remapX.Size = new System.Drawing.Size(11, 12);
+            this._remapX.TabIndex = 54;
+            this._remapX.Text = "x";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 114);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(55, 16);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Canny";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // _reMapScrollBarY
+            // 
+            this._reMapScrollBarY.Location = new System.Drawing.Point(88, 80);
+            this._reMapScrollBarY.Maximum = 264;
+            this._reMapScrollBarY.Name = "_reMapScrollBarY";
+            this._reMapScrollBarY.Size = new System.Drawing.Size(188, 18);
+            this._reMapScrollBarY.TabIndex = 6;
+            // 
+            // _reMapScrollBarX
+            // 
+            this._reMapScrollBarX.Location = new System.Drawing.Point(88, 31);
+            this._reMapScrollBarX.Maximum = 264;
+            this._reMapScrollBarX.Name = "_reMapScrollBarX";
+            this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
+            this._reMapScrollBarX.TabIndex = 5;
+            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
             // 
             // dataGridView1
             // 
@@ -1482,159 +1755,6 @@
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // tabPage15
-            // 
-            this.tabPage15.Controls.Add(this._morphologyCheckBox);
-            this.tabPage15.Controls.Add(this.morphologyCloseBtn);
-            this.tabPage15.Controls.Add(this.morphologyOpenBtn);
-            this.tabPage15.Location = new System.Drawing.Point(4, 22);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(329, 74);
-            this.tabPage15.TabIndex = 4;
-            this.tabPage15.Text = "morphologyEx";
-            this.tabPage15.UseVisualStyleBackColor = true;
-            // 
-            // morphologyOpenBtn
-            // 
-            this.morphologyOpenBtn.Location = new System.Drawing.Point(38, 23);
-            this.morphologyOpenBtn.Name = "morphologyOpenBtn";
-            this.morphologyOpenBtn.Size = new System.Drawing.Size(75, 23);
-            this.morphologyOpenBtn.TabIndex = 0;
-            this.morphologyOpenBtn.Text = "開運算";
-            this.morphologyOpenBtn.UseVisualStyleBackColor = true;
-            this.morphologyOpenBtn.Click += new System.EventHandler(this.morphologyOpenBtn_Click);
-            // 
-            // morphologyCloseBtn
-            // 
-            this.morphologyCloseBtn.Location = new System.Drawing.Point(202, 23);
-            this.morphologyCloseBtn.Name = "morphologyCloseBtn";
-            this.morphologyCloseBtn.Size = new System.Drawing.Size(75, 23);
-            this.morphologyCloseBtn.TabIndex = 1;
-            this.morphologyCloseBtn.Text = "閉運算";
-            this.morphologyCloseBtn.UseVisualStyleBackColor = true;
-            this.morphologyCloseBtn.Click += new System.EventHandler(this.morphologyCloseBtn_Click);
-            // 
-            // _morphologyCheckBox
-            // 
-            this._morphologyCheckBox.AutoSize = true;
-            this._morphologyCheckBox.Location = new System.Drawing.Point(146, 52);
-            this._morphologyCheckBox.Name = "_morphologyCheckBox";
-            this._morphologyCheckBox.Size = new System.Drawing.Size(36, 16);
-            this._morphologyCheckBox.TabIndex = 2;
-            this._morphologyCheckBox.Text = "ok";
-            this._morphologyCheckBox.UseVisualStyleBackColor = true;
-            this._morphologyCheckBox.CheckedChanged += new System.EventHandler(this._morphologyCheckBox_CheckedChanged);
-            // 
-            // tabPage16
-            // 
-            this.tabPage16.Controls.Add(this.groupBox6);
-            this.tabPage16.Controls.Add(this.HoughLinesBtn);
-            this.tabPage16.Location = new System.Drawing.Point(4, 22);
-            this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(349, 100);
-            this.tabPage16.TabIndex = 3;
-            this.tabPage16.Text = "HoughLines";
-            this.tabPage16.UseVisualStyleBackColor = true;
-            // 
-            // HoughLinesBtn
-            // 
-            this.HoughLinesBtn.Location = new System.Drawing.Point(7, 39);
-            this.HoughLinesBtn.Name = "HoughLinesBtn";
-            this.HoughLinesBtn.Size = new System.Drawing.Size(75, 25);
-            this.HoughLinesBtn.TabIndex = 0;
-            this.HoughLinesBtn.Text = "HoughLines";
-            this.HoughLinesBtn.UseVisualStyleBackColor = true;
-            this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
-            // 
-            // HoughLinesPBtn
-            // 
-            this.HoughLinesPBtn.Location = new System.Drawing.Point(6, 32);
-            this.HoughLinesPBtn.Name = "HoughLinesPBtn";
-            this.HoughLinesPBtn.Size = new System.Drawing.Size(82, 25);
-            this.HoughLinesPBtn.TabIndex = 1;
-            this.HoughLinesPBtn.Text = "HoughLinesP";
-            this.HoughLinesPBtn.UseVisualStyleBackColor = true;
-            this.HoughLinesPBtn.Click += new System.EventHandler(this.HoughLinesPBtn_Click);
-            // 
-            // _maxLineGapNumericUpDown
-            // 
-            this._maxLineGapNumericUpDown.Location = new System.Drawing.Point(175, 54);
-            this._maxLineGapNumericUpDown.Name = "_maxLineGapNumericUpDown";
-            this._maxLineGapNumericUpDown.Size = new System.Drawing.Size(55, 22);
-            this._maxLineGapNumericUpDown.TabIndex = 2;
-            // 
-            // _minLineLengthNumericUpDown
-            // 
-            this._minLineLengthNumericUpDown.Location = new System.Drawing.Point(175, 14);
-            this._minLineLengthNumericUpDown.Name = "_minLineLengthNumericUpDown";
-            this._minLineLengthNumericUpDown.Size = new System.Drawing.Size(55, 22);
-            this._minLineLengthNumericUpDown.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(92, 18);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 12);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "minLineLength";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this._maxLineGapNumericUpDown);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Controls.Add(this.HoughLinesPBtn);
-            this.groupBox6.Controls.Add(this._minLineLengthNumericUpDown);
-            this.groupBox6.Location = new System.Drawing.Point(88, 7);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(255, 87);
-            this.groupBox6.TabIndex = 1;
-            this.groupBox6.TabStop = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(94, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "maxLineGap";
-            // 
-            // tabPage17
-            // 
-            this.tabPage17.Controls.Add(this.PyrDownBtn);
-            this.tabPage17.Controls.Add(this.PyrUpBtn);
-            this.tabPage17.Location = new System.Drawing.Point(4, 22);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(291, 174);
-            this.tabPage17.TabIndex = 6;
-            this.tabPage17.Text = "PyrUp、PyrDown";
-            this.tabPage17.UseVisualStyleBackColor = true;
-            // 
-            // PyrUpBtn
-            // 
-            this.PyrUpBtn.Location = new System.Drawing.Point(46, 44);
-            this.PyrUpBtn.Name = "PyrUpBtn";
-            this.PyrUpBtn.Size = new System.Drawing.Size(75, 40);
-            this.PyrUpBtn.TabIndex = 0;
-            this.PyrUpBtn.Text = "PyrUp";
-            this.PyrUpBtn.UseVisualStyleBackColor = true;
-            this.PyrUpBtn.Click += new System.EventHandler(this.PyrUpBtn_Click);
-            // 
-            // PyrDownBtn
-            // 
-            this.PyrDownBtn.Location = new System.Drawing.Point(172, 44);
-            this.PyrDownBtn.Name = "PyrDownBtn";
-            this.PyrDownBtn.Size = new System.Drawing.Size(75, 40);
-            this.PyrDownBtn.TabIndex = 1;
-            this.PyrDownBtn.Text = "PyrDown";
-            this.PyrDownBtn.UseVisualStyleBackColor = true;
-            this.PyrDownBtn.Click += new System.EventHandler(this.PyrDownBtn_Click);
-            // 
             // run_pic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1691,11 +1811,18 @@
             this.groupBox5.PerformLayout();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage15.PerformLayout();
             this.tabControl4.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             this.tabPage13.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
+            this.tabPage16.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
             this.tabControl5.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
@@ -1709,16 +1836,11 @@
             ((System.ComponentModel.ISupportInitialize)(this._areaNumericUpDown1)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.tabPage10.PerformLayout();
+            this.tabPage17.ResumeLayout(false);
+            this.tabPage18.ResumeLayout(false);
+            this.tabPage18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tabPage15.ResumeLayout(false);
-            this.tabPage15.PerformLayout();
-            this.tabPage16.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.tabPage17.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1786,8 +1908,6 @@
         private System.Windows.Forms.Button _roiResetBtn;
         private System.Windows.Forms.Button _roiBtn;
         private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button _findCircleButton;
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Label _angelLabel;
@@ -1833,7 +1953,6 @@
         private System.Windows.Forms.Button _compareRest;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.CheckBox LaplacianCheckBox;
-        private System.Windows.Forms.Button _laplacianBtn;
         private System.Windows.Forms.Button AdaptiveThresoldBtn;
         private System.Windows.Forms.Button ToZeroInvBtn;
         private System.Windows.Forms.Button ToZeroBtn;
@@ -1855,5 +1974,19 @@
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.Button PyrDownBtn;
         private System.Windows.Forms.Button PyrUpBtn;
+        private System.Windows.Forms.TabPage tabPage18;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label _remapY;
+        private System.Windows.Forms.Label _remapX;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.HScrollBar _reMapScrollBarY;
+        private System.Windows.Forms.HScrollBar _reMapScrollBarX;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button _findCircleButton;
+        private System.Windows.Forms.Label _laplaci2;
+        private System.Windows.Forms.Label _laplaci1;
+        private System.Windows.Forms.HScrollBar _laplacianScrollBar1;
+        private System.Windows.Forms.HScrollBar _laplacianScrollBar2;
     }
 }

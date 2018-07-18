@@ -152,6 +152,9 @@
     <Compile Include="run_pic.Designer.cs">
       <DependentUpon>run_pic.cs</DependentUpon>
     </Compile>
+    <Compile Include="run_pic_model.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SetupIniIP.cs" />
     <Compile Include="SmartKey.cs" />
     <Compile Include="StCamera\SetCameraIDForm.cs">

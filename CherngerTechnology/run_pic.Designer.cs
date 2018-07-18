@@ -100,6 +100,8 @@
             this._morphologyCheckBox = new System.Windows.Forms.CheckBox();
             this.morphologyCloseBtn = new System.Windows.Forms.Button();
             this.morphologyOpenBtn = new System.Windows.Forms.Button();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this._roiDeleteBtn = new System.Windows.Forms.Button();
@@ -123,6 +125,7 @@
             this.HoughLinesPBtn = new System.Windows.Forms.Button();
             this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.HoughLinesBtn = new System.Windows.Forms.Button();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -167,8 +170,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
-            this.tabPage19 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -196,6 +197,7 @@
             this.groupBox5.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tabPage15.SuspendLayout();
+            this.tabPage20.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
@@ -219,7 +221,6 @@
             this.tabPage18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.tabPage19.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -657,6 +658,7 @@
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage11);
             this.tabControl2.Controls.Add(this.tabPage15);
+            this.tabControl2.Controls.Add(this.tabPage20);
             this.tabControl2.Location = new System.Drawing.Point(12, 411);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -1004,6 +1006,27 @@
             this.morphologyOpenBtn.UseVisualStyleBackColor = true;
             this.morphologyOpenBtn.Click += new System.EventHandler(this.morphologyOpenBtn_Click);
             // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this.button2);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(329, 74);
+            this.tabPage20.TabIndex = 5;
+            this.tabPage20.Text = "tabPage20";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(127, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // tabControl4
             // 
             this.tabControl4.Controls.Add(this.tabPage12);
@@ -1241,6 +1264,16 @@
             this.HoughLinesBtn.Text = "HoughLines";
             this.HoughLinesBtn.UseVisualStyleBackColor = true;
             this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
+            // 
+            // tabPage19
+            // 
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(349, 100);
+            this.tabPage19.TabIndex = 4;
+            this.tabPage19.Text = "tabPage19";
+            this.tabPage19.UseVisualStyleBackColor = true;
             // 
             // tabControl5
             // 
@@ -1729,27 +1762,6 @@
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
-            // tabPage19
-            // 
-            this.tabPage19.Controls.Add(this.button1);
-            this.tabPage19.Location = new System.Drawing.Point(4, 22);
-            this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(349, 100);
-            this.tabPage19.TabIndex = 4;
-            this.tabPage19.Text = "tabPage19";
-            this.tabPage19.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(122, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // run_pic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1808,6 +1820,7 @@
             this.tabPage11.PerformLayout();
             this.tabPage15.ResumeLayout(false);
             this.tabPage15.PerformLayout();
+            this.tabPage20.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             this.tabPage13.ResumeLayout(false);
@@ -1836,7 +1849,6 @@
             this.tabPage18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.tabPage19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1982,6 +1994,7 @@
         private System.Windows.Forms.HScrollBar _reMapScrollBarY;
         private System.Windows.Forms.HScrollBar _reMapScrollBarX;
         private System.Windows.Forms.TabPage tabPage19;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.Button button2;
     }
 }

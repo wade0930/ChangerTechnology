@@ -94,8 +94,11 @@
             this._saveCheckBox = new System.Windows.Forms.CheckBox();
             this._notCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this._laplaci2 = new System.Windows.Forms.Label();
+            this._laplaci1 = new System.Windows.Forms.Label();
+            this._laplacianScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this._laplacianScrollBar2 = new System.Windows.Forms.HScrollBar();
             this.LaplacianCheckBox = new System.Windows.Forms.CheckBox();
-            this._laplacianBtn = new System.Windows.Forms.Button();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this._morphologyCheckBox = new System.Windows.Forms.CheckBox();
             this.morphologyCloseBtn = new System.Windows.Forms.Button();
@@ -562,7 +565,6 @@
             this._cannyScrollBar2.Name = "_cannyScrollBar2";
             this._cannyScrollBar2.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar2.TabIndex = 6;
-            this._cannyScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar2_Scroll);
             // 
             // _cannylabel1
             // 
@@ -580,7 +582,6 @@
             this._cannyScrollBar1.Name = "_cannyScrollBar1";
             this._cannyScrollBar1.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar1.TabIndex = 4;
-            this._cannyScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar1_Scroll);
             // 
             // _cannyCheck
             // 
@@ -926,8 +927,11 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.Controls.Add(this._laplaci2);
+            this.tabPage11.Controls.Add(this._laplaci1);
+            this.tabPage11.Controls.Add(this._laplacianScrollBar1);
+            this.tabPage11.Controls.Add(this._laplacianScrollBar2);
             this.tabPage11.Controls.Add(this.LaplacianCheckBox);
-            this.tabPage11.Controls.Add(this._laplacianBtn);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
@@ -935,6 +939,42 @@
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "Laplacian";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // _laplaci2
+            // 
+            this._laplaci2.AutoSize = true;
+            this._laplaci2.Location = new System.Drawing.Point(294, 59);
+            this._laplaci2.Name = "_laplaci2";
+            this._laplaci2.Size = new System.Drawing.Size(11, 12);
+            this._laplaci2.TabIndex = 38;
+            this._laplaci2.Text = "0";
+            // 
+            // _laplaci1
+            // 
+            this._laplaci1.AutoSize = true;
+            this._laplaci1.Location = new System.Drawing.Point(294, 9);
+            this._laplaci1.Name = "_laplaci1";
+            this._laplaci1.Size = new System.Drawing.Size(11, 12);
+            this._laplaci1.TabIndex = 37;
+            this._laplaci1.Text = "0";
+            // 
+            // _laplacianScrollBar1
+            // 
+            this._laplacianScrollBar1.Location = new System.Drawing.Point(89, 3);
+            this._laplacianScrollBar1.Maximum = 255;
+            this._laplacianScrollBar1.Name = "_laplacianScrollBar1";
+            this._laplacianScrollBar1.Size = new System.Drawing.Size(188, 18);
+            this._laplacianScrollBar1.TabIndex = 7;
+            this._laplacianScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.LaplacianScrollBar1_Scroll);
+            // 
+            // _laplacianScrollBar2
+            // 
+            this._laplacianScrollBar2.Location = new System.Drawing.Point(89, 53);
+            this._laplacianScrollBar2.Maximum = 255;
+            this._laplacianScrollBar2.Name = "_laplacianScrollBar2";
+            this._laplacianScrollBar2.Size = new System.Drawing.Size(188, 18);
+            this._laplacianScrollBar2.TabIndex = 5;
+            this._laplacianScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.LaplacianScrollBar2_Scroll);
             // 
             // LaplacianCheckBox
             // 
@@ -946,16 +986,6 @@
             this.LaplacianCheckBox.Text = "ok";
             this.LaplacianCheckBox.UseVisualStyleBackColor = true;
             this.LaplacianCheckBox.CheckedChanged += new System.EventHandler(this.LaplacianCheckBox_CheckedChanged);
-            // 
-            // _laplacianBtn
-            // 
-            this._laplacianBtn.Location = new System.Drawing.Point(111, 25);
-            this._laplacianBtn.Name = "_laplacianBtn";
-            this._laplacianBtn.Size = new System.Drawing.Size(75, 23);
-            this._laplacianBtn.TabIndex = 0;
-            this._laplacianBtn.Text = "Laplacian";
-            this._laplacianBtn.UseVisualStyleBackColor = true;
-            this._laplacianBtn.Click += new System.EventHandler(this._laplacianBtn_Click);
             // 
             // tabPage15
             // 
@@ -1878,8 +1908,6 @@
         private System.Windows.Forms.Button _roiResetBtn;
         private System.Windows.Forms.Button _roiBtn;
         private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button _findCircleButton;
         private System.Windows.Forms.TabControl tabControl5;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Label _angelLabel;
@@ -1925,7 +1953,6 @@
         private System.Windows.Forms.Button _compareRest;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.CheckBox LaplacianCheckBox;
-        private System.Windows.Forms.Button _laplacianBtn;
         private System.Windows.Forms.Button AdaptiveThresoldBtn;
         private System.Windows.Forms.Button ToZeroInvBtn;
         private System.Windows.Forms.Button ToZeroBtn;
@@ -1955,5 +1982,11 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.HScrollBar _reMapScrollBarY;
         private System.Windows.Forms.HScrollBar _reMapScrollBarX;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Button _findCircleButton;
+        private System.Windows.Forms.Label _laplaci2;
+        private System.Windows.Forms.Label _laplaci1;
+        private System.Windows.Forms.HScrollBar _laplacianScrollBar1;
+        private System.Windows.Forms.HScrollBar _laplacianScrollBar2;
     }
 }

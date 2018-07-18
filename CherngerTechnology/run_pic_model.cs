@@ -428,8 +428,5 @@ namespace CherngerTechnology
             Cv2.ImShow("PyrDown", input);
         }
         #endregion
-
-
-
     }
 }

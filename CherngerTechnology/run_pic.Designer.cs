@@ -152,8 +152,8 @@
             this._addXlabel = new System.Windows.Forms.Label();
             this._addY = new System.Windows.Forms.Label();
             this._addX = new System.Windows.Forms.Label();
-            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this._addYScrobllar = new System.Windows.Forms.HScrollBar();
+            this._addXScrobllar = new System.Windows.Forms.HScrollBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._piclabel2 = new System.Windows.Forms.Label();
@@ -1503,8 +1503,8 @@
             this.tabPage10.Controls.Add(this._addXlabel);
             this.tabPage10.Controls.Add(this._addY);
             this.tabPage10.Controls.Add(this._addX);
-            this.tabPage10.Controls.Add(this.hScrollBar2);
-            this.tabPage10.Controls.Add(this.hScrollBar1);
+            this.tabPage10.Controls.Add(this._addYScrobllar);
+            this.tabPage10.Controls.Add(this._addXScrobllar);
             this.tabPage10.Controls.Add(this.label9);
             this.tabPage10.Controls.Add(this.label8);
             this.tabPage10.Controls.Add(this._piclabel2);
@@ -1596,25 +1596,25 @@
             this._addX.TabIndex = 57;
             this._addX.Text = "X";
             // 
-            // hScrollBar2
+            // _addYScrobllar
             // 
-            this.hScrollBar2.LargeChange = 1;
-            this.hScrollBar2.Location = new System.Drawing.Point(84, 70);
-            this.hScrollBar2.Maximum = 10;
-            this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Size = new System.Drawing.Size(155, 12);
-            this.hScrollBar2.TabIndex = 56;
-            this.hScrollBar2.Value = 5;
+            this._addYScrobllar.LargeChange = 1;
+            this._addYScrobllar.Location = new System.Drawing.Point(84, 70);
+            this._addYScrobllar.Maximum = 1000;
+            this._addYScrobllar.Name = "_addYScrobllar";
+            this._addYScrobllar.Size = new System.Drawing.Size(155, 12);
+            this._addYScrobllar.TabIndex = 56;
+            this._addYScrobllar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddYScrobllar_Scroll);
             // 
-            // hScrollBar1
+            // _addXScrobllar
             // 
-            this.hScrollBar1.LargeChange = 1;
-            this.hScrollBar1.Location = new System.Drawing.Point(84, 47);
-            this.hScrollBar1.Maximum = 10;
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(155, 12);
-            this.hScrollBar1.TabIndex = 55;
-            this.hScrollBar1.Value = 5;
+            this._addXScrobllar.LargeChange = 1;
+            this._addXScrobllar.Location = new System.Drawing.Point(84, 47);
+            this._addXScrobllar.Maximum = 1000;
+            this._addXScrobllar.Name = "_addXScrobllar";
+            this._addXScrobllar.Size = new System.Drawing.Size(155, 12);
+            this._addXScrobllar.TabIndex = 55;
+            this._addXScrobllar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddXScrobllar_Scroll);
             // 
             // label9
             // 
@@ -2107,8 +2107,8 @@
         private System.Windows.Forms.Label _addXlabel;
         private System.Windows.Forms.Label _addY;
         private System.Windows.Forms.Label _addX;
-        private System.Windows.Forms.HScrollBar hScrollBar2;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.HScrollBar _addYScrobllar;
+        private System.Windows.Forms.HScrollBar _addXScrobllar;
         private System.Windows.Forms.Button _addBtn;
         private System.Windows.Forms.Button _addRoi;
         private System.Windows.Forms.Button _addDelete;

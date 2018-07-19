@@ -144,6 +144,16 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this._contourCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this._addDelete = new System.Windows.Forms.Button();
+            this._addReset = new System.Windows.Forms.Button();
+            this._addBtn = new System.Windows.Forms.Button();
+            this._addRoi = new System.Windows.Forms.Button();
+            this._addlabelY = new System.Windows.Forms.Label();
+            this._addXlabel = new System.Windows.Forms.Label();
+            this._addY = new System.Windows.Forms.Label();
+            this._addX = new System.Windows.Forms.Label();
+            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
+            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._piclabel2 = new System.Windows.Forms.Label();
@@ -1485,6 +1495,16 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this._addDelete);
+            this.tabPage10.Controls.Add(this._addReset);
+            this.tabPage10.Controls.Add(this._addBtn);
+            this.tabPage10.Controls.Add(this._addRoi);
+            this.tabPage10.Controls.Add(this._addlabelY);
+            this.tabPage10.Controls.Add(this._addXlabel);
+            this.tabPage10.Controls.Add(this._addY);
+            this.tabPage10.Controls.Add(this._addX);
+            this.tabPage10.Controls.Add(this.hScrollBar2);
+            this.tabPage10.Controls.Add(this.hScrollBar1);
             this.tabPage10.Controls.Add(this.label9);
             this.tabPage10.Controls.Add(this.label8);
             this.tabPage10.Controls.Add(this._piclabel2);
@@ -1500,10 +1520,106 @@
             this.tabPage10.Text = "AddWeight";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // _addDelete
+            // 
+            this._addDelete.Location = new System.Drawing.Point(286, 19);
+            this._addDelete.Name = "_addDelete";
+            this._addDelete.Size = new System.Drawing.Size(53, 23);
+            this._addDelete.TabIndex = 64;
+            this._addDelete.Text = "Delete";
+            this._addDelete.UseVisualStyleBackColor = true;
+            this._addDelete.Click += new System.EventHandler(this.AddDelete_Click);
+            // 
+            // _addReset
+            // 
+            this._addReset.Location = new System.Drawing.Point(216, 19);
+            this._addReset.Name = "_addReset";
+            this._addReset.Size = new System.Drawing.Size(53, 23);
+            this._addReset.TabIndex = 63;
+            this._addReset.Text = "Reset";
+            this._addReset.UseVisualStyleBackColor = true;
+            this._addReset.Click += new System.EventHandler(this.AddReset_Click);
+            // 
+            // _addBtn
+            // 
+            this._addBtn.Location = new System.Drawing.Point(144, 19);
+            this._addBtn.Name = "_addBtn";
+            this._addBtn.Size = new System.Drawing.Size(54, 23);
+            this._addBtn.TabIndex = 62;
+            this._addBtn.Text = "ADD";
+            this._addBtn.UseVisualStyleBackColor = true;
+            this._addBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // _addRoi
+            // 
+            this._addRoi.Location = new System.Drawing.Point(73, 19);
+            this._addRoi.Name = "_addRoi";
+            this._addRoi.Size = new System.Drawing.Size(54, 23);
+            this._addRoi.TabIndex = 61;
+            this._addRoi.Text = "Roi";
+            this._addRoi.UseVisualStyleBackColor = true;
+            this._addRoi.Click += new System.EventHandler(this.AddRoi_Click);
+            // 
+            // _addlabelY
+            // 
+            this._addlabelY.AutoSize = true;
+            this._addlabelY.Location = new System.Drawing.Point(258, 70);
+            this._addlabelY.Name = "_addlabelY";
+            this._addlabelY.Size = new System.Drawing.Size(11, 12);
+            this._addlabelY.TabIndex = 60;
+            this._addlabelY.Text = "0";
+            // 
+            // _addXlabel
+            // 
+            this._addXlabel.AutoSize = true;
+            this._addXlabel.Location = new System.Drawing.Point(258, 47);
+            this._addXlabel.Name = "_addXlabel";
+            this._addXlabel.Size = new System.Drawing.Size(11, 12);
+            this._addXlabel.TabIndex = 59;
+            this._addXlabel.Text = "0";
+            // 
+            // _addY
+            // 
+            this._addY.AutoSize = true;
+            this._addY.Location = new System.Drawing.Point(31, 70);
+            this._addY.Name = "_addY";
+            this._addY.Size = new System.Drawing.Size(13, 12);
+            this._addY.TabIndex = 58;
+            this._addY.Text = "Y";
+            // 
+            // _addX
+            // 
+            this._addX.AutoSize = true;
+            this._addX.Location = new System.Drawing.Point(31, 47);
+            this._addX.Name = "_addX";
+            this._addX.Size = new System.Drawing.Size(13, 12);
+            this._addX.TabIndex = 57;
+            this._addX.Text = "X";
+            // 
+            // hScrollBar2
+            // 
+            this.hScrollBar2.LargeChange = 1;
+            this.hScrollBar2.Location = new System.Drawing.Point(84, 70);
+            this.hScrollBar2.Maximum = 10;
+            this.hScrollBar2.Name = "hScrollBar2";
+            this.hScrollBar2.Size = new System.Drawing.Size(155, 12);
+            this.hScrollBar2.TabIndex = 56;
+            this.hScrollBar2.Value = 5;
+            // 
+            // hScrollBar1
+            // 
+            this.hScrollBar1.LargeChange = 1;
+            this.hScrollBar1.Location = new System.Drawing.Point(84, 47);
+            this.hScrollBar1.Maximum = 10;
+            this.hScrollBar1.Name = "hScrollBar1";
+            this.hScrollBar1.Size = new System.Drawing.Size(155, 12);
+            this.hScrollBar1.TabIndex = 55;
+            this.hScrollBar1.Value = 5;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 133);
+            this.label9.Location = new System.Drawing.Point(31, 128);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 12);
             this.label9.TabIndex = 54;
@@ -1512,7 +1628,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 97);
+            this.label8.Location = new System.Drawing.Point(31, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 12);
             this.label8.TabIndex = 53;
@@ -1521,25 +1637,25 @@
             // _piclabel2
             // 
             this._piclabel2.AutoSize = true;
-            this._piclabel2.Location = new System.Drawing.Point(228, 133);
+            this._piclabel2.Location = new System.Drawing.Point(258, 128);
             this._piclabel2.Name = "_piclabel2";
-            this._piclabel2.Size = new System.Drawing.Size(11, 12);
+            this._piclabel2.Size = new System.Drawing.Size(20, 12);
             this._piclabel2.TabIndex = 52;
-            this._piclabel2.Text = "0";
+            this._piclabel2.Text = "0.5";
             // 
             // _piclabel1
             // 
             this._piclabel1.AutoSize = true;
-            this._piclabel1.Location = new System.Drawing.Point(228, 97);
+            this._piclabel1.Location = new System.Drawing.Point(258, 97);
             this._piclabel1.Name = "_piclabel1";
-            this._piclabel1.Size = new System.Drawing.Size(11, 12);
+            this._piclabel1.Size = new System.Drawing.Size(20, 12);
             this._piclabel1.TabIndex = 51;
-            this._piclabel1.Text = "0";
+            this._piclabel1.Text = "0.5";
             // 
             // _picScrollBar2
             // 
             this._picScrollBar2.LargeChange = 1;
-            this._picScrollBar2.Location = new System.Drawing.Point(56, 133);
+            this._picScrollBar2.Location = new System.Drawing.Point(84, 128);
             this._picScrollBar2.Maximum = 10;
             this._picScrollBar2.Name = "_picScrollBar2";
             this._picScrollBar2.Size = new System.Drawing.Size(155, 12);
@@ -1550,7 +1666,7 @@
             // _picScrollBar1
             // 
             this._picScrollBar1.LargeChange = 1;
-            this._picScrollBar1.Location = new System.Drawing.Point(56, 97);
+            this._picScrollBar1.Location = new System.Drawing.Point(84, 97);
             this._picScrollBar1.Maximum = 10;
             this._picScrollBar1.Name = "_picScrollBar1";
             this._picScrollBar1.Size = new System.Drawing.Size(155, 12);
@@ -1678,7 +1794,6 @@
             this._reMapScrollBarX.Name = "_reMapScrollBarX";
             this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
             this._reMapScrollBarX.TabIndex = 5;
-            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
             // 
             // dataGridView1
             // 
@@ -1988,5 +2103,15 @@
         private System.Windows.Forms.Label _laplaci1;
         private System.Windows.Forms.HScrollBar _laplacianScrollBar1;
         private System.Windows.Forms.HScrollBar _laplacianScrollBar2;
+        private System.Windows.Forms.Label _addlabelY;
+        private System.Windows.Forms.Label _addXlabel;
+        private System.Windows.Forms.Label _addY;
+        private System.Windows.Forms.Label _addX;
+        private System.Windows.Forms.HScrollBar hScrollBar2;
+        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.Button _addBtn;
+        private System.Windows.Forms.Button _addRoi;
+        private System.Windows.Forms.Button _addDelete;
+        private System.Windows.Forms.Button _addReset;
     }
 }

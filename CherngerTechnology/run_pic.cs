@@ -23,7 +23,7 @@ namespace CherngerTechnology
         string addFileName = string.Empty;
         string compareFileName = string.Empty;
         int LWidth, HWidth, LHeight, HHeight;
-        bool compareRoiBtn = false, compareBtn = false;
+        bool compareRoiBtn = false, addRoiBtn = false;
         public run_pic()
         {
             InitializeComponent();
@@ -102,10 +102,11 @@ namespace CherngerTechnology
             Roi[Roi.Count - 1].MouseUp += new MouseEventHandler(up);
             Roi[Roi.Count - 1].MouseClick += new MouseEventHandler(click);
             Roi[Roi.Count - 1].Name = (Roi.Count - 1).ToString();
-            if (compareRoiBtn)
+            if (compareRoiBtn||addRoiBtn)
             {
                 Roi[Roi.Count - 1].Parent = pictureBox3;
                 compareRoiBtn = false;
+                addRoiBtn = false;
             }
             else
                 Roi[Roi.Count - 1].Parent = pictureBox1;
@@ -414,6 +415,7 @@ namespace CherngerTechnology
 
         #region Threshold
         int Threshodl_Select = 0;
+
         private void ThresholdcheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (_thresholdcheckBox.Checked)
@@ -535,6 +537,29 @@ namespace CherngerTechnology
         #endregion
 
         #region AddWeight
+
+        private void AddReset_Click(object sender, EventArgs e)
+        {
+            this.RoiResetBtn_Click(sender, e);
+        }
+        private void AddDelete_Click(object sender, EventArgs e)
+        {
+            this.RoiDeleteBtn_Click(sender, e);
+        }
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            Roi_formula(pictureBox3, src, ref srcRoi);
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
+            pictureBox2.Image = input.ToBitmap();
+        }
+        private void AddRoi_Click(object sender, EventArgs e)
+        {
+            addRoiBtn = true;
+            this.RoiNewBtn_Click(sender, e);
+        }
         private void New_Click(object sender, EventArgs e)
         {
             OpenFileDialog dig = new OpenFileDialog();
@@ -557,8 +582,12 @@ namespace CherngerTechnology
             _piclabel1.Text = "" + _picScrollBar1.Value / (double)10;
             if (addFileName != string.Empty)
             {
-                Cv2.AddWeighted(input, _picScrollBar1.Value/ (double)10, addinput2, _picScrollBar2.Value/ (double)10, 0, input2);
-                pictureBox2.Image = input2.ToBitmap();
+                Mat roi = new Mat();
+                Mat srcRoi = new Mat();
+                Roi_formula(pictureBox3, addsrc, ref roi);
+                Roi_formula(pictureBox3, src, ref srcRoi);
+                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
+                pictureBox2.Image = input.ToBitmap();
             }
         }
         private void PicScrollBar2_Scroll(object sender, ScrollEventArgs e)
@@ -566,8 +595,12 @@ namespace CherngerTechnology
             _piclabel2.Text = "" + _picScrollBar2.Value / (double)10;
             if (addFileName != string.Empty)
             {
-                Cv2.AddWeighted(input, _picScrollBar1.Value / (double)10, addinput2, _picScrollBar2.Value / (double)10, 0, input2);
-                pictureBox2.Image = input2.ToBitmap();
+                Mat roi = new Mat();
+                Mat srcRoi = new Mat();
+                Roi_formula(pictureBox3, addsrc, ref roi);
+                Roi_formula(pictureBox3, src, ref srcRoi);
+                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
+                pictureBox2.Image = input.ToBitmap();
             }
         }
         #endregion
@@ -635,7 +668,7 @@ namespace CherngerTechnology
                                     (int)Math.Ceiling(Roi[0].Width * pic.Height / pictureBox.Height * 1.0),
                                     (int)Math.Ceiling(Roi[0].Height * pic.Height / pictureBox.Height * 1.0));
                 }
-                 roi = new Mat(pic, Roi_Rect);
+                roi = new Mat(pic, Roi_Rect);
             }
         }
         #endregion
@@ -708,10 +741,6 @@ namespace CherngerTechnology
 
         #endregion
 
-        private void _reMapScrollBarX_Scroll(object sender, ScrollEventArgs e)
-        {
-
-        }
         #region OpenFile
         private void OpenFile_Click(object sender, EventArgs e)
         {

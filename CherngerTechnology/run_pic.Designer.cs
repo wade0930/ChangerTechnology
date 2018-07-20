@@ -152,8 +152,8 @@
             this._addXlabel = new System.Windows.Forms.Label();
             this._addY = new System.Windows.Forms.Label();
             this._addX = new System.Windows.Forms.Label();
-            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
-            this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.AddYhScrollBar = new System.Windows.Forms.HScrollBar();
+            this.AddXhScrollBar = new System.Windows.Forms.HScrollBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._piclabel2 = new System.Windows.Forms.Label();
@@ -180,6 +180,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -230,6 +232,7 @@
             this.tabPage18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabPage19.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -575,6 +578,7 @@
             this._cannyScrollBar2.Name = "_cannyScrollBar2";
             this._cannyScrollBar2.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar2.TabIndex = 6;
+            this._cannyScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this._cannyScrollBar2_Scroll);
             // 
             // _cannylabel1
             // 
@@ -592,6 +596,7 @@
             this._cannyScrollBar1.Name = "_cannyScrollBar1";
             this._cannyScrollBar1.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar1.TabIndex = 4;
+            this._cannyScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this._cannyScrollBar1_Scroll);
             // 
             // _cannyCheck
             // 
@@ -1174,6 +1179,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage16);
+            this.tabControl3.Controls.Add(this.tabPage19);
             this.tabControl3.Location = new System.Drawing.Point(368, 411);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1503,8 +1509,8 @@
             this.tabPage10.Controls.Add(this._addXlabel);
             this.tabPage10.Controls.Add(this._addY);
             this.tabPage10.Controls.Add(this._addX);
-            this.tabPage10.Controls.Add(this.hScrollBar2);
-            this.tabPage10.Controls.Add(this.hScrollBar1);
+            this.tabPage10.Controls.Add(this.AddYhScrollBar);
+            this.tabPage10.Controls.Add(this.AddXhScrollBar);
             this.tabPage10.Controls.Add(this.label9);
             this.tabPage10.Controls.Add(this.label8);
             this.tabPage10.Controls.Add(this._piclabel2);
@@ -1596,25 +1602,23 @@
             this._addX.TabIndex = 57;
             this._addX.Text = "X";
             // 
-            // hScrollBar2
+            // AddYhScrollBar
             // 
-            this.hScrollBar2.LargeChange = 1;
-            this.hScrollBar2.Location = new System.Drawing.Point(84, 70);
-            this.hScrollBar2.Maximum = 10;
-            this.hScrollBar2.Name = "hScrollBar2";
-            this.hScrollBar2.Size = new System.Drawing.Size(155, 12);
-            this.hScrollBar2.TabIndex = 56;
-            this.hScrollBar2.Value = 5;
+            this.AddYhScrollBar.LargeChange = 1;
+            this.AddYhScrollBar.Location = new System.Drawing.Point(84, 70);
+            this.AddYhScrollBar.Name = "AddYhScrollBar";
+            this.AddYhScrollBar.Size = new System.Drawing.Size(155, 12);
+            this.AddYhScrollBar.TabIndex = 56;
+            this.AddYhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddYhScrollBar_Scroll);
             // 
-            // hScrollBar1
+            // AddXhScrollBar
             // 
-            this.hScrollBar1.LargeChange = 1;
-            this.hScrollBar1.Location = new System.Drawing.Point(84, 47);
-            this.hScrollBar1.Maximum = 10;
-            this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(155, 12);
-            this.hScrollBar1.TabIndex = 55;
-            this.hScrollBar1.Value = 5;
+            this.AddXhScrollBar.LargeChange = 1;
+            this.AddXhScrollBar.Location = new System.Drawing.Point(84, 47);
+            this.AddXhScrollBar.Name = "AddXhScrollBar";
+            this.AddXhScrollBar.Size = new System.Drawing.Size(155, 12);
+            this.AddXhScrollBar.TabIndex = 55;
+            this.AddXhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddXhScrollBar_Scroll);
             // 
             // label9
             // 
@@ -1794,6 +1798,7 @@
             this._reMapScrollBarX.Name = "_reMapScrollBarX";
             this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
             this._reMapScrollBarX.TabIndex = 5;
+            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
             // 
             // dataGridView1
             // 
@@ -1869,6 +1874,27 @@
             this._saveBtn.Text = "Save";
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // tabPage19
+            // 
+            this.tabPage19.Controls.Add(this.button1);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(349, 100);
+            this.tabPage19.TabIndex = 4;
+            this.tabPage19.Text = "tabPage19";
+            this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(109, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // run_pic
             // 
@@ -1956,6 +1982,7 @@
             this.tabPage18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2107,11 +2134,13 @@
         private System.Windows.Forms.Label _addXlabel;
         private System.Windows.Forms.Label _addY;
         private System.Windows.Forms.Label _addX;
-        private System.Windows.Forms.HScrollBar hScrollBar2;
-        private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.HScrollBar AddYhScrollBar;
+        private System.Windows.Forms.HScrollBar AddXhScrollBar;
         private System.Windows.Forms.Button _addBtn;
         private System.Windows.Forms.Button _addRoi;
         private System.Windows.Forms.Button _addDelete;
         private System.Windows.Forms.Button _addReset;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.Button button1;
     }
 }

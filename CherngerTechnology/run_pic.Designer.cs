@@ -144,6 +144,16 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this._contourCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this._addlabelY = new System.Windows.Forms.Label();
+            this._addXlabel = new System.Windows.Forms.Label();
+            this._addY = new System.Windows.Forms.Label();
+            this._addX = new System.Windows.Forms.Label();
+            this.AddYhScrollBar = new System.Windows.Forms.HScrollBar();
+            this.AddXhScrollBar = new System.Windows.Forms.HScrollBar();
+            this._addDelete = new System.Windows.Forms.Button();
+            this._addReset = new System.Windows.Forms.Button();
+            this._addBtn = new System.Windows.Forms.Button();
+            this._addRoi = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this._piclabel2 = new System.Windows.Forms.Label();
@@ -155,13 +165,15 @@
             this.PyrDownBtn = new System.Windows.Forms.Button();
             this.PyrUpBtn = new System.Windows.Forms.Button();
             this.tabPage18 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this._remapY = new System.Windows.Forms.Label();
-            this._remapX = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this._reMapScrollBarY = new System.Windows.Forms.HScrollBar();
-            this._reMapScrollBarX = new System.Windows.Forms.HScrollBar();
+            this._save = new System.Windows.Forms.Button();
+            this._resetBtn = new System.Windows.Forms.Button();
+            this._maskNew = new System.Windows.Forms.Button();
+            this._maskBtn = new System.Windows.Forms.Button();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this._grabCutSaveBtn = new System.Windows.Forms.Button();
+            this._grabCutBtn = new System.Windows.Forms.Button();
+            this._grabCutResetBtn = new System.Windows.Forms.Button();
+            this._grabCutNewBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -218,6 +230,7 @@
             this.tabPage10.SuspendLayout();
             this.tabPage17.SuspendLayout();
             this.tabPage18.SuspendLayout();
+            this.tabPage19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -565,6 +578,7 @@
             this._cannyScrollBar2.Name = "_cannyScrollBar2";
             this._cannyScrollBar2.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar2.TabIndex = 6;
+            this._cannyScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar2_Scroll);
             // 
             // _cannylabel1
             // 
@@ -582,6 +596,7 @@
             this._cannyScrollBar1.Name = "_cannyScrollBar1";
             this._cannyScrollBar1.Size = new System.Drawing.Size(188, 18);
             this._cannyScrollBar1.TabIndex = 4;
+            this._cannyScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.CannyScrollBar1_Scroll);
             // 
             // _cannyCheck
             // 
@@ -1275,6 +1290,7 @@
             this.tabControl5.Controls.Add(this.tabPage10);
             this.tabControl5.Controls.Add(this.tabPage17);
             this.tabControl5.Controls.Add(this.tabPage18);
+            this.tabControl5.Controls.Add(this.tabPage19);
             this.tabControl5.Location = new System.Drawing.Point(368, 543);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
@@ -1485,6 +1501,16 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this._addlabelY);
+            this.tabPage10.Controls.Add(this._addXlabel);
+            this.tabPage10.Controls.Add(this._addY);
+            this.tabPage10.Controls.Add(this._addX);
+            this.tabPage10.Controls.Add(this.AddYhScrollBar);
+            this.tabPage10.Controls.Add(this.AddXhScrollBar);
+            this.tabPage10.Controls.Add(this._addDelete);
+            this.tabPage10.Controls.Add(this._addReset);
+            this.tabPage10.Controls.Add(this._addBtn);
+            this.tabPage10.Controls.Add(this._addRoi);
             this.tabPage10.Controls.Add(this.label9);
             this.tabPage10.Controls.Add(this.label8);
             this.tabPage10.Controls.Add(this._piclabel2);
@@ -1500,10 +1526,106 @@
             this.tabPage10.Text = "AddWeight";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
+            // _addlabelY
+            // 
+            this._addlabelY.AutoSize = true;
+            this._addlabelY.Location = new System.Drawing.Point(228, 73);
+            this._addlabelY.Name = "_addlabelY";
+            this._addlabelY.Size = new System.Drawing.Size(11, 12);
+            this._addlabelY.TabIndex = 71;
+            this._addlabelY.Text = "0";
+            // 
+            // _addXlabel
+            // 
+            this._addXlabel.AutoSize = true;
+            this._addXlabel.Location = new System.Drawing.Point(228, 45);
+            this._addXlabel.Name = "_addXlabel";
+            this._addXlabel.Size = new System.Drawing.Size(11, 12);
+            this._addXlabel.TabIndex = 70;
+            this._addXlabel.Text = "0";
+            // 
+            // _addY
+            // 
+            this._addY.AutoSize = true;
+            this._addY.Location = new System.Drawing.Point(18, 73);
+            this._addY.Name = "_addY";
+            this._addY.Size = new System.Drawing.Size(13, 12);
+            this._addY.TabIndex = 69;
+            this._addY.Text = "Y";
+            // 
+            // _addX
+            // 
+            this._addX.AutoSize = true;
+            this._addX.Location = new System.Drawing.Point(18, 45);
+            this._addX.Name = "_addX";
+            this._addX.Size = new System.Drawing.Size(13, 12);
+            this._addX.TabIndex = 68;
+            this._addX.Text = "X";
+            // 
+            // AddYhScrollBar
+            // 
+            this.AddYhScrollBar.LargeChange = 1;
+            this.AddYhScrollBar.Location = new System.Drawing.Point(56, 73);
+            this.AddYhScrollBar.Maximum = 1000;
+            this.AddYhScrollBar.Name = "AddYhScrollBar";
+            this.AddYhScrollBar.Size = new System.Drawing.Size(155, 12);
+            this.AddYhScrollBar.TabIndex = 67;
+            this.AddYhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddYhScrollBar_Scroll);
+            // 
+            // AddXhScrollBar
+            // 
+            this.AddXhScrollBar.LargeChange = 1;
+            this.AddXhScrollBar.Location = new System.Drawing.Point(56, 45);
+            this.AddXhScrollBar.Maximum = 1000;
+            this.AddXhScrollBar.Name = "AddXhScrollBar";
+            this.AddXhScrollBar.Size = new System.Drawing.Size(155, 12);
+            this.AddXhScrollBar.TabIndex = 66;
+            this.AddXhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.AddXhScrollBar_Scroll);
+            // 
+            // _addDelete
+            // 
+            this._addDelete.Location = new System.Drawing.Point(286, 19);
+            this._addDelete.Name = "_addDelete";
+            this._addDelete.Size = new System.Drawing.Size(53, 23);
+            this._addDelete.TabIndex = 65;
+            this._addDelete.Text = "Delete";
+            this._addDelete.UseVisualStyleBackColor = true;
+            this._addDelete.Click += new System.EventHandler(this._addDelete_Click);
+            // 
+            // _addReset
+            // 
+            this._addReset.Location = new System.Drawing.Point(213, 19);
+            this._addReset.Name = "_addReset";
+            this._addReset.Size = new System.Drawing.Size(53, 23);
+            this._addReset.TabIndex = 64;
+            this._addReset.Text = "Reset";
+            this._addReset.UseVisualStyleBackColor = true;
+            this._addReset.Click += new System.EventHandler(this._addReset_Click);
+            // 
+            // _addBtn
+            // 
+            this._addBtn.Location = new System.Drawing.Point(143, 19);
+            this._addBtn.Name = "_addBtn";
+            this._addBtn.Size = new System.Drawing.Size(54, 23);
+            this._addBtn.TabIndex = 63;
+            this._addBtn.Text = "ADD";
+            this._addBtn.UseVisualStyleBackColor = true;
+            this._addBtn.Click += new System.EventHandler(this._addBtn_Click);
+            // 
+            // _addRoi
+            // 
+            this._addRoi.Location = new System.Drawing.Point(71, 19);
+            this._addRoi.Name = "_addRoi";
+            this._addRoi.Size = new System.Drawing.Size(54, 23);
+            this._addRoi.TabIndex = 62;
+            this._addRoi.Text = "Roi";
+            this._addRoi.UseVisualStyleBackColor = true;
+            this._addRoi.Click += new System.EventHandler(this.AddRoi_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 133);
+            this.label9.Location = new System.Drawing.Point(18, 133);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(25, 12);
             this.label9.TabIndex = 54;
@@ -1512,7 +1634,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 97);
+            this.label8.Location = new System.Drawing.Point(18, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(25, 12);
             this.label8.TabIndex = 53;
@@ -1602,83 +1724,111 @@
             // 
             // tabPage18
             // 
-            this.tabPage18.Controls.Add(this.label13);
-            this.tabPage18.Controls.Add(this.label12);
-            this.tabPage18.Controls.Add(this._remapY);
-            this.tabPage18.Controls.Add(this._remapX);
-            this.tabPage18.Controls.Add(this.checkBox1);
-            this.tabPage18.Controls.Add(this._reMapScrollBarY);
-            this.tabPage18.Controls.Add(this._reMapScrollBarX);
+            this.tabPage18.Controls.Add(this._save);
+            this.tabPage18.Controls.Add(this._resetBtn);
+            this.tabPage18.Controls.Add(this._maskNew);
+            this.tabPage18.Controls.Add(this._maskBtn);
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage18.Size = new System.Drawing.Size(345, 174);
             this.tabPage18.TabIndex = 7;
-            this.tabPage18.Text = "remap";
+            this.tabPage18.Text = "Mask";
             this.tabPage18.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // _save
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(302, 92);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(11, 12);
-            this.label13.TabIndex = 57;
-            this.label13.Text = "0";
+            this._save.Location = new System.Drawing.Point(17, 62);
+            this._save.Name = "_save";
+            this._save.Size = new System.Drawing.Size(75, 24);
+            this._save.TabIndex = 11;
+            this._save.Text = "Save";
+            this._save.UseVisualStyleBackColor = true;
+            this._save.Click += new System.EventHandler(this.Save_Click);
             // 
-            // label12
+            // _resetBtn
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(302, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(11, 12);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "0";
+            this._resetBtn.Location = new System.Drawing.Point(112, 9);
+            this._resetBtn.Name = "_resetBtn";
+            this._resetBtn.Size = new System.Drawing.Size(75, 24);
+            this._resetBtn.TabIndex = 10;
+            this._resetBtn.Text = "Reset";
+            this._resetBtn.UseVisualStyleBackColor = true;
+            this._resetBtn.Click += new System.EventHandler(this._resetBtn_Click);
             // 
-            // _remapY
+            // _maskNew
             // 
-            this._remapY.AutoSize = true;
-            this._remapY.Location = new System.Drawing.Point(51, 80);
-            this._remapY.Name = "_remapY";
-            this._remapY.Size = new System.Drawing.Size(11, 12);
-            this._remapY.TabIndex = 55;
-            this._remapY.Text = "y";
+            this._maskNew.Location = new System.Drawing.Point(17, 9);
+            this._maskNew.Name = "_maskNew";
+            this._maskNew.Size = new System.Drawing.Size(75, 24);
+            this._maskNew.TabIndex = 2;
+            this._maskNew.Text = "New";
+            this._maskNew.UseVisualStyleBackColor = true;
+            this._maskNew.Click += new System.EventHandler(this.MaskNew_Click);
             // 
-            // _remapX
+            // _maskBtn
             // 
-            this._remapX.AutoSize = true;
-            this._remapX.Location = new System.Drawing.Point(51, 31);
-            this._remapX.Name = "_remapX";
-            this._remapX.Size = new System.Drawing.Size(11, 12);
-            this._remapX.TabIndex = 54;
-            this._remapX.Text = "x";
+            this._maskBtn.Location = new System.Drawing.Point(208, 9);
+            this._maskBtn.Name = "_maskBtn";
+            this._maskBtn.Size = new System.Drawing.Size(75, 24);
+            this._maskBtn.TabIndex = 1;
+            this._maskBtn.Text = "Mask";
+            this._maskBtn.UseVisualStyleBackColor = true;
+            this._maskBtn.Click += new System.EventHandler(this.MaskBtn_Click);
             // 
-            // checkBox1
+            // tabPage19
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 114);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 16);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Canny";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tabPage19.Controls.Add(this._grabCutSaveBtn);
+            this.tabPage19.Controls.Add(this._grabCutBtn);
+            this.tabPage19.Controls.Add(this._grabCutResetBtn);
+            this.tabPage19.Controls.Add(this._grabCutNewBtn);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(345, 174);
+            this.tabPage19.TabIndex = 8;
+            this.tabPage19.Text = "去背";
+            this.tabPage19.UseVisualStyleBackColor = true;
             // 
-            // _reMapScrollBarY
+            // _grabCutSaveBtn
             // 
-            this._reMapScrollBarY.Location = new System.Drawing.Point(88, 80);
-            this._reMapScrollBarY.Maximum = 264;
-            this._reMapScrollBarY.Name = "_reMapScrollBarY";
-            this._reMapScrollBarY.Size = new System.Drawing.Size(188, 18);
-            this._reMapScrollBarY.TabIndex = 6;
+            this._grabCutSaveBtn.Location = new System.Drawing.Point(6, 66);
+            this._grabCutSaveBtn.Name = "_grabCutSaveBtn";
+            this._grabCutSaveBtn.Size = new System.Drawing.Size(75, 24);
+            this._grabCutSaveBtn.TabIndex = 13;
+            this._grabCutSaveBtn.Text = "Save";
+            this._grabCutSaveBtn.UseVisualStyleBackColor = true;
+            this._grabCutSaveBtn.Click += new System.EventHandler(this.GrabCutSaveBtn_Click);
             // 
-            // _reMapScrollBarX
+            // _grabCutBtn
             // 
-            this._reMapScrollBarX.Location = new System.Drawing.Point(88, 31);
-            this._reMapScrollBarX.Maximum = 264;
-            this._reMapScrollBarX.Name = "_reMapScrollBarX";
-            this._reMapScrollBarX.Size = new System.Drawing.Size(188, 18);
-            this._reMapScrollBarX.TabIndex = 5;
-            this._reMapScrollBarX.Scroll += new System.Windows.Forms.ScrollEventHandler(this._reMapScrollBarX_Scroll);
+            this._grabCutBtn.Location = new System.Drawing.Point(223, 14);
+            this._grabCutBtn.Name = "_grabCutBtn";
+            this._grabCutBtn.Size = new System.Drawing.Size(75, 24);
+            this._grabCutBtn.TabIndex = 12;
+            this._grabCutBtn.Text = "去背";
+            this._grabCutBtn.UseVisualStyleBackColor = true;
+            this._grabCutBtn.Click += new System.EventHandler(this.GrabCutBtn_Click);
+            // 
+            // _grabCutResetBtn
+            // 
+            this._grabCutResetBtn.Location = new System.Drawing.Point(122, 14);
+            this._grabCutResetBtn.Name = "_grabCutResetBtn";
+            this._grabCutResetBtn.Size = new System.Drawing.Size(75, 24);
+            this._grabCutResetBtn.TabIndex = 11;
+            this._grabCutResetBtn.Text = "Reset";
+            this._grabCutResetBtn.UseVisualStyleBackColor = true;
+            this._grabCutResetBtn.Click += new System.EventHandler(this.GrabCutResetBtn_Click);
+            // 
+            // _grabCutNewBtn
+            // 
+            this._grabCutNewBtn.Location = new System.Drawing.Point(6, 14);
+            this._grabCutNewBtn.Name = "_grabCutNewBtn";
+            this._grabCutNewBtn.Size = new System.Drawing.Size(75, 24);
+            this._grabCutNewBtn.TabIndex = 3;
+            this._grabCutNewBtn.Text = "New";
+            this._grabCutNewBtn.UseVisualStyleBackColor = true;
+            this._grabCutNewBtn.Click += new System.EventHandler(this.GrabCutNewBtn_Click);
             // 
             // dataGridView1
             // 
@@ -1838,7 +1988,7 @@
             this.tabPage10.PerformLayout();
             this.tabPage17.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
-            this.tabPage18.PerformLayout();
+            this.tabPage19.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -1974,19 +2124,31 @@
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.Button PyrDownBtn;
         private System.Windows.Forms.Button PyrUpBtn;
-        private System.Windows.Forms.TabPage tabPage18;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label _remapY;
-        private System.Windows.Forms.Label _remapX;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.HScrollBar _reMapScrollBarY;
-        private System.Windows.Forms.HScrollBar _reMapScrollBarX;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.Button _findCircleButton;
         private System.Windows.Forms.Label _laplaci2;
         private System.Windows.Forms.Label _laplaci1;
         private System.Windows.Forms.HScrollBar _laplacianScrollBar1;
         private System.Windows.Forms.HScrollBar _laplacianScrollBar2;
+        private System.Windows.Forms.Label _addlabelY;
+        private System.Windows.Forms.Label _addXlabel;
+        private System.Windows.Forms.Label _addY;
+        private System.Windows.Forms.Label _addX;
+        private System.Windows.Forms.HScrollBar AddYhScrollBar;
+        private System.Windows.Forms.HScrollBar AddXhScrollBar;
+        private System.Windows.Forms.Button _addDelete;
+        private System.Windows.Forms.Button _addReset;
+        private System.Windows.Forms.Button _addBtn;
+        private System.Windows.Forms.Button _addRoi;
+        private System.Windows.Forms.TabPage tabPage18;
+        private System.Windows.Forms.Button _resetBtn;
+        private System.Windows.Forms.Button _maskNew;
+        private System.Windows.Forms.Button _maskBtn;
+        private System.Windows.Forms.Button _save;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.Button _grabCutSaveBtn;
+        private System.Windows.Forms.Button _grabCutBtn;
+        private System.Windows.Forms.Button _grabCutResetBtn;
+        private System.Windows.Forms.Button _grabCutNewBtn;
     }
 }

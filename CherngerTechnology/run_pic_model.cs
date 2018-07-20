@@ -16,41 +16,6 @@ namespace CherngerTechnology
 {
     public partial class run_pic
     {
-        #region Canny
-        private void CannyCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            if (_cannyCheck.Checked)
-            {
-                preimg = input2.Clone();
-                Cv2.Canny(input2, input2, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
-                pictureBox1.Image = input2.ToBitmap();
-                //   input2.Release();
-            }
-        }
-
-        private void CannyScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-            _cannylabel1.Text = "" + _cannyScrollBar1.Value;
-            if (fileName != string.Empty)
-            {
-                input = input2.Clone();
-                Cv2.Canny(input, input, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
-                pictureBox2.Image = input.ToBitmap();
-                input.Release();
-            }
-        }
-        private void CannyScrollBar2_Scroll(object sender, ScrollEventArgs e)
-        {
-            _cannylabel2.Text = "" + _cannyScrollBar2.Value;
-            if (fileName != string.Empty)
-            {
-                input = input2.Clone();
-                Cv2.Canny(input, input, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
-                pictureBox2.Image = input.ToBitmap();
-                input.Release();
-            }
-        }
-        #endregion
 
         #region Adaptive
         //將像素切成幾個區塊

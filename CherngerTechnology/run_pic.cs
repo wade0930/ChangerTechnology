@@ -102,7 +102,7 @@ namespace CherngerTechnology
             Roi[Roi.Count - 1].MouseUp += new MouseEventHandler(up);
             Roi[Roi.Count - 1].MouseClick += new MouseEventHandler(click);
             Roi[Roi.Count - 1].Name = (Roi.Count - 1).ToString();
-            if (compareRoiBtn||addRoiBtn)
+            if (compareRoiBtn || addRoiBtn)
             {
                 Roi[Roi.Count - 1].Parent = pictureBox3;
                 compareRoiBtn = false;
@@ -191,8 +191,8 @@ namespace CherngerTechnology
         private void RoiBtn_Click(object sender, EventArgs e)
         {
             Mat roi = new Mat();
-            Roi_formula(pictureBox1, src);
-            roi = new Mat(src, Roi_Rect);
+            Roi_formula(pictureBox1, input2, ref roi);
+            //input2 = roi.Clone();
             pictureBox2.Image = roi.ToBitmap();
         }
         #endregion
@@ -239,13 +239,13 @@ namespace CherngerTechnology
                     {
                         
                         Cv2.DrawContours(dst, contours, i, new Scalar(255, 0, 0), 3, LineTypes.Link8, hierarchyIndexes, int.MaxValue);
-                        Cv2.PutText(dst, num.ToString(), new OpenCvSharp.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2), HersheyFonts.HersheyComplex, 4.0, Scalar.Red, 1);
+                //        Cv2.PutText(dst, num.ToString(), new OpenCvSharp.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2), HersheyFonts.HersheyComplex, 4.0, Scalar.Red, 1);
                         dataGridView1.Rows.Add(new string[] { num.ToString(), area.ToString(), rect.Width.ToString(), rect.Height.ToString(), Math.Round((int)rect.Width / 2 + (double)rect.X) + " " + Math.Round(rect.Height / 2 + (double)rect.Y) });
                         num++;
                     }
                 }
             }
-                Cv2.ImShow("test", dst);
+               // Cv2.ImShow("test", dst);
         }
         #endregion
 
@@ -414,9 +414,116 @@ namespace CherngerTechnology
         }
         #endregion
 
+        #region Canny
+        private void CannyCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_cannyCheck.Checked)
+            {
+                preimg = input2.Clone();
+                Cv2.Canny(input2, input2, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
+                pictureBox1.Image = input2.ToBitmap();
+                //   input2.Release();
+            }
+        }
+
+        private void CannyScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            _cannylabel1.Text = "" + _cannyScrollBar1.Value;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Canny(input, input, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+        private void CannyScrollBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            _cannylabel2.Text = "" + _cannyScrollBar2.Value;
+            if (fileName != string.Empty)
+            {
+                input = input2.Clone();
+                Cv2.Canny(input, input, _cannyScrollBar1.Value, _cannyScrollBar2.Value);
+                pictureBox2.Image = input.ToBitmap();
+                input.Release();
+            }
+        }
+        #endregion
+
+        #region Mask
+        Mat img = new Mat();
+        Mat tempImg = new Mat();
+        private void MaskBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Mat tempMask;
+            Mat roi = new Mat();
+            Mat mask = new Mat(input.Rows,input.Cols,MatType.CV_8UC1,Scalar.Black);
+            Roi_formula(pictureBox1, input, ref roi);
+            tempMask = new Mat(mask,Roi_Rect);
+            tempMask.SetTo(255);
+            input.CopyTo(img,mask);//原圖拷貝到img
+            pictureBox2.Image = img.ToBitmap();
+            tempImg = img.Clone();
+            mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
+            img = mask.Clone();
+        }
+
+        private void MaskNew_Click(object sender, EventArgs e)
+        {
+            this.RoiNewBtn_Click(sender, e);
+        }
+
+        private void _resetBtn_Click(object sender, EventArgs e)
+        {
+            this.RoiResetBtn_Click(sender, e);
+            input2 = input.Clone();
+            pictureBox1.Image = input2.ToBitmap();
+            this.RoiDeleteBtn_Click(sender, e);
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+
+            input2 = tempImg.Clone();
+            pictureBox1.Image = input2.ToBitmap();
+        }
+        #endregion
+
+        private void GrabCutNewBtn_Click(object sender, EventArgs e)
+        {
+            this.RoiNewBtn_Click(sender, e);
+        }
+
+        private void GrabCutResetBtn_Click(object sender, EventArgs e)
+        {
+            this.RoiResetBtn_Click(sender, e);
+            input2 = input.Clone();
+            pictureBox1.Image = input2.ToBitmap();
+            this.RoiDeleteBtn_Click(sender, e);
+        }
+
+        private void GrabCutBtn_Click(object sender, EventArgs e)
+        {
+            Mat resultImg = new Mat();
+            Mat mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
+            Mat roi = new Mat();
+            Mat tempMask;
+            tempMask = new Mat(mask, Roi_Rect);
+            tempMask.SetTo(255);
+            Roi_formula(pictureBox1, dst, ref roi);
+            input.CopyTo(img, mask);//原圖拷貝到img
+            Cv2.GrabCut(dst, mask, Roi_Rect,null,null, 5, GrabCutModes.InitWithRect);
+            Cv2.ImShow("test", mask);
+        }
+
+        private void GrabCutSaveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #region Threshold
         int Threshodl_Select = 0;
-
         private void ThresholdcheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (_thresholdcheckBox.Checked)
@@ -469,8 +576,6 @@ namespace CherngerTechnology
                 input.Release();
             }
         }
-
-        
 
         private void BinaryInvBtn_Click(object sender, EventArgs e)
         {
@@ -539,67 +644,32 @@ namespace CherngerTechnology
 
         #region AddWeight
 
-        #region 調整相加圖片的X軸 
-        private void AddXScrobllar_Scroll(object sender, ScrollEventArgs e)
-        {
-            _addXlabel.Text = "" + _addXScrobllar.Value;
-            Mat roi = new Mat();
-            Roi_formula(pictureBox3, addsrc);
-            roi = new Mat(addsrc, Roi_Rect);
-            Mat srcRoi = new Mat(src, new Rect(_addXScrobllar.Value, _addYScrobllar.Value, roi.Width, roi.Height));
-            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
-            pictureBox2.Image = input.ToBitmap();
-        }
-        #endregion
-
-        #region 調整相加圖片的Y軸
-        private void AddYScrobllar_Scroll(object sender, ScrollEventArgs e)
-        {
-            _addlabelY.Text = "" + _addYScrobllar.Value;
-            Mat roi = new Mat();
-            Roi_formula(pictureBox3, addsrc);
-            roi = new Mat(addsrc, Roi_Rect);
-            Mat srcRoi = new Mat(src, new Rect(_addXScrobllar.Value, _addYScrobllar.Value, roi.Width, roi.Height));
-            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
-            pictureBox2.Image = input.ToBitmap();
-        }
-        #endregion
-
-        #region add重製
-        private void AddReset_Click(object sender, EventArgs e)
-        {
-            this.RoiResetBtn_Click(sender, e);
-        }
-        #endregion
-
-        #region add刪除
-        private void AddDelete_Click(object sender, EventArgs e)
-        {
-            this.RoiDeleteBtn_Click(sender, e);
-        }
-        #endregion
-
-        #region 圖片相加
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            Mat roi = new Mat();
-            Roi_formula(pictureBox3, addsrc);
-            roi = new Mat(addsrc, Roi_Rect);
-            Mat srcRoi = new Mat(src,new Rect(_addXScrobllar.Value,_addYScrobllar.Value,roi.Width,roi.Height));
-            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
-            pictureBox2.Image = input.ToBitmap();
-        }
-        #endregion
-
-        #region ADD_ROI
         private void AddRoi_Click(object sender, EventArgs e)
         {
             addRoiBtn = true;
             this.RoiNewBtn_Click(sender, e);
         }
-        #endregion
 
-        #region ADD新增圖片
+        private void _addBtn_Click(object sender, EventArgs e)
+        {
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void _addReset_Click(object sender, EventArgs e)
+        {
+            this.RoiResetBtn_Click(sender, e);
+        }
+
+        private void _addDelete_Click(object sender, EventArgs e)
+        {
+            this.RoiDeleteBtn_Click(sender, e);
+        }
+
         private void New_Click(object sender, EventArgs e)
         {
             OpenFileDialog dig = new OpenFileDialog();
@@ -617,44 +687,58 @@ namespace CherngerTechnology
                 addinput2 = addsrc.Clone();
             }
         }
-        #endregion
 
-        #region 圖片1透明度
         private void PicScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
             _piclabel1.Text = "" + _picScrollBar1.Value / (double)10;
-            if (addFileName != string.Empty)
-            {
-                Mat roi = new Mat();
-                Roi_formula(pictureBox3, addsrc);
-                roi = new Mat(addsrc, Roi_Rect);
-                Mat srcRoi = new Mat(src, new Rect(_addXScrobllar.Value, _addYScrobllar.Value, roi.Width, roi.Height));
-                //Roi_formula(pictureBox3, addsrc);
-                //srcRoi = new Mat(src, Roi_Rect);
-                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
-                pictureBox2.Image = input.ToBitmap();
-            }
-        }
-        #endregion
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
 
-        #region 圖片2透明度
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+
+            pictureBox2.Image = input.ToBitmap();
+        }
+
         private void PicScrollBar2_Scroll(object sender, ScrollEventArgs e)
         {
             _piclabel2.Text = "" + _picScrollBar2.Value / (double)10;
-            if (addFileName != string.Empty)
-            {
-                Mat roi = new Mat();
-                Roi_formula(pictureBox3, addsrc);
-                roi = new Mat(addsrc, Roi_Rect);
-                Mat srcRoi = new Mat(src, new Rect(_addXScrobllar.Value, _addYScrobllar.Value, roi.Width, roi.Height));
-                //Roi_formula(pictureBox3, addsrc);
-                //srcRoi = new Mat(src, Roi_Rect);
-                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, srcRoi, _picScrollBar2.Value / (double)10, 0, input);
-                pictureBox2.Image = input.ToBitmap();
-            }
-        }
-        #endregion
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
 
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void AddXhScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            _addXlabel.Text = "" + AddXhScrollBar.Value;
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            input = src.Clone();
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void AddYhScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            _addlabelY.Text = "" + AddYhScrollBar.Value;
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            input = src.Clone();
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
+
+            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+
+            pictureBox2.Image = input.ToBitmap();
+        }
         #endregion
 
         #region Save
@@ -701,7 +785,7 @@ namespace CherngerTechnology
 
         //}
         #region ROI 公式
-        private void Roi_formula(PictureBox pictureBox,Mat pic)
+        private void Roi_formula(PictureBox pictureBox,Mat pic,ref Mat roi)
         {
             if (Roi.Count > 0)
             {
@@ -720,6 +804,7 @@ namespace CherngerTechnology
                                     (int)Math.Ceiling(Roi[0].Width * pic.Height / pictureBox.Height * 1.0),
                                     (int)Math.Ceiling(Roi[0].Height * pic.Height / pictureBox.Height * 1.0));
                 }
+                 roi = new Mat(pic, Roi_Rect);
             }
         }
         #endregion
@@ -745,8 +830,7 @@ namespace CherngerTechnology
         {
             Mat roi = new Mat();
             Mat roi_dst = src.Clone();
-            Roi_formula(pictureBox3, comparesrc);
-            roi = new Mat(comparesrc, Roi_Rect);
+            Roi_formula(pictureBox3, comparesrc,ref roi);
             Cv2.MatchTemplate(src, roi, input, TemplateMatchModes.SqDiff, null);
             double minVal = 0, maxVal = 0;
             OpenCvSharp.Point minLoc = new OpenCvSharp.Point();

@@ -505,16 +505,42 @@ namespace CherngerTechnology
 
         private void GrabCutBtn_Click(object sender, EventArgs e)
         {
+            Mat FinalIng = new Mat();
             Mat resultImg = new Mat();
             Mat mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
             Mat roi = new Mat();
-            Mat tempMask;
-            tempMask = new Mat(mask, Roi_Rect);
-            tempMask.SetTo(255);
+            Mat bgd = new Mat();
+            Mat fgd = new Mat();
+            int nrows = mask.Rows;
+            int ncols = mask.Cols;
+            int nchannels = mask.Channels();
             Roi_formula(pictureBox1, dst, ref roi);
-            input.CopyTo(img, mask);//原圖拷貝到img
-            Cv2.GrabCut(dst, mask, Roi_Rect,null,null, 5, GrabCutModes.InitWithRect);
-            Cv2.ImShow("test", mask);
+            dst.CopyTo(resultImg);//原圖拷貝到resultImg
+            Cv2.GrabCut(resultImg, mask, Roi_Rect,bgd,fgd, 5, GrabCutModes.InitWithRect);
+            unsafe
+            {
+                for (int i = 0; i < nrows; i++)
+                {
+                    for (int j = 0; j < ncols; j++)
+                    {
+                        if (mask.At<byte>(i, j) ==3&&mask.At<byte>(i,j)!=0)
+                        {   
+                            mask.Set<byte>(i, j, 255);
+                        }
+                         if (mask.At<byte>(i, j) == 2 && mask.At<byte>(i, j) != 0)
+                        {
+                            mask.Set<byte>(i, j, 0);
+                        }
+                        if (mask.At<byte>(i, j) == 1 && mask.At<byte>(i, j) != 0)
+                        {
+                            mask.Set<byte>(i, j, 255);
+                        }
+                    }
+                }
+            }
+            Cv2.ImShow("test",mask);
+            dst.CopyTo(FinalIng, mask);//原圖拷貝到resultImg
+            pictureBox3.Image = FinalIng.ToBitmap();
         }
 
         private void GrabCutSaveBtn_Click(object sender, EventArgs e)

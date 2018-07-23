@@ -505,16 +505,47 @@ namespace CherngerTechnology
 
         private void GrabCutBtn_Click(object sender, EventArgs e)
         {
-            Mat resultImg = new Mat();
-            Mat mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
+            Mat temp = new Mat();
+            Mat result = new Mat();
+            Mat img2 = new Mat();
             Mat roi = new Mat();
-            Mat tempMask;
-            tempMask = new Mat(mask, Roi_Rect);
-            tempMask.SetTo(255);
-            Roi_formula(pictureBox1, dst, ref roi);
-            input.CopyTo(img, mask);//原圖拷貝到img
-            Cv2.GrabCut(dst, mask, Roi_Rect,null,null, 5, GrabCutModes.InitWithRect);
-            Cv2.ImShow("test", mask);
+            Mat bgd = new Mat();
+            Mat fgd = new Mat();
+            Mat mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
+            Roi_formula(pictureBox1, input, ref roi);
+            //tempMask = new Mat(mask, Roi_Rect);
+            //tempMask.SetTo(255);
+            img2 = dst.Clone();
+            //dst.CopyTo(img2, mask);//原圖拷貝到img
+            //pictureBox2.Image = img2.ToBitmap();
+
+            Cv2.GrabCut(img2, mask, Roi_Rect, bgd, fgd, 1 , GrabCutModes.InitWithRect);
+
+
+            for (int i=0;i<mask.Height; i++)
+            {
+                for(int j=0;j<mask.Width; j++)
+                {
+                    if (mask.At<byte>(i, j) == 3 && mask.At<byte>(i, j) != 0)
+                    {
+                        mask.Set<byte>(i, j, 255);
+                    }
+                    if (mask.At<byte>(i, j) == 2 && mask.At<byte>(i, j) != 0)
+                    {
+                        mask.Set<byte>(i, j, 0);
+                    }
+                    if (mask.At<byte>(i, j) == 1 && mask.At<byte>(i, j) != 0)
+                    {
+                        mask.Set<byte>(i, j, 255);
+                    }
+                    
+                }
+            }
+
+            img2.CopyTo(result, mask);
+            pictureBox2.Image = result.ToBitmap();
+            pictureBox3.Image = mask.ToBitmap();
+            //Cv2.ImShow("test", mask);
         }
 
         private void GrabCutSaveBtn_Click(object sender, EventArgs e)

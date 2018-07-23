@@ -1,5 +1,6 @@
 ﻿using OpenCvSharp;
 using OpenCvSharp.Extensions;
+using OpenCvSharp.Dnn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -490,11 +491,16 @@ namespace CherngerTechnology
         }
         #endregion
 
+        #region 去背
+
+        #region GrabNewBtn
         private void GrabCutNewBtn_Click(object sender, EventArgs e)
         {
             this.RoiNewBtn_Click(sender, e);
         }
+        #endregion
 
+        #region GrabResetBtn
         private void GrabCutResetBtn_Click(object sender, EventArgs e)
         {
             this.RoiResetBtn_Click(sender, e);
@@ -502,11 +508,16 @@ namespace CherngerTechnology
             pictureBox1.Image = input2.ToBitmap();
             this.RoiDeleteBtn_Click(sender, e);
         }
+        #endregion
 
+        Mat FinalImg = new Mat();
+        Mat temp1Img = new Mat();
+
+        #region GrabCutBtn
         private void GrabCutBtn_Click(object sender, EventArgs e)
         {
-            Mat FinalIng = new Mat();
-            Mat resultImg = new Mat();
+            Mat FinalImg = new Mat();
+            Mat temp1Img = new Mat();
             Mat mask = new Mat(input.Rows, input.Cols, MatType.CV_8UC1, Scalar.Black);
             Mat roi = new Mat();
             Mat bgd = new Mat();
@@ -515,38 +526,41 @@ namespace CherngerTechnology
             int ncols = mask.Cols;
             int nchannels = mask.Channels();
             Roi_formula(pictureBox1, dst, ref roi);
-            dst.CopyTo(resultImg);//原圖拷貝到resultImg
-            Cv2.GrabCut(resultImg, mask, Roi_Rect,bgd,fgd, 5, GrabCutModes.InitWithRect);
-            unsafe
+            dst.CopyTo(temp1Img);//原圖拷貝到tempImg
+            Cv2.GrabCut(temp1Img, mask, Roi_Rect,bgd,fgd, 1, GrabCutModes.InitWithRect);
+            for (int i = 0; i < nrows; i++)
             {
-                for (int i = 0; i < nrows; i++)
+                for (int j = 0; j < ncols; j++)
                 {
-                    for (int j = 0; j < ncols; j++)
+                    if (mask.At<byte>(i, j) ==3&&mask.At<byte>(i,j)!=0)//前景
+                    {   
+                        mask.Set<byte>(i, j, 255);
+                    }
+                     if (mask.At<byte>(i, j) == 2 && mask.At<byte>(i, j) != 0)//背景
                     {
-                        if (mask.At<byte>(i, j) ==3&&mask.At<byte>(i,j)!=0)
-                        {   
-                            mask.Set<byte>(i, j, 255);
-                        }
-                         if (mask.At<byte>(i, j) == 2 && mask.At<byte>(i, j) != 0)
-                        {
-                            mask.Set<byte>(i, j, 0);
-                        }
-                        if (mask.At<byte>(i, j) == 1 && mask.At<byte>(i, j) != 0)
-                        {
-                            mask.Set<byte>(i, j, 255);
-                        }
+                        mask.Set<byte>(i, j, 0);
+                    }
+                    if (mask.At<byte>(i, j) == 1 && mask.At<byte>(i, j) != 0)//前景
+                    {
+                        mask.Set<byte>(i, j, 255);
                     }
                 }
             }
-            Cv2.ImShow("test",mask);
-            dst.CopyTo(FinalIng, mask);//原圖拷貝到resultImg
-            pictureBox3.Image = FinalIng.ToBitmap();
+            pictureBox2.Image = mask.ToBitmap();
+            dst.CopyTo(FinalImg, mask);//原圖拷貝到finalImag
+            pictureBox3.Image = FinalImg.ToBitmap();
         }
+        #endregion
 
+        #region GrabCutSaveBtn
         private void GrabCutSaveBtn_Click(object sender, EventArgs e)
         {
-
+            input2 = temp1Img.Clone();
+            pictureBox1.Image = input2.ToBitmap();
         }
+        #endregion
+
+        #endregion
 
         #region Threshold
         int Threshodl_Select = 0;

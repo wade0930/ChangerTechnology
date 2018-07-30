@@ -16,7 +16,7 @@ namespace CherngerTechnology
 {
     public partial class run_pic
     {
-
+        
 
     }
 }

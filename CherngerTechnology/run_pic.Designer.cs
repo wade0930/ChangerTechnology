@@ -66,6 +66,15 @@
             this._calcHistBtn = new System.Windows.Forms.Button();
             this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
             this._equalizeHistBtn = new System.Windows.Forms.Button();
+            this.tabPage23 = new System.Windows.Forms.TabPage();
+            this._scharrcheckBox = new System.Windows.Forms.CheckBox();
+            this._yorderBtn = new System.Windows.Forms.Button();
+            this._xorderBtn = new System.Windows.Forms.Button();
+            this._scharrBtn = new System.Windows.Forms.Button();
+            this.tabPage24 = new System.Windows.Forms.TabPage();
+            this._sobelYBtn = new System.Windows.Forms.Button();
+            this._sobelXBtn = new System.Windows.Forms.Button();
+            this._sobelBtn = new System.Windows.Forms.Button();
             this._reLoad = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -129,6 +138,20 @@
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this._CLAHEcheckBox = new System.Windows.Forms.CheckBox();
             this.CLAHEBtn = new System.Windows.Forms.Button();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this._bilateralFiltercheckBox = new System.Windows.Forms.CheckBox();
+            this._sigmaSpaceLabel = new System.Windows.Forms.Label();
+            this._sigmaColorLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this._sigmaColorhScrollBar = new System.Windows.Forms.HScrollBar();
+            this._sigmaSpacehScrollBar = new System.Windows.Forms.HScrollBar();
+            this._bilateralFilterBtn = new System.Windows.Forms.Button();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this._boxFiltercheckBox = new System.Windows.Forms.CheckBox();
+            this._sizelabel = new System.Windows.Forms.Label();
+            this._boxFilterhScrollBar = new System.Windows.Forms.HScrollBar();
+            this._boxFilterBtn = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -147,6 +170,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this._contourCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this._subBtn = new System.Windows.Forms.Button();
             this._addlabelY = new System.Windows.Forms.Label();
             this._addXlabel = new System.Windows.Forms.Label();
             this._addY = new System.Windows.Forms.Label();
@@ -185,6 +209,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this._saveBtn = new System.Windows.Forms.Button();
+            this._sobelcheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage6.SuspendLayout();
@@ -197,6 +222,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this._equalizeHist.SuspendLayout();
+            this.tabPage23.SuspendLayout();
+            this.tabPage24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -222,6 +249,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
             this.tabPage20.SuspendLayout();
+            this.tabPage21.SuspendLayout();
+            this.tabPage22.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -545,6 +574,8 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this._equalizeHist);
+            this.tabControl1.Controls.Add(this.tabPage23);
+            this.tabControl1.Controls.Add(this.tabPage24);
             this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -656,6 +687,104 @@
             this._equalizeHistBtn.Text = "equalizeHist";
             this._equalizeHistBtn.UseVisualStyleBackColor = true;
             this._equalizeHistBtn.Click += new System.EventHandler(this.EqualizeHistBtn_Click);
+            // 
+            // tabPage23
+            // 
+            this.tabPage23.Controls.Add(this._scharrcheckBox);
+            this.tabPage23.Controls.Add(this._yorderBtn);
+            this.tabPage23.Controls.Add(this._xorderBtn);
+            this.tabPage23.Controls.Add(this._scharrBtn);
+            this.tabPage23.Location = new System.Drawing.Point(4, 22);
+            this.tabPage23.Name = "tabPage23";
+            this.tabPage23.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage23.Size = new System.Drawing.Size(326, 90);
+            this.tabPage23.TabIndex = 5;
+            this.tabPage23.Text = "Scharr";
+            this.tabPage23.UseVisualStyleBackColor = true;
+            // 
+            // _scharrcheckBox
+            // 
+            this._scharrcheckBox.AutoSize = true;
+            this._scharrcheckBox.Location = new System.Drawing.Point(38, 51);
+            this._scharrcheckBox.Name = "_scharrcheckBox";
+            this._scharrcheckBox.Size = new System.Drawing.Size(15, 14);
+            this._scharrcheckBox.TabIndex = 3;
+            this._scharrcheckBox.UseVisualStyleBackColor = true;
+            this._scharrcheckBox.CheckedChanged += new System.EventHandler(this._scharrcheckBox_CheckedChanged);
+            // 
+            // _yorderBtn
+            // 
+            this._yorderBtn.Location = new System.Drawing.Point(195, 61);
+            this._yorderBtn.Name = "_yorderBtn";
+            this._yorderBtn.Size = new System.Drawing.Size(87, 23);
+            this._yorderBtn.TabIndex = 2;
+            this._yorderBtn.Text = "yorder=1,x=0";
+            this._yorderBtn.UseVisualStyleBackColor = true;
+            this._yorderBtn.Click += new System.EventHandler(this._yorderBtn_Click);
+            // 
+            // _xorderBtn
+            // 
+            this._xorderBtn.Location = new System.Drawing.Point(195, 22);
+            this._xorderBtn.Name = "_xorderBtn";
+            this._xorderBtn.Size = new System.Drawing.Size(87, 23);
+            this._xorderBtn.TabIndex = 1;
+            this._xorderBtn.Text = "xorder=1,y=0";
+            this._xorderBtn.UseVisualStyleBackColor = true;
+            this._xorderBtn.Click += new System.EventHandler(this._xorderBtn_Click);
+            // 
+            // _scharrBtn
+            // 
+            this._scharrBtn.Location = new System.Drawing.Point(68, 46);
+            this._scharrBtn.Name = "_scharrBtn";
+            this._scharrBtn.Size = new System.Drawing.Size(104, 23);
+            this._scharrBtn.TabIndex = 0;
+            this._scharrBtn.Text = "Scharr_x,y=1";
+            this._scharrBtn.UseVisualStyleBackColor = true;
+            this._scharrBtn.Click += new System.EventHandler(this._scharrBtn_Click);
+            // 
+            // tabPage24
+            // 
+            this.tabPage24.Controls.Add(this._sobelcheckBox);
+            this.tabPage24.Controls.Add(this._sobelYBtn);
+            this.tabPage24.Controls.Add(this._sobelXBtn);
+            this.tabPage24.Controls.Add(this._sobelBtn);
+            this.tabPage24.Location = new System.Drawing.Point(4, 22);
+            this.tabPage24.Name = "tabPage24";
+            this.tabPage24.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage24.Size = new System.Drawing.Size(326, 90);
+            this.tabPage24.TabIndex = 6;
+            this.tabPage24.Text = "Sobel";
+            this.tabPage24.UseVisualStyleBackColor = true;
+            // 
+            // _sobelYBtn
+            // 
+            this._sobelYBtn.Location = new System.Drawing.Point(178, 61);
+            this._sobelYBtn.Name = "_sobelYBtn";
+            this._sobelYBtn.Size = new System.Drawing.Size(104, 23);
+            this._sobelYBtn.TabIndex = 2;
+            this._sobelYBtn.Text = "yorder=1,x=0";
+            this._sobelYBtn.UseVisualStyleBackColor = true;
+            this._sobelYBtn.Click += new System.EventHandler(this._sobelYBtn_Click);
+            // 
+            // _sobelXBtn
+            // 
+            this._sobelXBtn.Location = new System.Drawing.Point(178, 22);
+            this._sobelXBtn.Name = "_sobelXBtn";
+            this._sobelXBtn.Size = new System.Drawing.Size(104, 23);
+            this._sobelXBtn.TabIndex = 1;
+            this._sobelXBtn.Text = "xorder=1,y=0";
+            this._sobelXBtn.UseVisualStyleBackColor = true;
+            this._sobelXBtn.Click += new System.EventHandler(this._sobelXBtn_Click);
+            // 
+            // _sobelBtn
+            // 
+            this._sobelBtn.Location = new System.Drawing.Point(59, 36);
+            this._sobelBtn.Name = "_sobelBtn";
+            this._sobelBtn.Size = new System.Drawing.Size(96, 23);
+            this._sobelBtn.TabIndex = 0;
+            this._sobelBtn.Text = "Sobel_x,y=1";
+            this._sobelBtn.UseVisualStyleBackColor = true;
+            this._sobelBtn.Click += new System.EventHandler(this._sobelBtn_Click);
             // 
             // _reLoad
             // 
@@ -1184,6 +1313,8 @@
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage16);
             this.tabControl3.Controls.Add(this.tabPage20);
+            this.tabControl3.Controls.Add(this.tabPage21);
+            this.tabControl3.Controls.Add(this.tabPage22);
             this.tabControl3.Location = new System.Drawing.Point(368, 411);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1320,6 +1451,153 @@
             this.CLAHEBtn.Text = "CLAHE";
             this.CLAHEBtn.UseVisualStyleBackColor = true;
             this.CLAHEBtn.Click += new System.EventHandler(this.CLAHEBtn_Click);
+            // 
+            // tabPage21
+            // 
+            this.tabPage21.Controls.Add(this._bilateralFiltercheckBox);
+            this.tabPage21.Controls.Add(this._sigmaSpaceLabel);
+            this.tabPage21.Controls.Add(this._sigmaColorLabel);
+            this.tabPage21.Controls.Add(this.label11);
+            this.tabPage21.Controls.Add(this.label10);
+            this.tabPage21.Controls.Add(this._sigmaColorhScrollBar);
+            this.tabPage21.Controls.Add(this._sigmaSpacehScrollBar);
+            this.tabPage21.Controls.Add(this._bilateralFilterBtn);
+            this.tabPage21.Location = new System.Drawing.Point(4, 22);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(349, 100);
+            this.tabPage21.TabIndex = 5;
+            this.tabPage21.Text = "BilateralFilter";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // _bilateralFiltercheckBox
+            // 
+            this._bilateralFiltercheckBox.AutoSize = true;
+            this._bilateralFiltercheckBox.Location = new System.Drawing.Point(8, 46);
+            this._bilateralFiltercheckBox.Name = "_bilateralFiltercheckBox";
+            this._bilateralFiltercheckBox.Size = new System.Drawing.Size(15, 14);
+            this._bilateralFiltercheckBox.TabIndex = 8;
+            this._bilateralFiltercheckBox.UseVisualStyleBackColor = true;
+            this._bilateralFiltercheckBox.CheckedChanged += new System.EventHandler(this._bilateralFiltercheckBox_CheckedChanged);
+            // 
+            // _sigmaSpaceLabel
+            // 
+            this._sigmaSpaceLabel.AutoSize = true;
+            this._sigmaSpaceLabel.Location = new System.Drawing.Point(323, 71);
+            this._sigmaSpaceLabel.Name = "_sigmaSpaceLabel";
+            this._sigmaSpaceLabel.Size = new System.Drawing.Size(11, 12);
+            this._sigmaSpaceLabel.TabIndex = 7;
+            this._sigmaSpaceLabel.Text = "0";
+            // 
+            // _sigmaColorLabel
+            // 
+            this._sigmaColorLabel.AutoSize = true;
+            this._sigmaColorLabel.Location = new System.Drawing.Point(323, 23);
+            this._sigmaColorLabel.Name = "_sigmaColorLabel";
+            this._sigmaColorLabel.Size = new System.Drawing.Size(11, 12);
+            this._sigmaColorLabel.TabIndex = 6;
+            this._sigmaColorLabel.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(92, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "sigmaSpace";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(92, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "sigmaColor";
+            // 
+            // _sigmaColorhScrollBar
+            // 
+            this._sigmaColorhScrollBar.Location = new System.Drawing.Point(154, 21);
+            this._sigmaColorhScrollBar.Maximum = 264;
+            this._sigmaColorhScrollBar.Name = "_sigmaColorhScrollBar";
+            this._sigmaColorhScrollBar.Size = new System.Drawing.Size(166, 17);
+            this._sigmaColorhScrollBar.TabIndex = 3;
+            this._sigmaColorhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._sigmaColorhScrollBar_Scroll);
+            // 
+            // _sigmaSpacehScrollBar
+            // 
+            this._sigmaSpacehScrollBar.Location = new System.Drawing.Point(154, 71);
+            this._sigmaSpacehScrollBar.Maximum = 264;
+            this._sigmaSpacehScrollBar.Name = "_sigmaSpacehScrollBar";
+            this._sigmaSpacehScrollBar.Size = new System.Drawing.Size(166, 17);
+            this._sigmaSpacehScrollBar.TabIndex = 2;
+            this._sigmaSpacehScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._sigmaSpacehScrollBar_Scroll);
+            // 
+            // _bilateralFilterBtn
+            // 
+            this._bilateralFilterBtn.Location = new System.Drawing.Point(29, 41);
+            this._bilateralFilterBtn.Name = "_bilateralFilterBtn";
+            this._bilateralFilterBtn.Size = new System.Drawing.Size(75, 23);
+            this._bilateralFilterBtn.TabIndex = 0;
+            this._bilateralFilterBtn.Text = "BilateralFilter";
+            this._bilateralFilterBtn.UseVisualStyleBackColor = true;
+            this._bilateralFilterBtn.Click += new System.EventHandler(this._bilateralFilterBtn_Click);
+            // 
+            // tabPage22
+            // 
+            this.tabPage22.Controls.Add(this._boxFiltercheckBox);
+            this.tabPage22.Controls.Add(this._sizelabel);
+            this.tabPage22.Controls.Add(this._boxFilterhScrollBar);
+            this.tabPage22.Controls.Add(this._boxFilterBtn);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(349, 100);
+            this.tabPage22.TabIndex = 6;
+            this.tabPage22.Text = " BoxFilter";
+            this.tabPage22.UseVisualStyleBackColor = true;
+            // 
+            // _boxFiltercheckBox
+            // 
+            this._boxFiltercheckBox.AutoSize = true;
+            this._boxFiltercheckBox.Location = new System.Drawing.Point(21, 42);
+            this._boxFiltercheckBox.Name = "_boxFiltercheckBox";
+            this._boxFiltercheckBox.Size = new System.Drawing.Size(15, 14);
+            this._boxFiltercheckBox.TabIndex = 3;
+            this._boxFiltercheckBox.UseVisualStyleBackColor = true;
+            this._boxFiltercheckBox.CheckedChanged += new System.EventHandler(this._boxFiltercheckBox_CheckedChanged);
+            // 
+            // _sizelabel
+            // 
+            this._sizelabel.AutoSize = true;
+            this._sizelabel.Location = new System.Drawing.Point(313, 42);
+            this._sizelabel.Name = "_sizelabel";
+            this._sizelabel.Size = new System.Drawing.Size(11, 12);
+            this._sizelabel.TabIndex = 2;
+            this._sizelabel.Text = "1";
+            // 
+            // _boxFilterhScrollBar
+            // 
+            this._boxFilterhScrollBar.LargeChange = 1;
+            this._boxFilterhScrollBar.Location = new System.Drawing.Point(133, 37);
+            this._boxFilterhScrollBar.Maximum = 40;
+            this._boxFilterhScrollBar.Minimum = 1;
+            this._boxFilterhScrollBar.Name = "_boxFilterhScrollBar";
+            this._boxFilterhScrollBar.Size = new System.Drawing.Size(168, 18);
+            this._boxFilterhScrollBar.TabIndex = 1;
+            this._boxFilterhScrollBar.Value = 1;
+            this._boxFilterhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._boxFilterhScrollBar_Scroll);
+            // 
+            // _boxFilterBtn
+            // 
+            this._boxFilterBtn.Location = new System.Drawing.Point(42, 37);
+            this._boxFilterBtn.Name = "_boxFilterBtn";
+            this._boxFilterBtn.Size = new System.Drawing.Size(75, 23);
+            this._boxFilterBtn.TabIndex = 0;
+            this._boxFilterBtn.Text = "BoxFilter";
+            this._boxFilterBtn.UseVisualStyleBackColor = true;
+            this._boxFilterBtn.Click += new System.EventHandler(this._boxFilterBtn_Click);
             // 
             // tabControl5
             // 
@@ -1539,6 +1817,7 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this._subBtn);
             this.tabPage10.Controls.Add(this._addlabelY);
             this.tabPage10.Controls.Add(this._addXlabel);
             this.tabPage10.Controls.Add(this._addY);
@@ -1563,6 +1842,16 @@
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "AddWeight";
             this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // _subBtn
+            // 
+            this._subBtn.Location = new System.Drawing.Point(286, 48);
+            this._subBtn.Name = "_subBtn";
+            this._subBtn.Size = new System.Drawing.Size(53, 23);
+            this._subBtn.TabIndex = 72;
+            this._subBtn.Text = "Sub";
+            this._subBtn.UseVisualStyleBackColor = true;
+            this._subBtn.Click += new System.EventHandler(this._subBtn_Click);
             // 
             // _addlabelY
             // 
@@ -1943,6 +2232,16 @@
             this._saveBtn.UseVisualStyleBackColor = true;
             this._saveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
+            // _sobelcheckBox
+            // 
+            this._sobelcheckBox.AutoSize = true;
+            this._sobelcheckBox.Location = new System.Drawing.Point(28, 41);
+            this._sobelcheckBox.Name = "_sobelcheckBox";
+            this._sobelcheckBox.Size = new System.Drawing.Size(15, 14);
+            this._sobelcheckBox.TabIndex = 3;
+            this._sobelcheckBox.UseVisualStyleBackColor = true;
+            this._sobelcheckBox.CheckedChanged += new System.EventHandler(this._sobelcheckBox_CheckedChanged);
+            // 
             // run_pic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1979,6 +2278,10 @@
             this.tabPage1.PerformLayout();
             this._equalizeHist.ResumeLayout(false);
             this._equalizeHist.PerformLayout();
+            this.tabPage23.ResumeLayout(false);
+            this.tabPage23.PerformLayout();
+            this.tabPage24.ResumeLayout(false);
+            this.tabPage24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -2013,6 +2316,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
             this.tabPage20.ResumeLayout(false);
             this.tabPage20.PerformLayout();
+            this.tabPage21.ResumeLayout(false);
+            this.tabPage21.PerformLayout();
+            this.tabPage22.ResumeLayout(false);
+            this.tabPage22.PerformLayout();
             this.tabControl5.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
@@ -2193,5 +2500,30 @@
         private System.Windows.Forms.TabPage tabPage20;
         private System.Windows.Forms.CheckBox _CLAHEcheckBox;
         private System.Windows.Forms.Button CLAHEBtn;
+        private System.Windows.Forms.Button _subBtn;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.Button _bilateralFilterBtn;
+        private System.Windows.Forms.Label _sigmaSpaceLabel;
+        private System.Windows.Forms.Label _sigmaColorLabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.HScrollBar _sigmaColorhScrollBar;
+        private System.Windows.Forms.HScrollBar _sigmaSpacehScrollBar;
+        private System.Windows.Forms.CheckBox _bilateralFiltercheckBox;
+        private System.Windows.Forms.TabPage tabPage22;
+        private System.Windows.Forms.Button _boxFilterBtn;
+        private System.Windows.Forms.Label _sizelabel;
+        private System.Windows.Forms.HScrollBar _boxFilterhScrollBar;
+        private System.Windows.Forms.CheckBox _boxFiltercheckBox;
+        private System.Windows.Forms.TabPage tabPage23;
+        private System.Windows.Forms.Button _scharrBtn;
+        private System.Windows.Forms.Button _yorderBtn;
+        private System.Windows.Forms.Button _xorderBtn;
+        private System.Windows.Forms.CheckBox _scharrcheckBox;
+        private System.Windows.Forms.TabPage tabPage24;
+        private System.Windows.Forms.Button _sobelBtn;
+        private System.Windows.Forms.Button _sobelYBtn;
+        private System.Windows.Forms.Button _sobelXBtn;
+        private System.Windows.Forms.CheckBox _sobelcheckBox;
     }
 }

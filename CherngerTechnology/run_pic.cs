@@ -1074,6 +1074,8 @@ namespace CherngerTechnology
                 input.Release();
             }
         }
+
+       
         #endregion
 
         #region CLAHE
@@ -1091,10 +1093,146 @@ namespace CherngerTechnology
                 pictureBox1.Image = input2.ToBitmap();
             }
         }
+
+        #endregion
+
+
+
+        #region bilateralFilter
+        Mat bila_res=new Mat();
+        private void _bilateralFiltercheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_bilateralFiltercheckBox.Checked)
+            {
+                input2 = bila_res.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
+        private void _bilateralFilterBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.BilateralFilter(input, bila_res,5, _sigmaColorhScrollBar.Value, _sigmaSpacehScrollBar.Value);
+            pictureBox2.Image = bila_res.ToBitmap();
+        }
+
+        private void _sigmaColorhScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            _sigmaColorLabel.Text = "" + _sigmaColorhScrollBar.Value;
+            input = input2.Clone();
+            Cv2.BilateralFilter(input, bila_res, 5, _sigmaColorhScrollBar.Value, _sigmaSpacehScrollBar.Value);
+            pictureBox2.Image = bila_res.ToBitmap();
+        }
+
+        private void _sigmaSpacehScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            _sigmaSpaceLabel.Text = "" + _sigmaSpacehScrollBar.Value;
+            input = input2.Clone();
+            Cv2.BilateralFilter(input, bila_res, 5, _sigmaColorhScrollBar.Value, _sigmaSpacehScrollBar.Value);
+            pictureBox2.Image = bila_res.ToBitmap();
+        }
+        #endregion
+
+        #region BoxFilter
+        private void _boxFilterBtn_Click(object sender, EventArgs e)
+        {
+            
+            input = input2.Clone();
+            Cv2.BoxFilter(input, input, MatType.CV_8UC1, new OpenCvSharp.Size(_boxFilterhScrollBar.Value, _boxFilterhScrollBar.Value));
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void _boxFilterhScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            _sizelabel.Text = "" + _boxFilterhScrollBar.Value;
+            input = input2.Clone();
+            Cv2.BoxFilter(input, input, MatType.CV_8UC1, new OpenCvSharp.Size(_boxFilterhScrollBar.Value, _boxFilterhScrollBar.Value));
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void _boxFiltercheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_boxFiltercheckBox.Checked)
+            {
+                input2 = input.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
+        #endregion
+
+        #region Scharr
+        Mat Scharr_res = new Mat();
+        private void _scharrBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Mat r1 = new Mat();
+            Mat r2 = new Mat();
+            Cv2.Scharr(input, r1, MatType.CV_8UC1, 1, 0);
+            Cv2.Scharr(input, r2, MatType.CV_8UC1, 0, 1);
+            Cv2.AddWeighted(r1, 0.5, r2, 0.5,0, Scharr_res);
+            pictureBox2.Image = Scharr_res.ToBitmap();
+        }
+        private void _xorderBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Scharr(input, Scharr_res, MatType.CV_8UC1, 1, 0);
+            pictureBox2.Image = Scharr_res.ToBitmap();
+        }
+        private void _yorderBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Scharr(input, Scharr_res, MatType.CV_8UC1, 0, 1);
+            pictureBox2.Image = Scharr_res.ToBitmap();
+        }
+        private void _scharrcheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(_scharrcheckBox.Checked)
+            {
+                input2 = Scharr_res.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
+
+        #endregion
+
+        #region Sobel
+        Mat Sobel_res = new Mat();
+        private void _sobelBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Mat r1 = new Mat();
+            Mat r2 = new Mat();
+            Cv2.Sobel(input, r1,MatType.CV_8UC1,1,0);
+            Cv2.Sobel(input, r2, MatType.CV_8UC1, 0, 1);
+            Cv2.AddWeighted(r1, 0.5, r2, 0.5, 0, Sobel_res);
+            pictureBox2.Image = Sobel_res.ToBitmap();
+        }
+
+        private void _sobelXBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Sobel(input, Sobel_res, MatType.CV_8UC1, 1, 0);
+            pictureBox2.Image = Sobel_res.ToBitmap();
+        }
+
+        private void _sobelYBtn_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Sobel(input, Sobel_res, MatType.CV_8UC1, 0, 1);
+            pictureBox2.Image = Sobel_res.ToBitmap();
+        }
+
+        private void _sobelcheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_sobelcheckBox.Checked)
+            {
+                input2 = Sobel_res.Clone();
+                pictureBox1.Image = input2.ToBitmap();
+            }
+        }
         #endregion
 
         #region AddWeight
-
+        int select2;
         private void AddRoi_Click(object sender, EventArgs e)
         {
             addRoiBtn = true;
@@ -1103,11 +1241,23 @@ namespace CherngerTechnology
 
         private void _addBtn_Click(object sender, EventArgs e)
         {
-            Mat roi = new Mat();
+            select2 = 1;
+            Mat roi = new Mat(); 
             Mat srcRoi = new Mat();
             Roi_formula(pictureBox3, addsrc, ref roi);
             Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
             Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            pictureBox2.Image = input.ToBitmap();
+        }
+
+        private void _subBtn_Click(object sender, EventArgs e)
+        {
+            select2 = 2;
+            Mat roi = new Mat();
+            Mat srcRoi = new Mat();
+            Roi_formula(pictureBox3, addsrc, ref roi);
+            Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
+            Cv2.Absdiff(roi, temp, temp);
             pictureBox2.Image = input.ToBitmap();
         }
 
@@ -1173,7 +1323,10 @@ namespace CherngerTechnology
             Roi_formula(pictureBox3, addsrc, ref roi);
             input = src.Clone();
             Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
-            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            if(select2==1)
+                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            else
+                Cv2.Absdiff(roi, temp, temp);
             pictureBox2.Image = input.ToBitmap();
         }
 
@@ -1186,7 +1339,10 @@ namespace CherngerTechnology
             input = src.Clone();
             Mat temp = new Mat(input, new Rect(AddXhScrollBar.Value, AddYhScrollBar.Value, roi.Width, roi.Height));
 
-            Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            if (select2 == 1)
+                Cv2.AddWeighted(roi, _picScrollBar1.Value / (double)10, temp, _picScrollBar2.Value / (double)10, 0, temp);
+            else
+                Cv2.Absdiff(roi, temp, temp);
 
             pictureBox2.Image = input.ToBitmap();
         }

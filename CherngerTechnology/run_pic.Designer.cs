@@ -66,10 +66,17 @@
             this._calcHistBtn = new System.Windows.Forms.Button();
             this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
             this._equalizeHistBtn = new System.Windows.Forms.Button();
-            this.tabPage22 = new System.Windows.Forms.TabPage();
-            this._sobelCheckBox = new System.Windows.Forms.CheckBox();
-            this._sobel = new System.Windows.Forms.Button();
-            this._reLoad = new System.Windows.Forms.Button();
+            this.tabPage23 = new System.Windows.Forms.TabPage();
+            this._scharrcheckBox = new System.Windows.Forms.CheckBox();
+            this._yorderBtn = new System.Windows.Forms.Button();
+            this._xorderBtn = new System.Windows.Forms.Button();
+            this._scharrBtn = new System.Windows.Forms.Button();
+            this.tabPage24 = new System.Windows.Forms.TabPage();
+            this._sobelcheckBox = new System.Windows.Forms.CheckBox();
+            this._sobelYBtn = new System.Windows.Forms.Button();
+            this._sobelXBtn = new System.Windows.Forms.Button();
+            this._sobelBtn = new System.Windows.Forms.Button();
+            this.convexHullBtn = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -119,8 +126,6 @@
             this._roi = new System.Windows.Forms.Button();
             this._newBtn = new System.Windows.Forms.Button();
             this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this._findCircleButton = new System.Windows.Forms.Button();
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -129,8 +134,25 @@
             this.HoughLinesPBtn = new System.Windows.Forms.Button();
             this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.HoughLinesBtn = new System.Windows.Forms.Button();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this._CLAHEcheckBox = new System.Windows.Forms.CheckBox();
+            this.CLAHEBtn = new System.Windows.Forms.Button();
             this.tabPage21 = new System.Windows.Forms.TabPage();
-            this._convexHull = new System.Windows.Forms.Button();
+            this._bilateralFiltercheckBox = new System.Windows.Forms.CheckBox();
+            this._sigmaSpaceLabel = new System.Windows.Forms.Label();
+            this._sigmaColorLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this._sigmaColorhScrollBar = new System.Windows.Forms.HScrollBar();
+            this._sigmaSpacehScrollBar = new System.Windows.Forms.HScrollBar();
+            this._bilateralFilterBtn = new System.Windows.Forms.Button();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this._boxFiltercheckBox = new System.Windows.Forms.CheckBox();
+            this._sizelabel = new System.Windows.Forms.Label();
+            this._boxFilterhScrollBar = new System.Windows.Forms.HScrollBar();
+            this._boxFilterBtn = new System.Windows.Forms.Button();
+            this.tabPage25 = new System.Windows.Forms.TabPage();
+            this._convexHullBtn = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -146,9 +168,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this._contourCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage10 = new System.Windows.Forms.TabPage();
+            this._subBtn = new System.Windows.Forms.Button();
             this._addlabelY = new System.Windows.Forms.Label();
             this._addXlabel = new System.Windows.Forms.Label();
             this._addY = new System.Windows.Forms.Label();
@@ -178,9 +200,6 @@
             this._grabCutBtn = new System.Windows.Forms.Button();
             this._grabCutResetBtn = new System.Windows.Forms.Button();
             this._grabCutNewBtn = new System.Windows.Forms.Button();
-            this.tabPage20 = new System.Windows.Forms.TabPage();
-            this._newSift = new System.Windows.Forms.Button();
-            this._sift = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -201,7 +220,8 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this._equalizeHist.SuspendLayout();
-            this.tabPage22.SuspendLayout();
+            this.tabPage23.SuspendLayout();
+            this.tabPage24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -221,12 +241,14 @@
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
             this.tabControl3.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.tabPage16.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
+            this.tabPage20.SuspendLayout();
             this.tabPage21.SuspendLayout();
+            this.tabPage22.SuspendLayout();
+            this.tabPage25.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -240,7 +262,6 @@
             this.tabPage17.SuspendLayout();
             this.tabPage18.SuspendLayout();
             this.tabPage19.SuspendLayout();
-            this.tabPage20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -551,7 +572,8 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this._equalizeHist);
-            this.tabControl1.Controls.Add(this.tabPage22);
+            this.tabControl1.Controls.Add(this.tabPage23);
+            this.tabControl1.Controls.Add(this.tabPage24);
             this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -664,47 +686,123 @@
             this._equalizeHistBtn.UseVisualStyleBackColor = true;
             this._equalizeHistBtn.Click += new System.EventHandler(this.EqualizeHistBtn_Click);
             // 
-            // tabPage22
+            // tabPage23
             // 
-            this.tabPage22.Controls.Add(this._sobelCheckBox);
-            this.tabPage22.Controls.Add(this._sobel);
-            this.tabPage22.Location = new System.Drawing.Point(4, 22);
-            this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage22.Size = new System.Drawing.Size(326, 90);
-            this.tabPage22.TabIndex = 5;
-            this.tabPage22.Text = "Sobel";
-            this.tabPage22.UseVisualStyleBackColor = true;
+            this.tabPage23.Controls.Add(this._scharrcheckBox);
+            this.tabPage23.Controls.Add(this._yorderBtn);
+            this.tabPage23.Controls.Add(this._xorderBtn);
+            this.tabPage23.Controls.Add(this._scharrBtn);
+            this.tabPage23.Location = new System.Drawing.Point(4, 22);
+            this.tabPage23.Name = "tabPage23";
+            this.tabPage23.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage23.Size = new System.Drawing.Size(326, 90);
+            this.tabPage23.TabIndex = 5;
+            this.tabPage23.Text = "Scharr";
+            this.tabPage23.UseVisualStyleBackColor = true;
             // 
-            // _sobelCheckBox
+            // _scharrcheckBox
             // 
-            this._sobelCheckBox.AutoSize = true;
-            this._sobelCheckBox.Location = new System.Drawing.Point(18, 38);
-            this._sobelCheckBox.Name = "_sobelCheckBox";
-            this._sobelCheckBox.Size = new System.Drawing.Size(48, 16);
-            this._sobelCheckBox.TabIndex = 47;
-            this._sobelCheckBox.Text = "sobel";
-            this._sobelCheckBox.UseVisualStyleBackColor = true;
+            this._scharrcheckBox.AutoSize = true;
+            this._scharrcheckBox.Location = new System.Drawing.Point(38, 51);
+            this._scharrcheckBox.Name = "_scharrcheckBox";
+            this._scharrcheckBox.Size = new System.Drawing.Size(15, 14);
+            this._scharrcheckBox.TabIndex = 3;
+            this._scharrcheckBox.UseVisualStyleBackColor = true;
+            this._scharrcheckBox.CheckedChanged += new System.EventHandler(this._scharrcheckBox_CheckedChanged);
             // 
-            // _sobel
+            // _yorderBtn
             // 
-            this._sobel.Location = new System.Drawing.Point(119, 34);
-            this._sobel.Name = "_sobel";
-            this._sobel.Size = new System.Drawing.Size(75, 23);
-            this._sobel.TabIndex = 8;
-            this._sobel.Text = "Sobel";
-            this._sobel.UseVisualStyleBackColor = true;
-            this._sobel.Click += new System.EventHandler(this.Sobel_Click);
+            this._yorderBtn.Location = new System.Drawing.Point(195, 61);
+            this._yorderBtn.Name = "_yorderBtn";
+            this._yorderBtn.Size = new System.Drawing.Size(87, 23);
+            this._yorderBtn.TabIndex = 2;
+            this._yorderBtn.Text = "yorder=1,x=0";
+            this._yorderBtn.UseVisualStyleBackColor = true;
+            this._yorderBtn.Click += new System.EventHandler(this._yorderBtn_Click);
             // 
-            // _reLoad
+            // _xorderBtn
             // 
-            this._reLoad.Location = new System.Drawing.Point(823, 504);
-            this._reLoad.Name = "_reLoad";
-            this._reLoad.Size = new System.Drawing.Size(102, 26);
-            this._reLoad.TabIndex = 5;
-            this._reLoad.Text = "重置";
-            this._reLoad.UseVisualStyleBackColor = true;
-            this._reLoad.Click += new System.EventHandler(this.ReLoad_Click);
+            this._xorderBtn.Location = new System.Drawing.Point(195, 22);
+            this._xorderBtn.Name = "_xorderBtn";
+            this._xorderBtn.Size = new System.Drawing.Size(87, 23);
+            this._xorderBtn.TabIndex = 1;
+            this._xorderBtn.Text = "xorder=1,y=0";
+            this._xorderBtn.UseVisualStyleBackColor = true;
+            this._xorderBtn.Click += new System.EventHandler(this._xorderBtn_Click);
+            // 
+            // _scharrBtn
+            // 
+            this._scharrBtn.Location = new System.Drawing.Point(68, 46);
+            this._scharrBtn.Name = "_scharrBtn";
+            this._scharrBtn.Size = new System.Drawing.Size(104, 23);
+            this._scharrBtn.TabIndex = 0;
+            this._scharrBtn.Text = "Scharr_x,y=1";
+            this._scharrBtn.UseVisualStyleBackColor = true;
+            this._scharrBtn.Click += new System.EventHandler(this._scharrBtn_Click);
+            // 
+            // tabPage24
+            // 
+            this.tabPage24.Controls.Add(this._sobelcheckBox);
+            this.tabPage24.Controls.Add(this._sobelYBtn);
+            this.tabPage24.Controls.Add(this._sobelXBtn);
+            this.tabPage24.Controls.Add(this._sobelBtn);
+            this.tabPage24.Location = new System.Drawing.Point(4, 22);
+            this.tabPage24.Name = "tabPage24";
+            this.tabPage24.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage24.Size = new System.Drawing.Size(326, 90);
+            this.tabPage24.TabIndex = 6;
+            this.tabPage24.Text = "Sobel";
+            this.tabPage24.UseVisualStyleBackColor = true;
+            // 
+            // _sobelcheckBox
+            // 
+            this._sobelcheckBox.AutoSize = true;
+            this._sobelcheckBox.Location = new System.Drawing.Point(28, 41);
+            this._sobelcheckBox.Name = "_sobelcheckBox";
+            this._sobelcheckBox.Size = new System.Drawing.Size(15, 14);
+            this._sobelcheckBox.TabIndex = 3;
+            this._sobelcheckBox.UseVisualStyleBackColor = true;
+            this._sobelcheckBox.CheckedChanged += new System.EventHandler(this._sobelcheckBox_CheckedChanged);
+            // 
+            // _sobelYBtn
+            // 
+            this._sobelYBtn.Location = new System.Drawing.Point(178, 61);
+            this._sobelYBtn.Name = "_sobelYBtn";
+            this._sobelYBtn.Size = new System.Drawing.Size(104, 23);
+            this._sobelYBtn.TabIndex = 2;
+            this._sobelYBtn.Text = "yorder=1,x=0";
+            this._sobelYBtn.UseVisualStyleBackColor = true;
+            this._sobelYBtn.Click += new System.EventHandler(this._sobelYBtn_Click);
+            // 
+            // _sobelXBtn
+            // 
+            this._sobelXBtn.Location = new System.Drawing.Point(178, 22);
+            this._sobelXBtn.Name = "_sobelXBtn";
+            this._sobelXBtn.Size = new System.Drawing.Size(104, 23);
+            this._sobelXBtn.TabIndex = 1;
+            this._sobelXBtn.Text = "xorder=1,y=0";
+            this._sobelXBtn.UseVisualStyleBackColor = true;
+            this._sobelXBtn.Click += new System.EventHandler(this._sobelXBtn_Click);
+            // 
+            // _sobelBtn
+            // 
+            this._sobelBtn.Location = new System.Drawing.Point(59, 36);
+            this._sobelBtn.Name = "_sobelBtn";
+            this._sobelBtn.Size = new System.Drawing.Size(96, 23);
+            this._sobelBtn.TabIndex = 0;
+            this._sobelBtn.Text = "Sobel_x,y=1";
+            this._sobelBtn.UseVisualStyleBackColor = true;
+            this._sobelBtn.Click += new System.EventHandler(this._sobelBtn_Click);
+            // 
+            // convexHullBtn
+            // 
+            this.convexHullBtn.Location = new System.Drawing.Point(823, 504);
+            this.convexHullBtn.Name = "convexHullBtn";
+            this.convexHullBtn.Size = new System.Drawing.Size(102, 26);
+            this.convexHullBtn.TabIndex = 5;
+            this.convexHullBtn.Text = "重置";
+            this.convexHullBtn.UseVisualStyleBackColor = true;
+            this.convexHullBtn.Click += new System.EventHandler(this.ReLoad_Click);
             // 
             // tabControl2
             // 
@@ -1220,35 +1318,16 @@
             // 
             // tabControl3
             // 
-            this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage16);
+            this.tabControl3.Controls.Add(this.tabPage20);
             this.tabControl3.Controls.Add(this.tabPage21);
+            this.tabControl3.Controls.Add(this.tabPage22);
+            this.tabControl3.Controls.Add(this.tabPage25);
             this.tabControl3.Location = new System.Drawing.Point(368, 411);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
             this.tabControl3.Size = new System.Drawing.Size(357, 126);
             this.tabControl3.TabIndex = 35;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this._findCircleButton);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(349, 100);
-            this.tabPage8.TabIndex = 2;
-            this.tabPage8.Text = "找輪廓";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // _findCircleButton
-            // 
-            this._findCircleButton.Location = new System.Drawing.Point(88, 36);
-            this._findCircleButton.Name = "_findCircleButton";
-            this._findCircleButton.Size = new System.Drawing.Size(109, 23);
-            this._findCircleButton.TabIndex = 42;
-            this._findCircleButton.Text = "找圓";
-            this._findCircleButton.UseVisualStyleBackColor = true;
-            this._findCircleButton.Click += new System.EventHandler(this.FindCircleButton_Click);
             // 
             // tabPage16
             // 
@@ -1327,26 +1406,206 @@
             this.HoughLinesBtn.UseVisualStyleBackColor = true;
             this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
             // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this._CLAHEcheckBox);
+            this.tabPage20.Controls.Add(this.CLAHEBtn);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(349, 100);
+            this.tabPage20.TabIndex = 4;
+            this.tabPage20.Text = "CLAHE";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // _CLAHEcheckBox
+            // 
+            this._CLAHEcheckBox.AutoSize = true;
+            this._CLAHEcheckBox.Location = new System.Drawing.Point(39, 36);
+            this._CLAHEcheckBox.Name = "_CLAHEcheckBox";
+            this._CLAHEcheckBox.Size = new System.Drawing.Size(36, 16);
+            this._CLAHEcheckBox.TabIndex = 1;
+            this._CLAHEcheckBox.Text = "ok";
+            this._CLAHEcheckBox.UseVisualStyleBackColor = true;
+            this._CLAHEcheckBox.CheckedChanged += new System.EventHandler(this._CLAHEcheckBox_CheckedChanged);
+            // 
+            // CLAHEBtn
+            // 
+            this.CLAHEBtn.Location = new System.Drawing.Point(122, 32);
+            this.CLAHEBtn.Name = "CLAHEBtn";
+            this.CLAHEBtn.Size = new System.Drawing.Size(75, 23);
+            this.CLAHEBtn.TabIndex = 0;
+            this.CLAHEBtn.Text = "CLAHE";
+            this.CLAHEBtn.UseVisualStyleBackColor = true;
+            this.CLAHEBtn.Click += new System.EventHandler(this.CLAHEBtn_Click);
+            // 
             // tabPage21
             // 
-            this.tabPage21.Controls.Add(this._convexHull);
+            this.tabPage21.Controls.Add(this._bilateralFiltercheckBox);
+            this.tabPage21.Controls.Add(this._sigmaSpaceLabel);
+            this.tabPage21.Controls.Add(this._sigmaColorLabel);
+            this.tabPage21.Controls.Add(this.label11);
+            this.tabPage21.Controls.Add(this.label10);
+            this.tabPage21.Controls.Add(this._sigmaColorhScrollBar);
+            this.tabPage21.Controls.Add(this._sigmaSpacehScrollBar);
+            this.tabPage21.Controls.Add(this._bilateralFilterBtn);
             this.tabPage21.Location = new System.Drawing.Point(4, 22);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage21.Size = new System.Drawing.Size(349, 100);
-            this.tabPage21.TabIndex = 4;
-            this.tabPage21.Text = "ConvexHull";
+            this.tabPage21.TabIndex = 5;
+            this.tabPage21.Text = "BilateralFilter";
             this.tabPage21.UseVisualStyleBackColor = true;
             // 
-            // _convexHull
+            // _bilateralFiltercheckBox
             // 
-            this._convexHull.Location = new System.Drawing.Point(42, 21);
-            this._convexHull.Name = "_convexHull";
-            this._convexHull.Size = new System.Drawing.Size(102, 26);
-            this._convexHull.TabIndex = 48;
-            this._convexHull.Text = "跑圖";
-            this._convexHull.UseVisualStyleBackColor = true;
-            this._convexHull.Click += new System.EventHandler(this.ConvexHull_Click);
+            this._bilateralFiltercheckBox.AutoSize = true;
+            this._bilateralFiltercheckBox.Location = new System.Drawing.Point(8, 46);
+            this._bilateralFiltercheckBox.Name = "_bilateralFiltercheckBox";
+            this._bilateralFiltercheckBox.Size = new System.Drawing.Size(15, 14);
+            this._bilateralFiltercheckBox.TabIndex = 8;
+            this._bilateralFiltercheckBox.UseVisualStyleBackColor = true;
+            this._bilateralFiltercheckBox.CheckedChanged += new System.EventHandler(this._bilateralFiltercheckBox_CheckedChanged);
+            // 
+            // _sigmaSpaceLabel
+            // 
+            this._sigmaSpaceLabel.AutoSize = true;
+            this._sigmaSpaceLabel.Location = new System.Drawing.Point(323, 71);
+            this._sigmaSpaceLabel.Name = "_sigmaSpaceLabel";
+            this._sigmaSpaceLabel.Size = new System.Drawing.Size(11, 12);
+            this._sigmaSpaceLabel.TabIndex = 7;
+            this._sigmaSpaceLabel.Text = "0";
+            // 
+            // _sigmaColorLabel
+            // 
+            this._sigmaColorLabel.AutoSize = true;
+            this._sigmaColorLabel.Location = new System.Drawing.Point(323, 23);
+            this._sigmaColorLabel.Name = "_sigmaColorLabel";
+            this._sigmaColorLabel.Size = new System.Drawing.Size(11, 12);
+            this._sigmaColorLabel.TabIndex = 6;
+            this._sigmaColorLabel.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(92, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "sigmaSpace";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(92, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(59, 12);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "sigmaColor";
+            // 
+            // _sigmaColorhScrollBar
+            // 
+            this._sigmaColorhScrollBar.Location = new System.Drawing.Point(154, 21);
+            this._sigmaColorhScrollBar.Maximum = 264;
+            this._sigmaColorhScrollBar.Name = "_sigmaColorhScrollBar";
+            this._sigmaColorhScrollBar.Size = new System.Drawing.Size(166, 17);
+            this._sigmaColorhScrollBar.TabIndex = 3;
+            this._sigmaColorhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._sigmaColorhScrollBar_Scroll);
+            // 
+            // _sigmaSpacehScrollBar
+            // 
+            this._sigmaSpacehScrollBar.Location = new System.Drawing.Point(154, 71);
+            this._sigmaSpacehScrollBar.Maximum = 264;
+            this._sigmaSpacehScrollBar.Name = "_sigmaSpacehScrollBar";
+            this._sigmaSpacehScrollBar.Size = new System.Drawing.Size(166, 17);
+            this._sigmaSpacehScrollBar.TabIndex = 2;
+            this._sigmaSpacehScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._sigmaSpacehScrollBar_Scroll);
+            // 
+            // _bilateralFilterBtn
+            // 
+            this._bilateralFilterBtn.Location = new System.Drawing.Point(29, 41);
+            this._bilateralFilterBtn.Name = "_bilateralFilterBtn";
+            this._bilateralFilterBtn.Size = new System.Drawing.Size(75, 23);
+            this._bilateralFilterBtn.TabIndex = 0;
+            this._bilateralFilterBtn.Text = "BilateralFilter";
+            this._bilateralFilterBtn.UseVisualStyleBackColor = true;
+            this._bilateralFilterBtn.Click += new System.EventHandler(this._bilateralFilterBtn_Click);
+            // 
+            // tabPage22
+            // 
+            this.tabPage22.Controls.Add(this._boxFiltercheckBox);
+            this.tabPage22.Controls.Add(this._sizelabel);
+            this.tabPage22.Controls.Add(this._boxFilterhScrollBar);
+            this.tabPage22.Controls.Add(this._boxFilterBtn);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(349, 100);
+            this.tabPage22.TabIndex = 6;
+            this.tabPage22.Text = " BoxFilter";
+            this.tabPage22.UseVisualStyleBackColor = true;
+            // 
+            // _boxFiltercheckBox
+            // 
+            this._boxFiltercheckBox.AutoSize = true;
+            this._boxFiltercheckBox.Location = new System.Drawing.Point(21, 42);
+            this._boxFiltercheckBox.Name = "_boxFiltercheckBox";
+            this._boxFiltercheckBox.Size = new System.Drawing.Size(15, 14);
+            this._boxFiltercheckBox.TabIndex = 3;
+            this._boxFiltercheckBox.UseVisualStyleBackColor = true;
+            this._boxFiltercheckBox.CheckedChanged += new System.EventHandler(this._boxFiltercheckBox_CheckedChanged);
+            // 
+            // _sizelabel
+            // 
+            this._sizelabel.AutoSize = true;
+            this._sizelabel.Location = new System.Drawing.Point(313, 42);
+            this._sizelabel.Name = "_sizelabel";
+            this._sizelabel.Size = new System.Drawing.Size(11, 12);
+            this._sizelabel.TabIndex = 2;
+            this._sizelabel.Text = "1";
+            // 
+            // _boxFilterhScrollBar
+            // 
+            this._boxFilterhScrollBar.LargeChange = 1;
+            this._boxFilterhScrollBar.Location = new System.Drawing.Point(133, 37);
+            this._boxFilterhScrollBar.Maximum = 40;
+            this._boxFilterhScrollBar.Minimum = 1;
+            this._boxFilterhScrollBar.Name = "_boxFilterhScrollBar";
+            this._boxFilterhScrollBar.Size = new System.Drawing.Size(168, 18);
+            this._boxFilterhScrollBar.TabIndex = 1;
+            this._boxFilterhScrollBar.Value = 1;
+            this._boxFilterhScrollBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this._boxFilterhScrollBar_Scroll);
+            // 
+            // _boxFilterBtn
+            // 
+            this._boxFilterBtn.Location = new System.Drawing.Point(42, 37);
+            this._boxFilterBtn.Name = "_boxFilterBtn";
+            this._boxFilterBtn.Size = new System.Drawing.Size(75, 23);
+            this._boxFilterBtn.TabIndex = 0;
+            this._boxFilterBtn.Text = "BoxFilter";
+            this._boxFilterBtn.UseVisualStyleBackColor = true;
+            this._boxFilterBtn.Click += new System.EventHandler(this._boxFilterBtn_Click);
+            // 
+            // tabPage25
+            // 
+            this.tabPage25.Controls.Add(this._convexHullBtn);
+            this.tabPage25.Location = new System.Drawing.Point(4, 22);
+            this.tabPage25.Name = "tabPage25";
+            this.tabPage25.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage25.Size = new System.Drawing.Size(349, 100);
+            this.tabPage25.TabIndex = 7;
+            this.tabPage25.Text = "ConvexHull";
+            this.tabPage25.UseVisualStyleBackColor = true;
+            // 
+            // _convexHullBtn
+            // 
+            this._convexHullBtn.Location = new System.Drawing.Point(135, 41);
+            this._convexHullBtn.Name = "_convexHullBtn";
+            this._convexHullBtn.Size = new System.Drawing.Size(75, 23);
+            this._convexHullBtn.TabIndex = 0;
+            this._convexHullBtn.Text = "ConvexHull";
+            this._convexHullBtn.UseVisualStyleBackColor = true;
+            this._convexHullBtn.Click += new System.EventHandler(this._convexHullBtn_Click);
             // 
             // tabControl5
             // 
@@ -1356,7 +1615,6 @@
             this.tabControl5.Controls.Add(this.tabPage17);
             this.tabControl5.Controls.Add(this.tabPage18);
             this.tabControl5.Controls.Add(this.tabPage19);
-            this.tabControl5.Controls.Add(this.tabPage20);
             this.tabControl5.Location = new System.Drawing.Point(368, 543);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
@@ -1414,7 +1672,6 @@
             this.tabPage14.Controls.Add(this.label5);
             this.tabPage14.Controls.Add(this.label2);
             this.tabPage14.Controls.Add(this.label1);
-            this.tabPage14.Controls.Add(this.checkBox3);
             this.tabPage14.Controls.Add(this._contourCheckBox);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
@@ -1544,16 +1801,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "< area <";
             // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(99, 11);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(60, 16);
-            this.checkBox3.TabIndex = 19;
-            this.checkBox3.Text = "近似圓";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // _contourCheckBox
             // 
             this._contourCheckBox.AutoSize = true;
@@ -1567,6 +1814,7 @@
             // 
             // tabPage10
             // 
+            this.tabPage10.Controls.Add(this._subBtn);
             this.tabPage10.Controls.Add(this._addlabelY);
             this.tabPage10.Controls.Add(this._addXlabel);
             this.tabPage10.Controls.Add(this._addY);
@@ -1591,6 +1839,16 @@
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "AddWeight";
             this.tabPage10.UseVisualStyleBackColor = true;
+            // 
+            // _subBtn
+            // 
+            this._subBtn.Location = new System.Drawing.Point(286, 48);
+            this._subBtn.Name = "_subBtn";
+            this._subBtn.Size = new System.Drawing.Size(53, 23);
+            this._subBtn.TabIndex = 72;
+            this._subBtn.Text = "Sub";
+            this._subBtn.UseVisualStyleBackColor = true;
+            this._subBtn.Click += new System.EventHandler(this._subBtn_Click);
             // 
             // _addlabelY
             // 
@@ -1885,38 +2143,6 @@
             this._grabCutNewBtn.UseVisualStyleBackColor = true;
             this._grabCutNewBtn.Click += new System.EventHandler(this.GrabCutNewBtn_Click);
             // 
-            // tabPage20
-            // 
-            this.tabPage20.Controls.Add(this._newSift);
-            this.tabPage20.Controls.Add(this._sift);
-            this.tabPage20.Location = new System.Drawing.Point(4, 22);
-            this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage20.Size = new System.Drawing.Size(345, 174);
-            this.tabPage20.TabIndex = 9;
-            this.tabPage20.Text = "SIFT";
-            this.tabPage20.UseVisualStyleBackColor = true;
-            // 
-            // _newSift
-            // 
-            this._newSift.Location = new System.Drawing.Point(6, 14);
-            this._newSift.Name = "_newSift";
-            this._newSift.Size = new System.Drawing.Size(75, 24);
-            this._newSift.TabIndex = 5;
-            this._newSift.Text = "New";
-            this._newSift.UseVisualStyleBackColor = true;
-            this._newSift.Click += new System.EventHandler(this.NewSift_Click);
-            // 
-            // _sift
-            // 
-            this._sift.Location = new System.Drawing.Point(111, 14);
-            this._sift.Name = "_sift";
-            this._sift.Size = new System.Drawing.Size(75, 24);
-            this._sift.TabIndex = 4;
-            this._sift.Text = "SIFT";
-            this._sift.UseVisualStyleBackColor = true;
-            this._sift.Click += new System.EventHandler(this.Sift_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -2004,7 +2230,7 @@
             this.Controls.Add(this.tabControl3);
             this.Controls.Add(this.tabControl4);
             this.Controls.Add(this.tabControl2);
-            this.Controls.Add(this._reLoad);
+            this.Controls.Add(this.convexHullBtn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this._openFile);
             this.Controls.Add(this.pictureBox2);
@@ -2028,8 +2254,10 @@
             this.tabPage1.PerformLayout();
             this._equalizeHist.ResumeLayout(false);
             this._equalizeHist.PerformLayout();
-            this.tabPage22.ResumeLayout(false);
-            this.tabPage22.PerformLayout();
+            this.tabPage23.ResumeLayout(false);
+            this.tabPage23.PerformLayout();
+            this.tabPage24.ResumeLayout(false);
+            this.tabPage24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -2056,13 +2284,18 @@
             this.tabPage12.ResumeLayout(false);
             this.tabPage13.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
             this.tabPage16.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
+            this.tabPage20.ResumeLayout(false);
+            this.tabPage20.PerformLayout();
             this.tabPage21.ResumeLayout(false);
+            this.tabPage21.PerformLayout();
+            this.tabPage22.ResumeLayout(false);
+            this.tabPage22.PerformLayout();
+            this.tabPage25.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
@@ -2079,7 +2312,6 @@
             this.tabPage17.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
-            this.tabPage20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -2111,7 +2343,7 @@
         private System.Windows.Forms.Label _cannylabel1;
         private System.Windows.Forms.HScrollBar _cannyScrollBar1;
         private System.Windows.Forms.CheckBox _cannyCheck;
-        private System.Windows.Forms.Button _reLoad;
+        private System.Windows.Forms.Button convexHullBtn;
         private System.Windows.Forms.NumericUpDown _boundingRectHeightNumericUpDown2;
         private System.Windows.Forms.NumericUpDown _boundingRectHeightNumericUpDown1;
         private System.Windows.Forms.NumericUpDown _boundingRectWidthNumericUpDown2;
@@ -2164,7 +2396,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox _contourCheckBox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -2215,8 +2446,6 @@
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.Button PyrDownBtn;
         private System.Windows.Forms.Button PyrUpBtn;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.Button _findCircleButton;
         private System.Windows.Forms.Label _laplaci2;
         private System.Windows.Forms.Label _laplaci1;
         private System.Windows.Forms.HScrollBar _laplacianScrollBar1;
@@ -2241,12 +2470,34 @@
         private System.Windows.Forms.Button _grabCutResetBtn;
         private System.Windows.Forms.Button _grabCutNewBtn;
         private System.Windows.Forms.TabPage tabPage20;
-        private System.Windows.Forms.Button _sift;
-        private System.Windows.Forms.Button _newSift;
+        private System.Windows.Forms.CheckBox _CLAHEcheckBox;
+        private System.Windows.Forms.Button CLAHEBtn;
+        private System.Windows.Forms.Button _subBtn;
         private System.Windows.Forms.TabPage tabPage21;
-        private System.Windows.Forms.Button _convexHull;
+        private System.Windows.Forms.Button _bilateralFilterBtn;
+        private System.Windows.Forms.Label _sigmaSpaceLabel;
+        private System.Windows.Forms.Label _sigmaColorLabel;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.HScrollBar _sigmaColorhScrollBar;
+        private System.Windows.Forms.HScrollBar _sigmaSpacehScrollBar;
+        private System.Windows.Forms.CheckBox _bilateralFiltercheckBox;
         private System.Windows.Forms.TabPage tabPage22;
-        private System.Windows.Forms.CheckBox _sobelCheckBox;
-        private System.Windows.Forms.Button _sobel;
+        private System.Windows.Forms.Button _boxFilterBtn;
+        private System.Windows.Forms.Label _sizelabel;
+        private System.Windows.Forms.HScrollBar _boxFilterhScrollBar;
+        private System.Windows.Forms.CheckBox _boxFiltercheckBox;
+        private System.Windows.Forms.TabPage tabPage23;
+        private System.Windows.Forms.Button _scharrBtn;
+        private System.Windows.Forms.Button _yorderBtn;
+        private System.Windows.Forms.Button _xorderBtn;
+        private System.Windows.Forms.CheckBox _scharrcheckBox;
+        private System.Windows.Forms.TabPage tabPage24;
+        private System.Windows.Forms.Button _sobelBtn;
+        private System.Windows.Forms.Button _sobelYBtn;
+        private System.Windows.Forms.Button _sobelXBtn;
+        private System.Windows.Forms.CheckBox _sobelcheckBox;
+        private System.Windows.Forms.TabPage tabPage25;
+        private System.Windows.Forms.Button _convexHullBtn;
     }
 }

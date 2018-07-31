@@ -20,9 +20,11 @@ namespace CherngerTechnology
         public Mat src,dst,input, preimg, input2, tempdst; // 最後圖片
         public Mat addsrc, adddst, addinput, addpreimg, addinput2, addtempdst; // 最後圖片
         public Mat comparesrc, comparedst, compareinput, comparepreimg, compareinput2, comparetempdst; // 最後圖片
+        public Mat siftsrc, siftdst, siftinput, siftpreimg, siftinput2, sifttempdst; // 最後圖片
         string fileName = string.Empty;//string.Empty
         string addFileName = string.Empty;
         string compareFileName = string.Empty;
+        string siftFileName = string.Empty;
         int LWidth, HWidth, LHeight, HHeight;
         bool compareRoiBtn = false, addRoiBtn = false;
         public run_pic()
@@ -217,7 +219,6 @@ namespace CherngerTechnology
                 pictureBox2.Image = dst.ToBitmap();
             }
         }
-
         private void Contour(Mat input, int area1, int area2, int height1, int height2, int width1, int width2)
         {
             int num = 1;
@@ -240,13 +241,13 @@ namespace CherngerTechnology
                     {
                         
                         Cv2.DrawContours(dst, contours, i, new Scalar(255, 0, 0), 3, LineTypes.Link8, hierarchyIndexes, int.MaxValue);
-                //        Cv2.PutText(dst, num.ToString(), new OpenCvSharp.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2), HersheyFonts.HersheyComplex, 4.0, Scalar.Red, 1);
+                        Cv2.PutText(dst, num.ToString(), new OpenCvSharp.Point(rect.X + rect.Width / 2, rect.Y + rect.Height / 2), HersheyFonts.HersheyComplex, 4.0, Scalar.Red, 1);
                         dataGridView1.Rows.Add(new string[] { num.ToString(), area.ToString(), rect.Width.ToString(), rect.Height.ToString(), Math.Round((int)rect.Width / 2 + (double)rect.X) + " " + Math.Round(rect.Height / 2 + (double)rect.Y) });
                         num++;
                     }
                 }
             }
-               // Cv2.ImShow("test", dst);
+                Cv2.ImShow("test", dst);
         }
         #endregion
 
@@ -378,7 +379,7 @@ namespace CherngerTechnology
             dst = temp.Clone();
         }
         #endregion
-
+            
         #region ReLoad
         private void ReLoad_Click(object sender, EventArgs e)
         {
@@ -552,14 +553,66 @@ namespace CherngerTechnology
         }
         #endregion
 
-        #region GrabCutSaveBtn
-        private void GrabCutSaveBtn_Click(object sender, EventArgs e)
-        {
-            input2 = temp1Img.Clone();
-            pictureBox1.Image = input2.ToBitmap();
-        }
         #endregion
 
+        private void NewSift_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dig = new OpenFileDialog();
+            dig.RestoreDirectory = true;
+
+            dig.Title = "Open Image File";
+
+            dig.Filter = "JPeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+
+            if (dig.ShowDialog() == System.Windows.Forms.DialogResult.OK && dig.FileName != string.Empty)
+            {
+                siftFileName = dig.FileName;
+                siftsrc = Cv2.ImRead(siftFileName, ImreadModes.GrayScale);
+                pictureBox1.Image = siftsrc.ToBitmap();
+                siftinput = Cv2.ImRead(siftFileName, ImreadModes.GrayScale);
+                siftdst = Cv2.ImRead(siftFileName, ImreadModes.Color);
+                siftinput2 = Cv2.ImRead(siftFileName, ImreadModes.GrayScale);
+                siftpreimg = Cv2.ImRead(siftFileName, ImreadModes.GrayScale);
+                sifttempdst = Cv2.ImRead(siftFileName, ImreadModes.Color);
+                siftinput = siftsrc.Clone();
+                siftinput2 = siftsrc.Clone();
+            }
+        }
+
+        private void Sift_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #region convexHull
+        private void ConvexHull_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Mat diffImg = new Mat();
+            Mat Imagein = new Mat();
+            Mat Imageout = new Mat(input.Rows, input.Cols, MatType.CV_8UC3, Scalar.Black);
+            Mat tempImg = new Mat(input.Rows, input.Cols, MatType.CV_8UC3, Scalar.Black);
+            Mat dstImg = new Mat(input.Rows, input.Cols, MatType.CV_8UC3, Scalar.Black);
+            OpenCvSharp.Point[][] contours;
+            OpenCvSharp.Point[][] hull;
+            HierarchyIndex[] hierarchy;
+            Cv2.FindContours(input, out contours, out hierarchy, RetrievalModes.List, ContourApproximationModes.ApproxNone);
+            Cv2.FindContours(input, out hull, out hierarchy, RetrievalModes.List, ContourApproximationModes.ApproxNone);
+            // Cv2.ConvexityDefects(dstImg, tempImg, Imageout);
+            for (int i = 0; i < contours.Length; i++)
+            {
+                hull[i] = Cv2.ConvexHull(contours[i]);
+                Cv2.DrawContours(dstImg, contours, i, new Scalar(255, 255, 255), 1);
+                Cv2.DrawContours(tempImg, hull, i, new Scalar(255, 255, 255), 1);
+            }
+            Cv2.Absdiff(tempImg, dstImg, diffImg);
+            /*  Cv2.ImShow("dst", dstImg);
+              Cv2.ImShow("tempImg", tempImg);
+              Cv2.ImShow("diff", diffImg);*/
+            pictureBox2.Image = tempImg.ToBitmap();
+            //  Cv2.CvtColor(diffImg, diffImg, ColorConversionCodes.BayerBG2BGR);
+            pictureBox3.Image = diffImg.ToBitmap();
+        }
         #endregion
 
         #region Threshold
@@ -569,11 +622,36 @@ namespace CherngerTechnology
             if (_thresholdcheckBox.Checked)
             {
                 preimg = input2.Clone();
-                Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.Binary);
+                if (Threshodl_Select == 0)
+                    Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.Binary);
+                else if (Threshodl_Select == 1)
+                    Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.BinaryInv);
+                else if (Threshodl_Select == 2)
+                    Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.Trunc);
+                else if (Threshodl_Select == 3)
+                    Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.Tozero);
+                else if (Threshodl_Select == 4)
+                    Cv2.Threshold(input2, input2, _thresholdScrollBar.Value, 255, ThresholdTypes.TozeroInv);
+                else if (Threshodl_Select == 5)
+                {
+                    if (_thresholdScrollBar.Value % 2 == 0)
+                        _thresholdScrollBar.Value++;
+                    if (_thresholdScrollBar.Value <= 1)
+                        _thresholdScrollBar.Value = 3;
+                    Cv2.AdaptiveThreshold(input2, input2, 255, AdaptiveThresholdTypes.GaussianC, ThresholdTypes.Binary, _thresholdScrollBar.Value, 0);
+                }
                 pictureBox1.Image = input2.ToBitmap();
                 //sort += "6";
                 //sort2 += ("Cv.Threshold(input2, input2, " + hScrollBar3.Value + ", 255, ThresholdType.Binary);" + Environment.NewLine);
             }
+        }
+
+
+        private void Sobel_Click(object sender, EventArgs e)
+        {
+            input = input2.Clone();
+            Cv2.Sobel(input, input, MatType.CV_8UC3, 10, 10, 7, 1, 0);
+            pictureBox2.Image = input.ToBitmap();
         }
 
         private void ThresholdScrollBar_Scroll(object sender, ScrollEventArgs e)

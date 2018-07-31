@@ -66,6 +66,9 @@
             this._calcHistBtn = new System.Windows.Forms.Button();
             this._equalizeHistCheckBox = new System.Windows.Forms.CheckBox();
             this._equalizeHistBtn = new System.Windows.Forms.Button();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this._sobelCheckBox = new System.Windows.Forms.CheckBox();
+            this._sobel = new System.Windows.Forms.Button();
             this._reLoad = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -126,6 +129,8 @@
             this.HoughLinesPBtn = new System.Windows.Forms.Button();
             this._minLineLengthNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.HoughLinesBtn = new System.Windows.Forms.Button();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this._convexHull = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this._angelLabel = new System.Windows.Forms.Label();
@@ -170,10 +175,12 @@
             this._maskNew = new System.Windows.Forms.Button();
             this._maskBtn = new System.Windows.Forms.Button();
             this.tabPage19 = new System.Windows.Forms.TabPage();
-            this._grabCutSaveBtn = new System.Windows.Forms.Button();
             this._grabCutBtn = new System.Windows.Forms.Button();
             this._grabCutResetBtn = new System.Windows.Forms.Button();
             this._grabCutNewBtn = new System.Windows.Forms.Button();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this._newSift = new System.Windows.Forms.Button();
+            this._sift = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -194,6 +201,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this._equalizeHist.SuspendLayout();
+            this.tabPage22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -218,6 +226,7 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).BeginInit();
+            this.tabPage21.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.tabPage14.SuspendLayout();
@@ -231,6 +240,7 @@
             this.tabPage17.SuspendLayout();
             this.tabPage18.SuspendLayout();
             this.tabPage19.SuspendLayout();
+            this.tabPage20.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -541,6 +551,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this._equalizeHist);
+            this.tabControl1.Controls.Add(this.tabPage22);
             this.tabControl1.Location = new System.Drawing.Point(12, 521);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -652,6 +663,38 @@
             this._equalizeHistBtn.Text = "equalizeHist";
             this._equalizeHistBtn.UseVisualStyleBackColor = true;
             this._equalizeHistBtn.Click += new System.EventHandler(this.EqualizeHistBtn_Click);
+            // 
+            // tabPage22
+            // 
+            this.tabPage22.Controls.Add(this._sobelCheckBox);
+            this.tabPage22.Controls.Add(this._sobel);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(326, 90);
+            this.tabPage22.TabIndex = 5;
+            this.tabPage22.Text = "Sobel";
+            this.tabPage22.UseVisualStyleBackColor = true;
+            // 
+            // _sobelCheckBox
+            // 
+            this._sobelCheckBox.AutoSize = true;
+            this._sobelCheckBox.Location = new System.Drawing.Point(18, 38);
+            this._sobelCheckBox.Name = "_sobelCheckBox";
+            this._sobelCheckBox.Size = new System.Drawing.Size(48, 16);
+            this._sobelCheckBox.TabIndex = 47;
+            this._sobelCheckBox.Text = "sobel";
+            this._sobelCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // _sobel
+            // 
+            this._sobel.Location = new System.Drawing.Point(119, 34);
+            this._sobel.Name = "_sobel";
+            this._sobel.Size = new System.Drawing.Size(75, 23);
+            this._sobel.TabIndex = 8;
+            this._sobel.Text = "Sobel";
+            this._sobel.UseVisualStyleBackColor = true;
+            this._sobel.Click += new System.EventHandler(this.Sobel_Click);
             // 
             // _reLoad
             // 
@@ -1179,6 +1222,7 @@
             // 
             this.tabControl3.Controls.Add(this.tabPage8);
             this.tabControl3.Controls.Add(this.tabPage16);
+            this.tabControl3.Controls.Add(this.tabPage21);
             this.tabControl3.Location = new System.Drawing.Point(368, 411);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
@@ -1283,6 +1327,27 @@
             this.HoughLinesBtn.UseVisualStyleBackColor = true;
             this.HoughLinesBtn.Click += new System.EventHandler(this.HoughLinesBtn_Click);
             // 
+            // tabPage21
+            // 
+            this.tabPage21.Controls.Add(this._convexHull);
+            this.tabPage21.Location = new System.Drawing.Point(4, 22);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(349, 100);
+            this.tabPage21.TabIndex = 4;
+            this.tabPage21.Text = "ConvexHull";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // _convexHull
+            // 
+            this._convexHull.Location = new System.Drawing.Point(42, 21);
+            this._convexHull.Name = "_convexHull";
+            this._convexHull.Size = new System.Drawing.Size(102, 26);
+            this._convexHull.TabIndex = 48;
+            this._convexHull.Text = "跑圖";
+            this._convexHull.UseVisualStyleBackColor = true;
+            this._convexHull.Click += new System.EventHandler(this.ConvexHull_Click);
+            // 
             // tabControl5
             // 
             this.tabControl5.Controls.Add(this.tabPage9);
@@ -1291,6 +1356,7 @@
             this.tabControl5.Controls.Add(this.tabPage17);
             this.tabControl5.Controls.Add(this.tabPage18);
             this.tabControl5.Controls.Add(this.tabPage19);
+            this.tabControl5.Controls.Add(this.tabPage20);
             this.tabControl5.Location = new System.Drawing.Point(368, 543);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
@@ -1778,7 +1844,6 @@
             // 
             // tabPage19
             // 
-            this.tabPage19.Controls.Add(this._grabCutSaveBtn);
             this.tabPage19.Controls.Add(this._grabCutBtn);
             this.tabPage19.Controls.Add(this._grabCutResetBtn);
             this.tabPage19.Controls.Add(this._grabCutNewBtn);
@@ -1789,16 +1854,6 @@
             this.tabPage19.TabIndex = 8;
             this.tabPage19.Text = "去背";
             this.tabPage19.UseVisualStyleBackColor = true;
-            // 
-            // _grabCutSaveBtn
-            // 
-            this._grabCutSaveBtn.Location = new System.Drawing.Point(6, 66);
-            this._grabCutSaveBtn.Name = "_grabCutSaveBtn";
-            this._grabCutSaveBtn.Size = new System.Drawing.Size(75, 24);
-            this._grabCutSaveBtn.TabIndex = 13;
-            this._grabCutSaveBtn.Text = "Save";
-            this._grabCutSaveBtn.UseVisualStyleBackColor = true;
-            this._grabCutSaveBtn.Click += new System.EventHandler(this.GrabCutSaveBtn_Click);
             // 
             // _grabCutBtn
             // 
@@ -1829,6 +1884,38 @@
             this._grabCutNewBtn.Text = "New";
             this._grabCutNewBtn.UseVisualStyleBackColor = true;
             this._grabCutNewBtn.Click += new System.EventHandler(this.GrabCutNewBtn_Click);
+            // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this._newSift);
+            this.tabPage20.Controls.Add(this._sift);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(345, 174);
+            this.tabPage20.TabIndex = 9;
+            this.tabPage20.Text = "SIFT";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // _newSift
+            // 
+            this._newSift.Location = new System.Drawing.Point(6, 14);
+            this._newSift.Name = "_newSift";
+            this._newSift.Size = new System.Drawing.Size(75, 24);
+            this._newSift.TabIndex = 5;
+            this._newSift.Text = "New";
+            this._newSift.UseVisualStyleBackColor = true;
+            this._newSift.Click += new System.EventHandler(this.NewSift_Click);
+            // 
+            // _sift
+            // 
+            this._sift.Location = new System.Drawing.Point(111, 14);
+            this._sift.Name = "_sift";
+            this._sift.Size = new System.Drawing.Size(75, 24);
+            this._sift.TabIndex = 4;
+            this._sift.Text = "SIFT";
+            this._sift.UseVisualStyleBackColor = true;
+            this._sift.Click += new System.EventHandler(this.Sift_Click);
             // 
             // dataGridView1
             // 
@@ -1941,6 +2028,8 @@
             this.tabPage1.PerformLayout();
             this._equalizeHist.ResumeLayout(false);
             this._equalizeHist.PerformLayout();
+            this.tabPage22.ResumeLayout(false);
+            this.tabPage22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1973,6 +2062,7 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._maxLineGapNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._minLineLengthNumericUpDown)).EndInit();
+            this.tabPage21.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
@@ -1989,6 +2079,7 @@
             this.tabPage17.ResumeLayout(false);
             this.tabPage18.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
+            this.tabPage20.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
@@ -2146,9 +2237,16 @@
         private System.Windows.Forms.Button _maskBtn;
         private System.Windows.Forms.Button _save;
         private System.Windows.Forms.TabPage tabPage19;
-        private System.Windows.Forms.Button _grabCutSaveBtn;
         private System.Windows.Forms.Button _grabCutBtn;
         private System.Windows.Forms.Button _grabCutResetBtn;
         private System.Windows.Forms.Button _grabCutNewBtn;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.Button _sift;
+        private System.Windows.Forms.Button _newSift;
+        private System.Windows.Forms.TabPage tabPage21;
+        private System.Windows.Forms.Button _convexHull;
+        private System.Windows.Forms.TabPage tabPage22;
+        private System.Windows.Forms.CheckBox _sobelCheckBox;
+        private System.Windows.Forms.Button _sobel;
     }
 }
